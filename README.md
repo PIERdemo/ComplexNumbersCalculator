@@ -6,7 +6,7 @@ This repository includes every document produced during the project in order to 
   https://drive.google.com/drive/folders/1vo5CPa71BzaLQAbGFfkEfmrzGxDWTKha?usp=sharing
 ## Coding Conventions
   In the paragraph below all the coding conventions will be explaned.
-  - The developing enviroment used is **Intellij 2021.2.3**
+  - The development environment used is **Intellij 2021.2.3**
   - The programming language used to develop the project is **Java**
   - The **jdk** used is **17**
   - The **javafx** used verion is **17.0.0.1**
