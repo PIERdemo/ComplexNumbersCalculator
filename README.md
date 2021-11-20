@@ -3,4 +3,4 @@ This repository includes every document produced during the project in order to 
 ## Trello taskboard
   https://trello.com/b/5W2HyUTu/scrum-board
 ## Google Drive with all documents produced
-  https://docs.google.com/document/d/1GW2HWqaRky6zNTKX4SxyPnN5XRKQDx5G8HoYdBGvgGk/edit?usp=sharing
+  https://drive.google.com/drive/folders/1vo5CPa71BzaLQAbGFfkEfmrzGxDWTKha?usp=sharing
