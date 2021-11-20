@@ -15,4 +15,4 @@ This repository includes every document produced during the project in order to 
   - The convention for names is to use camelCase
 ## Definition of Done
   Considering the lack of external users feedback , the team has chosen not to set the definition of done to the User Verification stage. Moreover, given the absence of non-functional requirements on calculator’s performances, it has been chosen not to set the definition of done to the Performance stage as the team has estimated that the execution time would be sufficiently short so that the team could not care about optimizing performances.
-The team has chosen to set** the definition of done** at **the stage of testing** . A **task** will only be **considered done if it passes all the tests** provided for the code.
+The team has chosen to set **the definition of done** at **the stage of testing** . A **task** will only be **considered done if it passes all the tests** provided for the code.
