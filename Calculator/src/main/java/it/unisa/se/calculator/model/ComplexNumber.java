@@ -51,6 +51,13 @@ public class ComplexNumber {
         return result;
     }
 
+    public static ComplexNumber subtract(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
+        ComplexNumber result = new ComplexNumber();
+        result.setReal(complexNumber1.getReal()- complexNumber2.getReal());
+        result.setImaginary(complexNumber1.getImaginary()-complexNumber2.getImaginary());
+        return result;
+    }
+
 
 
 
