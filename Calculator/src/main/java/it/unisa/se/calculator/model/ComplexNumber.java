@@ -35,8 +35,7 @@ public class ComplexNumber {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ComplexNumber)) return false;
-        ComplexNumber that = (ComplexNumber) o;
+        if (!(o instanceof ComplexNumber that)) return false;
         return compareNumbers(that.getReal(), getReal()) == 0 && compareNumbers(that.getImaginary(), getImaginary()) == 0;
     }
 
