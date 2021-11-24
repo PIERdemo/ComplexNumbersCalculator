@@ -1,26 +1,58 @@
 package it.unisa.se.calculator.model;
 
+import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 
-public class ComplexNumberStack implements Stack<ComplexNumber> {
-    private List<ComplexNumber> list;
 
-    public ComplexNumberStack(List<ComplexNumber> list) {
-        this.list = list;
+public class ComplexNumberStack implements Stack<ComplexNumber> {
+    private ArrayList<ComplexNumber> list;
+
+    public ComplexNumberStack() {
+        this.list = new ArrayList<>();
     }
 
     @Override
     public ComplexNumber pop() {
-        return null;
+        ComplexNumber returnNumber = top();
+        list.remove(list.size()-1);
+        return returnNumber;
     }
 
     @Override
     public ComplexNumber top() {
-        return null;
+        if(list.isEmpty())
+            throw new EmptyStackException();
+        return list.get(list.size()-1);
     }
 
     @Override
-    public void push(ComplexNumber element) {
+    public void push(ComplexNumber element)throws EmptyStackException {
+        list.add(element);
+    }
+
+    public List<ComplexNumber> topKElements(){
+        return null;
+    }
+
+    public void over(){
 
     }
+
+    public void swap(){
+
+    }
+
+    public void dup(){
+
+    }
+
+    public void drop(){
+
+    }
+
+    public void clear(){
+        list.clear();
+    }
+
 }
