@@ -1,4 +1,4 @@
-module com.example.calculator {
+module it.unisa.se.calculator {
     requires javafx.controls;
     requires javafx.fxml;
 
