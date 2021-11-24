@@ -69,6 +69,27 @@ public class TestCalculator {
         assertEquals(numberStack.peek(),new ComplexNumber(0,3.2));
         calculator.inputDispatcher("3.2j");
         assertEquals(numberStack.peek(),new ComplexNumber(0,3.2));
+
+        calculator.inputDispatcher("0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("-0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("+0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("0");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("-0");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("+0");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("0+0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("0-0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("+0-0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+        calculator.inputDispatcher("-0-0j");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
 

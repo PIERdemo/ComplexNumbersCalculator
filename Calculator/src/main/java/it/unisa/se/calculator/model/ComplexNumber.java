@@ -99,6 +99,7 @@ public class ComplexNumber {
         return new ComplexNumber(realRoot,imaginaryRoot);
 
     }
+
     public static ComplexNumber signInversion(ComplexNumber complexNumber1){
         double real = complexNumber1.getReal();
         double imaginary = complexNumber1.getImaginary();
