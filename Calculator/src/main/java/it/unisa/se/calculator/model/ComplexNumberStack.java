@@ -7,9 +7,17 @@ import java.util.List;
 
 public class ComplexNumberStack implements Stack<ComplexNumber> {
     private ArrayList<ComplexNumber> list;
+    private static ComplexNumberStack instance= null;
 
-    public ComplexNumberStack() {
+    private ComplexNumberStack() {
         this.list = new ArrayList<>();
+    }
+
+
+    public static ComplexNumberStack getInstance(){
+        if(instance == null)
+            instance = new ComplexNumberStack();
+        return instance;
     }
 
     @Override

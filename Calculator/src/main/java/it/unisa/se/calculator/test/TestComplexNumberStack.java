@@ -15,7 +15,7 @@ public class TestComplexNumberStack {
     private ComplexNumberStack numberStack;
     @Before
     public void setUp(){
-        numberStack = new ComplexNumberStack();
+        numberStack = ComplexNumberStack.getInstance();
     }
 
 
