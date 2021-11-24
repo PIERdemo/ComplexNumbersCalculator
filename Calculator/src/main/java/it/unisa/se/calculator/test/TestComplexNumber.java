@@ -81,6 +81,44 @@ public class TestComplexNumber {
         result4 = ComplexNumber.subtract(new ComplexNumber(-3.0,-7.0), new ComplexNumber(-7.0,-3.0) );
         assertEquals(result4, new ComplexNumber(4.0, -4.0));
     }
+    @Test
+    public void testMultiply(){
+        ComplexNumber result = ComplexNumber.multiply(new ComplexNumber(3.0,7.0), new ComplexNumber(-7.0,3.0) );
+        assertEquals(result, new ComplexNumber(-42.0, -40.0));
+        ComplexNumber result2 = ComplexNumber.multiply(new ComplexNumber(3.0,7.0), new ComplexNumber(7.0,3.0) );
+        assertEquals(result2, new ComplexNumber(0.0, 58.0));
+        ComplexNumber result3 = ComplexNumber.multiply(new ComplexNumber(3.0,7.0), new ComplexNumber(7.0,-3.0) );
+        assertEquals(result3, new ComplexNumber(42.0, 40.0));
+        ComplexNumber result4 = ComplexNumber.multiply(new ComplexNumber(3.0,7.0), new ComplexNumber(-7.0,-3.0) );
+        assertEquals(result4, new ComplexNumber(0.0,-58.0));
+
+        result = ComplexNumber.multiply(new ComplexNumber(-3.0,7.0), new ComplexNumber(-7.0,3.0) );
+        assertEquals(result, new ComplexNumber(0.0, -58.0));
+        result2 = ComplexNumber.multiply(new ComplexNumber(-3.0,7.0), new ComplexNumber(7.0,3.0) );
+        assertEquals(result2, new ComplexNumber(-42.0, 40.0));
+        result3 = ComplexNumber.multiply(new ComplexNumber(-3.0,7.0), new ComplexNumber(7.0,-3.0) );
+        assertEquals(result3, new ComplexNumber(0.0, 58.0));
+        result4 = ComplexNumber.multiply(new ComplexNumber(-3.0,7.0), new ComplexNumber(-7.0,-3.0) );
+        assertEquals(result4, new ComplexNumber(42.0, -40.0));
+
+        result = ComplexNumber.multiply(new ComplexNumber(3.0,-7.0), new ComplexNumber(-7.0,3.0) );
+        assertEquals(result, new ComplexNumber(0.0, 58.0));
+        result2 = ComplexNumber.multiply(new ComplexNumber(3.0,-7.0), new ComplexNumber(7.0,3.0) );
+        assertEquals(result2, new ComplexNumber(42.0, -40.0));
+        result3 = ComplexNumber.multiply(new ComplexNumber(3.0,-7.0), new ComplexNumber(7.0,-3.0) );
+        assertEquals(result3, new ComplexNumber(0.0, -58.0));
+        result4 = ComplexNumber.multiply(new ComplexNumber(3.0,-7.0), new ComplexNumber(-7.0,-3.0) );
+        assertEquals(result4, new ComplexNumber(-42.0, 40.0));
+
+        result = ComplexNumber.multiply(new ComplexNumber(-3.0,-7.0), new ComplexNumber(-7.0,3.0) );
+        assertEquals(result, new ComplexNumber(42.0, 40.0));
+        result2 = ComplexNumber.multiply(new ComplexNumber(-3.0,-7.0), new ComplexNumber(7.0,3.0) );
+        assertEquals(result2, new ComplexNumber(0.0, -58.0));
+        result3 = ComplexNumber.multiply(new ComplexNumber(-3.0,-7.0), new ComplexNumber(7.0,-3.0) );
+        assertEquals(result3, new ComplexNumber(-42.0, -40.0));
+        result4 = ComplexNumber.multiply(new ComplexNumber(-3.0,-7.0), new ComplexNumber(-7.0,-3.0) );
+        assertEquals(result4, new ComplexNumber(0.0, 58.0));
+    }
 
 
 }

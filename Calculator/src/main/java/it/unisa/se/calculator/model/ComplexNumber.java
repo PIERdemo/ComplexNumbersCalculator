@@ -22,6 +22,7 @@ public class ComplexNumber {
     public double getReal() {
         return real;
     }
+
     public void setReal(double real) {
         this.real = real;
     }
@@ -44,21 +45,26 @@ public class ComplexNumber {
     }
 
     /*static methods*/
-    public static ComplexNumber sum(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
+    public static ComplexNumber sum(ComplexNumber complexNumber1, ComplexNumber complexNumber2) {
         ComplexNumber result = new ComplexNumber();
-        result.setReal(complexNumber1.getReal()+ complexNumber2.getReal());
-        result.setImaginary(complexNumber1.getImaginary()+complexNumber2.getImaginary());
+        result.setReal(complexNumber1.getReal() + complexNumber2.getReal());
+        result.setImaginary(complexNumber1.getImaginary() + complexNumber2.getImaginary());
         return result;
     }
 
-    public static ComplexNumber subtract(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
+    public static ComplexNumber subtract(ComplexNumber complexNumber1, ComplexNumber complexNumber2) {
         ComplexNumber result = new ComplexNumber();
-        result.setReal(complexNumber1.getReal()- complexNumber2.getReal());
-        result.setImaginary(complexNumber1.getImaginary()-complexNumber2.getImaginary());
+        result.setReal(complexNumber1.getReal() - complexNumber2.getReal());
+        result.setImaginary(complexNumber1.getImaginary() - complexNumber2.getImaginary());
         return result;
     }
 
-
+    public static ComplexNumber multiply(ComplexNumber complexNumber1, ComplexNumber complexNumber2) {
+        ComplexNumber result = new ComplexNumber();
+        result.setReal(complexNumber1.getReal() * complexNumber2.getReal() - complexNumber1.getImaginary() * complexNumber2.getImaginary());
+        result.setImaginary(complexNumber1.getImaginary() * complexNumber2.getReal() + complexNumber2.getImaginary() * complexNumber1.getReal());
+        return result;
+    }
 
 
 }
