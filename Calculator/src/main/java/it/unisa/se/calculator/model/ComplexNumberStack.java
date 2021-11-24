@@ -93,9 +93,5 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
     public void drop(){
 
     }
-/*
-    public void clear(){
-        list.clear();
-    }
-*/
+
 }
