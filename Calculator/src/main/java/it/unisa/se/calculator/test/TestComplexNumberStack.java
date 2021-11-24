@@ -658,4 +658,55 @@ public class TestComplexNumberStack {
 
     }
 
+    @Test
+    public void testSignInversion() {
+        numberStack.clear();
+        ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 0.0));
+
+
+        complexNumber1 = new ComplexNumber(0.0, 8.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(0.0, -8.0));
+
+        complexNumber1 = new ComplexNumber( 0.0, -8.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(0.0, 8.0));
+
+
+        complexNumber1 = new ComplexNumber(-4.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(4.0, 0.0));
+
+        complexNumber1 = new ComplexNumber(0.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(0,0));
+
+        complexNumber1 = new ComplexNumber(1.0, 13.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(-1.0, -13.0));
+
+        complexNumber1 = new ComplexNumber(1.0, -13.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 13.0));
+
+        complexNumber1 = new ComplexNumber(-1.0, -13.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(1.0, 13.0));
+
+        complexNumber1 = new ComplexNumber(-1.0, 13.0);
+        numberStack.push(complexNumber1);
+        numberStack.signInversion();
+        assertEquals(numberStack.pop(), new ComplexNumber(1.0, -13.0));
+
+    }
 }

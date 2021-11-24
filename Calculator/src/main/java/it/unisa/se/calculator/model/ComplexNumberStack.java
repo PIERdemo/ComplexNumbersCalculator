@@ -78,6 +78,14 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
         push(result);
     }
 
+    public void signInversion(){
+        ComplexNumber complexNumber1 = pop();
+
+        ComplexNumber result = ComplexNumber.signInversion(complexNumber1);
+
+        push(result);
+    }
+
     public void over(){
 
     }

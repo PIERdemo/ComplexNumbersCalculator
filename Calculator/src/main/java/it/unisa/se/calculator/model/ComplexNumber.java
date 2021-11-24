@@ -37,7 +37,13 @@ public class ComplexNumber {
         if (this == o) return true;
         if (!(o instanceof ComplexNumber)) return false;
         ComplexNumber that = (ComplexNumber) o;
-        return Double.compare(that.getReal(), getReal()) == 0 && Double.compare(that.getImaginary(), getImaginary()) == 0;
+        return compareNumbers(that.getReal(), getReal()) == 0 && compareNumbers(that.getImaginary(), getImaginary()) == 0;
+    }
+
+    private int compareNumbers(double imaginary1, double imaginary2){
+        if(Math.abs(imaginary1) == 0.0 && Math.abs(imaginary2) == 0.0 )
+            return 0;
+        return Double.compare(imaginary1,imaginary2);
     }
 
     @Override
@@ -92,6 +98,11 @@ public class ComplexNumber {
         if(imaginary<0) imaginaryRoot = imaginaryRoot*(-1);
         return new ComplexNumber(realRoot,imaginaryRoot);
 
+    }
+    public static ComplexNumber signInversion(ComplexNumber complexNumber1){
+        double real = complexNumber1.getReal();
+        double imaginary = complexNumber1.getImaginary();
+        return new ComplexNumber(-1* real, -1*imaginary);
     }
 
 

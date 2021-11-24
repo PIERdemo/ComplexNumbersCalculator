@@ -252,4 +252,26 @@ public class TestComplexNumber {
 
     }
 
+    @Test
+    public void testSignInversion(){
+        ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(-4.0, 0.0));
+
+        complexNumber1 = new ComplexNumber(-4.0, 0.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(4.0, 0.0));
+
+        complexNumber1 = new ComplexNumber(-4.0, -5.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(4.0, 5.0));
+
+        complexNumber1 = new ComplexNumber(-4.0, 5.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(4.0, -5.0));
+
+        complexNumber1 = new ComplexNumber(0.0, -6.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(0.0, 6.0));
+
+        complexNumber1 = new ComplexNumber(0.0, 6.0);
+        assertEquals(ComplexNumber.signInversion(complexNumber1), new ComplexNumber(0.0, -6.0));
+
+    }
+
 }
