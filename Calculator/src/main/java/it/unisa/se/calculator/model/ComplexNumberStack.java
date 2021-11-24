@@ -1,16 +1,15 @@
 package it.unisa.se.calculator.model;
 
-import java.util.ArrayList;
-import java.util.EmptyStackException;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Collections;
+        import java.util.List;
+        import java.util.Stack;
 
 
-public class ComplexNumberStack implements Stack<ComplexNumber> {
-    private ArrayList<ComplexNumber> list;
+public class ComplexNumberStack extends Stack<ComplexNumber>{
     private static ComplexNumberStack instance= null;
 
     private ComplexNumberStack() {
-        this.list = new ArrayList<>();
     }
 
 
@@ -20,30 +19,56 @@ public class ComplexNumberStack implements Stack<ComplexNumber> {
         return instance;
     }
 
-    @Override
-    public ComplexNumber pop() {
-        ComplexNumber returnNumber = top();
-        list.remove(list.size()-1);
-        return returnNumber;
-    }
 
-    @Override
-    public ComplexNumber top() {
-        if(list.isEmpty())
-            throw new EmptyStackException();
-        return list.get(list.size()-1);
-    }
-
-    @Override
-    public void push(ComplexNumber element)throws EmptyStackException {
-        list.add(element);
-    }
 
     public List<ComplexNumber> topKElements(int k){
-        int startIndex = list.size()-k;
-        if(startIndex < 0)
-            startIndex = 0;
-        return list.subList(startIndex,list.size());
+
+        List<ComplexNumber> renderedComplexNumbers = new ArrayList<>();
+        while(k!=0 && !empty()){
+            renderedComplexNumbers.add(pop());
+            k--;
+        }
+        for ( int i = renderedComplexNumbers.size(); i>0; i--){
+            push(renderedComplexNumbers.get(i-1));
+        }
+        Collections.reverse(renderedComplexNumbers);
+        return renderedComplexNumbers;
+    }
+
+    public void subtract() {
+        ComplexNumber complexNumber1 = pop();
+        ComplexNumber complexNumber2 = pop();
+
+        ComplexNumber result = ComplexNumber.subtract(complexNumber1,complexNumber2);
+
+        push(result);
+
+    }
+    public void sum(){
+        ComplexNumber complexNumber1 = pop();
+        ComplexNumber complexNumber2 = pop();
+
+        ComplexNumber result = ComplexNumber.sum(complexNumber1,complexNumber2);
+
+        push(result);
+    }
+
+    public void multiply (){
+        ComplexNumber complexNumber1 = pop();
+        ComplexNumber complexNumber2 = pop();
+
+        ComplexNumber result = ComplexNumber.multiply(complexNumber1,complexNumber2);
+
+        push(result);
+    }
+
+    public void divide (){
+        ComplexNumber complexNumber1 = pop();
+        ComplexNumber complexNumber2 = pop();
+
+        ComplexNumber result = ComplexNumber.divide(complexNumber1,complexNumber2);
+
+        push(result);
     }
 
     public void over(){
@@ -61,9 +86,9 @@ public class ComplexNumberStack implements Stack<ComplexNumber> {
     public void drop(){
 
     }
-
+/*
     public void clear(){
         list.clear();
     }
-
+*/
 }

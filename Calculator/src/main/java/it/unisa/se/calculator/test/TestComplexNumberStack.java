@@ -47,16 +47,16 @@ public class TestComplexNumberStack {
     public void testPush(){
         numberStack.clear();
         numberStack.push(new ComplexNumber(5.0,5.0));
-        assertEquals(numberStack.top(),new ComplexNumber(5.0,5.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(5.0,5.0));
 
         numberStack.push(new ComplexNumber(-5.0,5.0));
-        assertEquals(numberStack.top(),new ComplexNumber(-5.0,5.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(-5.0,5.0));
 
         numberStack.push(new ComplexNumber(5.0,-5.0));
-        assertEquals(numberStack.top(),new ComplexNumber(5.0,-5.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(5.0,-5.0));
 
         numberStack.push(new ComplexNumber(-5.0,-5.0));
-        assertEquals(numberStack.top(),new ComplexNumber(-5.0,-5.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(-5.0,-5.0));
 
     }
 
@@ -66,26 +66,26 @@ public class TestComplexNumberStack {
         numberStack.clear();
         for(int i =0; i<10;i++)
             numberStack.push(new ComplexNumber(i+1,i+1));
-        assertEquals(numberStack.top(),new ComplexNumber(10.0,10.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(10.0,10.0));
 
         for(int i =0; i<10;i++)
             numberStack.push(new ComplexNumber(i+1,-(i+1)));
-        assertEquals(numberStack.top(),new ComplexNumber(10.0,-10.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(10.0,-10.0));
 
         for(int i =0; i<10;i++)
             numberStack.push(new ComplexNumber(-(i+1),i+1));
-        assertEquals(numberStack.top(),new ComplexNumber(-10.0,10.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(-10.0,10.0));
 
         for(int i =0; i<10;i++)
             numberStack.push(new ComplexNumber(-(i+1),-(i+1)));
-        assertEquals(numberStack.top(),new ComplexNumber(-10.0,-10.0));
+        assertEquals(numberStack.peek(),new ComplexNumber(-10.0,-10.0));
 
     }
 
     @Test(expected = EmptyStackException.class)
     public void testTopWithEmptyStack(){
         numberStack.clear();
-        numberStack.top();
+        numberStack.peek();
     }
 
     @Test
