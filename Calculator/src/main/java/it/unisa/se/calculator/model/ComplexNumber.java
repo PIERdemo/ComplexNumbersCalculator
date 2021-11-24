@@ -1,5 +1,6 @@
 package it.unisa.se.calculator.model;
 
+import java.security.InvalidParameterException;
 import java.util.Objects;
 
 public class ComplexNumber {
@@ -64,6 +65,20 @@ public class ComplexNumber {
         result.setReal(complexNumber1.getReal() * complexNumber2.getReal() - complexNumber1.getImaginary() * complexNumber2.getImaginary());
         result.setImaginary(complexNumber1.getImaginary() * complexNumber2.getReal() + complexNumber2.getImaginary() * complexNumber1.getReal());
         return result;
+    }
+
+    public static ComplexNumber division(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
+        //check if operands are valid
+        if(complexNumber2.getReal() == 0.0  && complexNumber2.getImaginary() == 0.0)
+            throw new InvalidParameterException("Undefined division, second operand bust be different from 0+0i");
+
+
+        double a = complexNumber1.getReal();
+        double b = complexNumber1.getImaginary();
+        double c= complexNumber2.getReal();
+        double d = complexNumber2.getImaginary();
+        return new ComplexNumber(((c*a)+(b*d))/(a*a + b*b), ((c*b)-(a*d))/(a*a + b*b));
+
     }
 
 
