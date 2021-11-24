@@ -80,6 +80,19 @@ public class ComplexNumber {
         return new ComplexNumber(((c*a)+(b*d))/(a*a + b*b), ((c*b)-(a*d))/(a*a + b*b));
 
     }
+    public static ComplexNumber sqrt(ComplexNumber complexNumber1){
+        double real = complexNumber1.getReal();
+        double imaginary = complexNumber1.getImaginary();
+
+        double module = Math.sqrt(real * real + imaginary* imaginary);
+
+        double realRoot =  Math.sqrt((real + module) / 2);
+
+        double imaginaryRoot = Math.sqrt(( module - real) / 2);
+        if(imaginary<0) imaginaryRoot = imaginaryRoot*(-1);
+        return new ComplexNumber(realRoot,imaginaryRoot);
+
+    }
 
 
 }

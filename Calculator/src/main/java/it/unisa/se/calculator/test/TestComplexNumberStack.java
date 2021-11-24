@@ -605,4 +605,57 @@ public class TestComplexNumberStack {
 
     }
 
+    @Test
+    public void testSquareRoot(){
+        numberStack.clear();
+        ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2.0,0.0));
+
+
+        complexNumber1 = new ComplexNumber(0.0, 8.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2,2));
+
+        complexNumber1 = new ComplexNumber( 0.0, -8.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2,-2));
+
+
+        complexNumber1 = new ComplexNumber(-4.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(0.0,2.0));
+
+        complexNumber1 = new ComplexNumber(0.0, 0.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(0,0));
+
+        complexNumber1 = new ComplexNumber(1.0, 13.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2.649377739244189,2.453406286207535));
+
+        complexNumber1 = new ComplexNumber(1.0, -13.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2.649377739244189,-2.453406286207535));
+
+        complexNumber1 = new ComplexNumber(-1.0, -13.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2.453406286207535,-2.649377739244189));
+
+        complexNumber1 = new ComplexNumber(-1.0, 13.0);
+        numberStack.push(complexNumber1);
+        numberStack.squareRoot();
+        assertEquals(numberStack.pop(), new ComplexNumber(2.453406286207535,2.649377739244189));
+
+
+    }
+
 }

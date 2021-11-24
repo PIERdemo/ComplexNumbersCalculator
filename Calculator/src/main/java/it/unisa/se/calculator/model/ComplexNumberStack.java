@@ -70,6 +70,13 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
 
         push(result);
     }
+    public void squareRoot(){
+        ComplexNumber complexNumber1 = pop();
+
+        ComplexNumber result = ComplexNumber.sqrt(complexNumber1);
+
+        push(result);
+    }
 
     public void over(){
 
