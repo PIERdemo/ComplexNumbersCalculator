@@ -9,4 +9,5 @@ module it.unisa.se.calculator {
 
     opens it.unisa.se.calculator to javafx.fxml;
     exports it.unisa.se.calculator;
+    exports it.unisa.se.calculator.test;
 }
