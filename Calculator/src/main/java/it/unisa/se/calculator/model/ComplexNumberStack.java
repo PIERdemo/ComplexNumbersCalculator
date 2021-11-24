@@ -31,8 +31,11 @@ public class ComplexNumberStack implements Stack<ComplexNumber> {
         list.add(element);
     }
 
-    public List<ComplexNumber> topKElements(){
-        return null;
+    public List<ComplexNumber> topKElements(int k){
+        int startIndex = list.size()-k;
+        if(startIndex < 0)
+            startIndex = 0;
+        return list.subList(startIndex,list.size());
     }
 
     public void over(){
