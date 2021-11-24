@@ -125,82 +125,82 @@ public class TestComplexNumber {
         ComplexNumber complexNumber1= new ComplexNumber(3.0,9.0);
         ComplexNumber complexNumber2 = new ComplexNumber(3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(1.0,0.0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(1.0,0.0));
 
         complexNumber1= new ComplexNumber(3.0,9.0);
         complexNumber2 = new ComplexNumber(-3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(0.8,-0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(0.8,-0.6));
 
         complexNumber1= new ComplexNumber(3.0,9.0);
         complexNumber2 = new ComplexNumber(-3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-1.0,0.0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-1.0,0.0));
 
         complexNumber1= new ComplexNumber(3.0,9.0);
         complexNumber2 = new ComplexNumber(3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-0.8,0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-0.8,0.6));
 
         complexNumber1= new ComplexNumber(-3.0,9.0);
         complexNumber2 = new ComplexNumber(3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(0.8,0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(0.8,0.6));
 
         complexNumber1= new ComplexNumber(-3.0,9.0);
         complexNumber2 = new ComplexNumber(-3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(1.0,0.0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(1.0,0.0));
 
         complexNumber1= new ComplexNumber(-3.0,9.0);
         complexNumber2 = new ComplexNumber(-3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-0.8,-0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-0.8,-0.6));
 
         complexNumber1 = new ComplexNumber(-3.0,9.0);
         complexNumber2 = new ComplexNumber(3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0));
 
         complexNumber1= new ComplexNumber(-3.0,-9.0);
         complexNumber2 = new ComplexNumber(3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0));
 
         complexNumber1= new ComplexNumber(-3.0,-9.0);
         complexNumber2 = new ComplexNumber(-3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-0.8 , 0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-0.8 , 0.6));
 
         complexNumber1= new ComplexNumber(-3.0,-9.0);
         complexNumber2 = new ComplexNumber(-3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(1.0 , 0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(1.0 , 0));
 
         complexNumber1= new ComplexNumber(-3.0,-9.0);
         complexNumber2 = new ComplexNumber(3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(0.8 , -0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(0.8 , -0.6));
 
         complexNumber1= new ComplexNumber(3.0,-9.0);
         complexNumber2 = new ComplexNumber(3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-0.8 , -0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-0.8 , -0.6));
 
         complexNumber1= new ComplexNumber(3.0,-9.0);
         complexNumber2 = new ComplexNumber(-3.0,9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0.0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(-1.0 , 0.0));
 
         complexNumber1= new ComplexNumber(3.0,-9.0);
         complexNumber2 = new ComplexNumber(-3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(0.8 , 0.6));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(0.8 , 0.6));
 
         complexNumber1= new ComplexNumber(3.0,-9.0);
         complexNumber2 = new ComplexNumber(3.0,-9.0);
 
-        assertEquals(ComplexNumber.division(complexNumber1,complexNumber2), new ComplexNumber(1.0 , 0.0));
+        assertEquals(ComplexNumber.divide(complexNumber1,complexNumber2), new ComplexNumber(1.0 , 0.0));
 
 
 

@@ -33,4 +33,13 @@ public class ArithmeticStackOperations {
         numberStack.push(result);
     }
 
+    public void divide (){
+        ComplexNumber complexNumber1 = numberStack.pop();
+        ComplexNumber complexNumber2 = numberStack.pop();
+
+        ComplexNumber result = ComplexNumber.divide(complexNumber1,complexNumber2);
+
+        numberStack.push(result);
+    }
+
 }
