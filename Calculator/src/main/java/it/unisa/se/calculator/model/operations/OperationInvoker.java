@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class OperationInvoker {
     private Map<String,Operation> operationMap;
-
+/*initialize the invoker*/
     public OperationInvoker() {
         operationMap = new HashMap<>();
         operationMap.put("+",new SumOperation());
