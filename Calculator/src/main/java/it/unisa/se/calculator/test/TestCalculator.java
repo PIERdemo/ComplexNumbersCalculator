@@ -13,7 +13,8 @@ public class TestCalculator {
 
     @Before
     public void setUp(){
-        calculator = new Calculator(ComplexNumberStack.getInstance());
+        calculator = new Calculator();
+        numberStack =ComplexNumberStack.getInstance();
     }
 
     @Test
@@ -90,6 +91,42 @@ public class TestCalculator {
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
         calculator.inputDispatcher("-0-0j");
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+    }
+
+    @Test
+    public void testInputDispatcherForOperations(){
+        numberStack.clear();
+
+        numberStack.push(new ComplexNumber(3.0, 7.0));
+        numberStack.push(new ComplexNumber(7.0, 3.0));
+        calculator.inputDispatcher("+");
+        assertEquals(numberStack.pop(), new ComplexNumber(10.0, 10.0));
+
+        numberStack.push(new ComplexNumber(3.0, 7.0));
+        numberStack.push(new ComplexNumber(7.0, 3.0));
+        calculator.inputDispatcher("-");
+        assertEquals(numberStack.pop(), new ComplexNumber(4.0, -4.0));
+
+
+        numberStack.push(new ComplexNumber(3.0, 7.0));
+        numberStack.push(new ComplexNumber(7.0, 3.0));
+        calculator.inputDispatcher("*");
+        assertEquals(numberStack.pop(), new ComplexNumber(0, 58.0));
+
+        numberStack.push(new ComplexNumber(3.0, -9.0));
+        numberStack.push(new ComplexNumber(3.0, 9.0));
+        calculator.inputDispatcher("/");
+        assertEquals(numberStack.pop(), new ComplexNumber(-0.8, 0.6));
+
+
+        numberStack.push(new ComplexNumber(4.0, 0.0));
+        calculator.inputDispatcher("sqrt");
+        assertEquals(numberStack.pop(), new ComplexNumber(2.0, 0.0));
+
+        numberStack.push(new ComplexNumber(4.0, 0.0));
+        calculator.inputDispatcher("+-");
+        assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 0.0));
+
     }
 
 

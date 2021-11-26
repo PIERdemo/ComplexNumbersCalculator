@@ -1,9 +1,9 @@
 package it.unisa.se.calculator.model;
 
-        import java.util.ArrayList;
-        import java.util.Collections;
-        import java.util.List;
-        import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
 
 
 public class ComplexNumberStack extends Stack<ComplexNumber>{
@@ -33,73 +33,6 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
         }
         Collections.reverse(renderedComplexNumbers);
         return renderedComplexNumbers;
-    }
-
-    public void subtract() {
-        ComplexNumber complexNumber1 = pop();
-        ComplexNumber complexNumber2 = pop();
-
-        ComplexNumber result = ComplexNumber.subtract(complexNumber1,complexNumber2);
-
-        push(result);
-
-    }
-    public void sum(){
-        ComplexNumber complexNumber1 = pop();
-        ComplexNumber complexNumber2 = pop();
-
-        ComplexNumber result = ComplexNumber.sum(complexNumber1,complexNumber2);
-
-        push(result);
-    }
-
-    public void multiply (){
-        ComplexNumber complexNumber1 = pop();
-        ComplexNumber complexNumber2 = pop();
-
-        ComplexNumber result = ComplexNumber.multiply(complexNumber1,complexNumber2);
-
-        push(result);
-    }
-
-    public void divide (){
-        ComplexNumber complexNumber1 = pop();
-        ComplexNumber complexNumber2 = pop();
-
-        ComplexNumber result = ComplexNumber.divide(complexNumber1,complexNumber2);
-
-        push(result);
-    }
-    public void squareRoot(){
-        ComplexNumber complexNumber1 = pop();
-
-        ComplexNumber result = ComplexNumber.sqrt(complexNumber1);
-
-        push(result);
-    }
-
-    public void signInversion(){
-        ComplexNumber complexNumber1 = pop();
-
-        ComplexNumber result = ComplexNumber.signInversion(complexNumber1);
-
-        push(result);
-    }
-
-    public void over(){
-
-    }
-
-    public void swap(){
-
-    }
-
-    public void dup(){
-
-    }
-
-    public void drop(){
-
     }
 
 }

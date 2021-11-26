@@ -1,27 +1,41 @@
 package it.unisa.se.calculator.model;
 
+import it.unisa.se.calculator.model.operations.OperationInvoker;
+
 public class Calculator {
 
     private ComplexNumberStack complexNumberStack;
+    private OperationInvoker operationInvoker;
 
-    public Calculator(ComplexNumberStack complexNumberStack) {
-        this.complexNumberStack = complexNumberStack;
+    public Calculator() {
+        complexNumberStack = ComplexNumberStack.getInstance();
+        operationInvoker = new OperationInvoker();
     }
 
     public void inputDispatcher(String s) {
 
+       String formattedNumber = getFormattedNumber(s);
+       if(formattedNumber !=null)
+           saveNumber(formattedNumber);
+       else
+           operationInvoker.execute(s.replaceAll("\\s+",""));
+    }
+
+
+    private String getFormattedNumber(String s) {
         String onlyReal = "[\\+\\-]?((([0-9]*).([0-9]+))|([0-9]+))";
         String onlyImaginary = "[\\+|\\-|\\s]?((([0-9]*).([0-9]+))|([0-9]+))[ij]";
         String fullComplexNumber = "[\\+\\- ]?((([0-9]*).([0-9]+))|([0-9]+))[ ]?[\\+\\-]((([0-9]*).([0-9]+))|([0-9]+))[ij]";
 
         if (s.matches(fullComplexNumber))
-            saveNumber(s);
+            return s;
         else if (s.matches(onlyReal))
-            saveNumber(s + "+0j");
+            return s + "+0j";
         else if (s.matches(onlyImaginary)) {
             s = ((s.charAt(0) + "").matches("[0-9]")) ? ("+" + s) : s;
-            saveNumber("+0" + s);
+            return "+0" + s;
         }
+        return null;
     }
 
     private void saveNumber(String s) {

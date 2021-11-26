@@ -75,7 +75,7 @@ public class ComplexNumber {
     public static ComplexNumber divide(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
         //check if operands are valid
         if(complexNumber2.getReal() == 0.0  && complexNumber2.getImaginary() == 0.0)
-            throw new InvalidParameterException("Undefined division, second operand bust be different from 0+0i");
+            throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");
 
 
         double a = complexNumber1.getReal();
