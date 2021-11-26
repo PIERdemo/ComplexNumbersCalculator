@@ -21,7 +21,7 @@ public class Calculator {
            operationInvoker.execute(s.replaceAll("\\s+",""));
     }
 
-
+    //private method in order to manage user's input
     private String getFormattedNumber(String s) {
         String onlyReal = "[\\+\\-]?((([0-9]*).([0-9]+))|([0-9]+))";
         String onlyImaginary = "[\\+|\\-|\\s]?((([0-9]*).([0-9]+))|([0-9]+))[ij]";
