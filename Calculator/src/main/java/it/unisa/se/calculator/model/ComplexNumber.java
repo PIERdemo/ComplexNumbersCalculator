@@ -52,8 +52,14 @@ public class ComplexNumber {
         if(imaginary<0)
             imaginarySign = "";
         if (Math.abs(imaginary) ==0)
-            return real + imaginarySign + Math.abs(imaginary)+ "j";
+            return real +"";
+        if (Math.abs(real) ==0)
+            return imaginary +"j";
         return real + imaginarySign + imaginary + "j";
+    }
+
+    public String getComplexNumberString(){
+        return toString();
     }
 
     @Override

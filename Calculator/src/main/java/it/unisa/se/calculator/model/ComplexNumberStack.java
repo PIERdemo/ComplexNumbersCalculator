@@ -1,8 +1,12 @@
 package it.unisa.se.calculator.model;
 
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableIntegerArray;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,12 +14,8 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class ComplexNumberStack extends Stack<ComplexNumber> {
+public class ComplexNumberStack extends Stack<ComplexNumber>{
     private static ComplexNumberStack instance= null;
-
-    private ComplexNumberStack() {
-    }
-
 
     public static ComplexNumberStack getInstance(){
         if(instance == null)
@@ -37,6 +37,8 @@ public class ComplexNumberStack extends Stack<ComplexNumber> {
         }
         Collections.reverse(renderedComplexNumbers);
         return renderedComplexNumbers;
+
+
     }
 
 }
