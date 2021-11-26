@@ -113,19 +113,11 @@ public class ComplexNumber {
     public static ComplexNumber signInversion(ComplexNumber complexNumber1){
         double real = complexNumber1.getReal();
         double imaginary = complexNumber1.getImaginary();
-        double imaginaryResult;
-        double realResult;
 
-        if(Math.abs(real)==0)
-            realResult = real;
-        else
-            realResult = real * (-1);
+        imaginary = (Math.abs(imaginary)==0)?imaginary:imaginary * (-1);
+        real = (Math.abs(real)==0)?real:real * (-1);
 
-        if(Math.abs(imaginary)==0)
-            imaginaryResult = imaginary;
-        else
-            imaginaryResult = imaginary * (-1);
-        return new ComplexNumber(realResult, imaginaryResult);
+        return new ComplexNumber(real, imaginary);
     }
 
 

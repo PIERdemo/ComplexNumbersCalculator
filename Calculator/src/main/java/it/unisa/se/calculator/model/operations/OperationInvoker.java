@@ -1,8 +1,6 @@
 package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
-
-import java.security.InvalidKeyException;
 import java.util.HashMap;
 import java.util.Map;
 

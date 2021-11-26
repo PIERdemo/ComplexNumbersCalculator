@@ -36,8 +36,7 @@ public class ComplexNumberStack extends Stack<ComplexNumber> {
             push(renderedComplexNumbers.get(i-1));
         }
         Collections.reverse(renderedComplexNumbers);
-        ObservableList<ComplexNumber> list =FXCollections.observableArrayList(renderedComplexNumbers);
-        return list;
+        return renderedComplexNumbers;
     }
 
 }
