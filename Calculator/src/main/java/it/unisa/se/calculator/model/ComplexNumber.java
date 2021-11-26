@@ -46,6 +46,14 @@ public class ComplexNumber {
     }
 
     @Override
+    public String toString() {
+        String imaginarySign = "+";
+        if(imaginary<0)
+            imaginarySign = "";
+        return real + imaginarySign + imaginary + "j";
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(getReal(), getImaginary());
     }
