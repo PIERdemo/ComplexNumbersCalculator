@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 public class TestCalculator {
     private Calculator calculator;
+    private ComplexNumberStack numberStack;
 
     @Before
     public void setUp(){
@@ -19,7 +20,7 @@ public class TestCalculator {
 
     @Test
     public void testInputDispatcherForNumbers(){
-        ComplexNumberStack numberStack=ComplexNumberStack.getInstance();
+
         numberStack.clear();
         calculator.inputDispatcher("3+3j");
         assertEquals(numberStack.peek(),new ComplexNumber(3,3));
