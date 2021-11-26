@@ -46,7 +46,7 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        elements = FXCollections.observableArrayList(numberStack);
+        elements = FXCollections.observableArrayList(numberStack.topKElements(12));
         columnElements.setCellValueFactory(new PropertyValueFactory<>("Elements"));
         tableElements.setItems(elements);
     }

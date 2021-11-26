@@ -47,9 +47,12 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
+
         String imaginarySign = "+";
         if(imaginary<0)
             imaginarySign = "";
+        if (Math.abs(imaginary) ==0)
+            return real + imaginarySign + Math.abs(imaginary)+ "j";
         return real + imaginarySign + imaginary + "j";
     }
 

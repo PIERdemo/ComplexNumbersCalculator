@@ -1,13 +1,16 @@
 package it.unisa.se.calculator.model;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
 
-public class ComplexNumberStack extends Stack<ComplexNumber>{
+public class ComplexNumberStack extends Stack<ComplexNumber> {
     private static ComplexNumberStack instance= null;
 
     private ComplexNumberStack() {
@@ -33,7 +36,8 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
             push(renderedComplexNumbers.get(i-1));
         }
         Collections.reverse(renderedComplexNumbers);
-        return renderedComplexNumbers;
+        ObservableList<ComplexNumber> list =FXCollections.observableArrayList(renderedComplexNumbers);
+        return list;
     }
 
 }
