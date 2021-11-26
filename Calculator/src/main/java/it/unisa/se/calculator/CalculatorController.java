@@ -54,36 +54,49 @@ public class CalculatorController implements Initializable {
     @FXML
     public void onInversionSignButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("+-");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
     @FXML
     public void onSquareButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("sqrt");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
     @FXML
     public void onSubmitButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher(operationField.getText());
+        operationField.setText(numberStack.peek().toString());
     }
 
     @FXML
     public void onSumButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("+");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
     @FXML
     public void onDivideButtonCLick(ActionEvent actionEvent) {
         calculator.inputDispatcher("/");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
     @FXML
     public void onSubtractButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("-");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
     @FXML
     public void onMultiplyButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("*");
+        operationField.setText(numberStack.peek().toString());
+
     }
 
 
