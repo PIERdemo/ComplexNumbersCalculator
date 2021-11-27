@@ -1,10 +1,9 @@
 package it.unisa.se.calculator.model;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.security.InvalidParameterException;
+import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * The class extends the {@link java.util.Stack} class .
@@ -42,6 +41,25 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
         return renderedComplexNumbers;
 
 
+    }
+
+    /**
+     * This method provides a secure implementation of massive pop of operandNumber operands from the stack
+     * @param operandNumber specifies the number of operands to be taken from the stack
+     * @return an iterator of complexNumber taken
+     */
+    public Iterator<ComplexNumber> getOperand(int operandNumber){
+        List<ComplexNumber> operands = new ArrayList<>();
+        for(int i = 0; i< operandNumber;i++) {
+            try {
+                operands.add(pop());
+            } catch (EmptyStackException e) {
+                Collections.reverse(operands);
+                operands.forEach(this::push);
+                throw new InvalidParameterException("There aren't enough operands into the stack");
+            }
+        }
+        return operands.iterator();
     }
 
 }

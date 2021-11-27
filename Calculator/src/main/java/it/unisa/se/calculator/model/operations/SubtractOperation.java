@@ -2,6 +2,12 @@ package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
+
 /**
  * The class implements the interface Operation
  * It provides a method to execute subtraction.
@@ -14,11 +20,11 @@ public class SubtractOperation implements  Operation{
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber1 = complexNumberStack.pop();
-        ComplexNumber complexNumber2 = complexNumberStack.pop();
+        List<ComplexNumber> operands = new ArrayList<>();
+        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 
-        ComplexNumber result = ComplexNumber.subtract(complexNumber1,complexNumber2);
 
+        ComplexNumber result = ComplexNumber.subtract(operands.get(0),operands.get(1));
         complexNumberStack.push(result);
     }
 }

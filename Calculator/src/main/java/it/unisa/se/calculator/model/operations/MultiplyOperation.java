@@ -2,11 +2,17 @@ package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
+
 /**
  * The class implements the interface Operation
  * It provides a method to execute multiplication.
- * */
-public class MultiplyOperation implements Operation{
+ */
+public class MultiplyOperation implements Operation {
     /**
      * The function execute is used to calculate the multiplication between the first two operands taken from the stack.
      * Then it pushes the result into the stack.
@@ -14,11 +20,11 @@ public class MultiplyOperation implements Operation{
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber1 = complexNumberStack.pop();
-        ComplexNumber complexNumber2 = complexNumberStack.pop();
+        List<ComplexNumber> operands = new ArrayList<>();
+        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 
-        ComplexNumber result = ComplexNumber.multiply(complexNumber1,complexNumber2);
 
+        ComplexNumber result = ComplexNumber.multiply(operands.get(0),operands.get(1));
         complexNumberStack.push(result);
     }
 }

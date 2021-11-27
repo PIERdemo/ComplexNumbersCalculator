@@ -3,6 +3,10 @@ package it.unisa.se.calculator.model.operations;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
+
 /**
  * The class implements the interface Operation
  * It provides a method to execute division.
@@ -17,16 +21,16 @@ public class DivideOperation implements  Operation{
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber1 = complexNumberStack.pop();
-        ComplexNumber complexNumber2 = complexNumberStack.pop();
-
+        List<ComplexNumber> operands = new ArrayList<>();
+        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
         ComplexNumber result;
+
         try {
-            result = ComplexNumber.divide(complexNumber1,complexNumber2);
+            result = ComplexNumber.divide(operands.get(0),operands.get(1));
             complexNumberStack.push(result);
-        }catch (InvalidParameterException e){
-            complexNumberStack.push(complexNumber2);
-            complexNumberStack.push(complexNumber1);
+        }catch (InvalidParameterException e) {
+            complexNumberStack.push(operands.get(1));
+            complexNumberStack.push(operands.get(0));
             throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");
         }
     }

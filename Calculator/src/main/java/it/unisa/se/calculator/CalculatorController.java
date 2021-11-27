@@ -5,14 +5,22 @@ import it.unisa.se.calculator.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 
 public class CalculatorController implements Initializable {
@@ -43,6 +51,9 @@ public class CalculatorController implements Initializable {
     private ComplexNumberStack numberStack=ComplexNumberStack.getInstance();
     private Calculator calculator = new Calculator();
     private ObservableList<ComplexNumber> stackView=FXCollections.observableArrayList(numberStack);
+    @FXML
+    private VBox calculatorContainer;
+
 
 
 
@@ -64,7 +75,35 @@ public class CalculatorController implements Initializable {
         columnElements.setCellValueFactory(new PropertyValueFactory<>("complexNumberString"));
         columnElements.setPrefWidth(12);
         tableElements.setItems(stackView);
+        inizializeButtonsEvents();
 
+
+    }
+
+    private void inizializeButtonsEvents() {
+        calculatorContainer.getChildren().forEach(node -> {
+            if (node instanceof GridPane) {
+                ((GridPane) node).getChildren().forEach(node1 -> {
+                    if (node1 instanceof Button) {
+                        node1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                            errorLabel.setVisible(false);
+                            operationField.requestFocus();
+                        });
+                    }
+                });
+            }
+            if (node instanceof HBox) {
+                ((HBox) node).getChildren().forEach(node12 -> {
+                    if (node12 instanceof Button) {
+                        node12.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                            errorLabel.setVisible(false);
+                            operationField.setText("");
+                            operationField.requestFocus();
+                        });
+                    }
+                });
+            }
+        });
     }
 
     @FXML

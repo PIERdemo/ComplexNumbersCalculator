@@ -2,6 +2,12 @@ package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
+
 /**
  * The class implements the interface Operation
  * It provides a method to execute sign inversion.
@@ -14,10 +20,11 @@ public class SignInversionOperation implements Operation{
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber1 = complexNumberStack.pop();
+        List<ComplexNumber> operands = new ArrayList<>();
+        complexNumberStack.getOperand(1).forEachRemaining(operands::add);
 
-        ComplexNumber result = ComplexNumber.signInversion(complexNumber1);
 
+        ComplexNumber result = ComplexNumber.signInversion(operands.get(0));
         complexNumberStack.push(result);
     }
 }

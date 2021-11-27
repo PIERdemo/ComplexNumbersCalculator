@@ -3,6 +3,12 @@ package it.unisa.se.calculator.model.operations;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
+import java.util.function.Consumer;
+
 /**
  * The class implements the interface Operation
  * It provides a method to execute Sum.
@@ -15,11 +21,11 @@ public class SumOperation implements Operation {
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber1 = complexNumberStack.pop();
-        ComplexNumber complexNumber2 = complexNumberStack.pop();
+        List<ComplexNumber> operands = new ArrayList<>();
+        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 
-        ComplexNumber result = ComplexNumber.sum(complexNumber1,complexNumber2);
 
+        ComplexNumber result = ComplexNumber.sum(operands.get(0),operands.get(1));
         complexNumberStack.push(result);
     }
 }
