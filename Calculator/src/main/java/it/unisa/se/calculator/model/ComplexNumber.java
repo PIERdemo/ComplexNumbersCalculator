@@ -1,7 +1,11 @@
 package it.unisa.se.calculator.model;
 
 import java.security.InvalidParameterException;
+import java.text.DecimalFormat;
 import java.util.Objects;
+
+
+
 
 /**
  * The class provides  a custom implementation of Complex Numbers.
@@ -82,15 +86,15 @@ public class ComplexNumber {
      */
     @Override
     public String toString() {
-
+        DecimalFormat decimalFormat = new DecimalFormat("#.#####");
         String imaginarySign = "+";
         if(imaginary<0)
             imaginarySign = "";
         if (Math.abs(imaginary) ==0)
-            return real +"";
+            return decimalFormat.format(real) +"";
         if (Math.abs(real) ==0)
-            return imaginary +"j";
-        return real + imaginarySign + imaginary + "j";
+            return decimalFormat.format(imaginary) +"j";
+        return decimalFormat.format(real) + imaginarySign + decimalFormat.format(imaginary) + "j";
     }
 
     public String getComplexNumberString(){

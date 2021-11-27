@@ -20,7 +20,7 @@
                </TextField>
                <HBox alignment="TOP_RIGHT" prefHeight="23.0" prefWidth="181.0">
                   <children>
-                     <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="119.0" text="Errore presente" textFill="#b24646" />
+                     <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="119.0" text="Error occurred" textFill="#b24646" />
                      <Button fx:id="submitButton" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #D4D4D2;" text="Submit">
                         <font>
                            <Font name="System Bold" size="12.0" />
