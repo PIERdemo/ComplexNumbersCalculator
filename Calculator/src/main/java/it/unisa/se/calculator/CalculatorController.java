@@ -37,10 +37,14 @@ public class CalculatorController implements Initializable {
     private Button multiplyButton;
     @FXML
     private Button squareButton;
+    @FXML
+    private Label errorLabel;
 
     private ComplexNumberStack numberStack=ComplexNumberStack.getInstance();
     private Calculator calculator = new Calculator();
     private ObservableList<ComplexNumber> stackView=FXCollections.observableArrayList(numberStack);
+
+
 
     private void updatestackView(){
         stackView.clear();
@@ -53,11 +57,10 @@ public class CalculatorController implements Initializable {
         }
     }
 
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        errorLabel.setVisible(false);
+
         columnElements.setCellValueFactory(new PropertyValueFactory<>("complexNumberString"));
         columnElements.setPrefWidth(12);
         tableElements.setItems(stackView);
@@ -67,49 +70,42 @@ public class CalculatorController implements Initializable {
     @FXML
     public void onInversionSignButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("+-");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onSquareButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("sqrt");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onSubmitButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher(operationField.getText());
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onSumButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("+");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onDivideButtonCLick(ActionEvent actionEvent) {
         calculator.inputDispatcher("/");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onSubtractButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("-");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 
     @FXML
     public void onMultiplyButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("*");
-        operationField.setText(numberStack.peek().toString());
         updatestackView();
     }
 

@@ -94,6 +94,9 @@ public class ComplexNumber {
         if(complexNumber2.getReal() == 0.0  && complexNumber2.getImaginary() == 0.0)
             throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");
 
+        if(complexNumber1.getReal() == 0.0  && complexNumber1.getImaginary() == 0.0)
+            return complexNumber1;
+
 
         double a = complexNumber1.getReal();
         double b = complexNumber1.getImaginary();

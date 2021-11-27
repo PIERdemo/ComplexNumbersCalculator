@@ -18,7 +18,9 @@ public class Calculator {
        if(formattedNumber !=null)
            saveNumber(formattedNumber);
        else
-           operationInvoker.execute(s.replaceAll("\\s+",""));
+           operationInvoker.execute(s.replaceAll("\\s+", ""));
+
+
     }
 
     //private method in order to manage user's input

@@ -1,13 +1,6 @@
 package it.unisa.se.calculator.model;
 
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableIntegerArray;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
