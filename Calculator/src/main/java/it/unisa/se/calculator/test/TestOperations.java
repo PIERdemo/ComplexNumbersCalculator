@@ -10,22 +10,46 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+
+/**
+ * Test
+ * Defines tests to verify the correct functioning of instaces of Operation interface
+ * {@link it.unisa.se.calculator.model.operations.Operation}
+ */
+
 public class TestOperations {
     private OperationInvoker operationInvoker;
     private ComplexNumberStack numberStack;
 
+
+    /**
+     * This method starts before @Test methods.
+     * Obtains instance of OperationInvoker and ComplexNumberStack
+     */
     @Before
     public void setUp() {
         operationInvoker = new OperationInvoker();
         numberStack = ComplexNumberStack.getInstance();
     }
 
+
+    /**
+     * This method starts before @Test methods.
+     * Obtains instance of OperationInvoker and ComplexNumberStack
+     */
     @Test(expected = NotSupportedOperationException.class)
     public void testOperationNotFound() {
         operationInvoker.execute("^");
     }
 
 
+
+
+    /**
+     * Provides a test capable of checking that execute method of the DivideOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in divide operation.
+     * {@link it.unisa.se.calculator.model.operations.DivideOperation}.
+     */
     @Test
     public void testDivide() {
         // test all the possible sign occurrences of complex numbers
@@ -145,6 +169,12 @@ public class TestOperations {
 
     }
 
+
+    /**
+     * Provides a test capable of checking that execute method of the MultiplyOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in multiply operation.
+     * {@link it.unisa.se.calculator.model.operations.MultiplyOperation}.
+     */
     @Test
     public void testMultiply() {
         // test all the possible sign occurrences of complex numbers
@@ -267,6 +297,11 @@ public class TestOperations {
 
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the SumOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in sum operation.
+     * {@link it.unisa.se.calculator.model.operations.SumOperation}.
+     */
     @Test
     public void testSum() {
         numberStack.clear();
@@ -389,6 +424,11 @@ public class TestOperations {
     }
 
 
+    /**
+     * Provides a test capable of checking that execute method of the SubtractOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in subtract operation.
+     * {@link it.unisa.se.calculator.model.operations.SubtractOperation}.
+     */
     @Test
     public void testSubtract() {
 
@@ -512,6 +552,12 @@ public class TestOperations {
     }
 
 
+
+    /**
+     * Provides a test capable of checking that execute method of the SquareRootOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in square root operation.
+     * {@link it.unisa.se.calculator.model.operations.SquareRootOperation}.
+     */
     @Test
     public void testSquareRoot() {
         numberStack.clear();
@@ -565,6 +611,11 @@ public class TestOperations {
 
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the SignInversionOperation class works correctly.
+     * In particular, this method test all the possible sign occurrences of complex numbers used in sign inversion operation.
+     * {@link it.unisa.se.calculator.model.operations.SignInversionOperation}.
+     */
     @Test
     public void testSignInversion() {
         numberStack.clear();
