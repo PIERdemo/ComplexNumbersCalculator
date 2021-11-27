@@ -16,7 +16,7 @@ public class TestComplexNumberStack {
     public void setUp() {
         numberStack = ComplexNumberStack.getInstance();
     }
-
+/*
     @Test
     public void testTopKElements() {
         numberStack.clear();
@@ -44,6 +44,6 @@ public class TestComplexNumberStack {
             assertEquals(topKElements.get(i), new ComplexNumber(i + 1, i + 1));
         }
     }
-
+*/
 
 }
