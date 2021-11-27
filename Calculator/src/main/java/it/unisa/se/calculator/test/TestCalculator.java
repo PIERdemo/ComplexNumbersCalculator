@@ -7,17 +7,30 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
+/**
+ * Test
+ * Defines tests to verify the correct functioning of the methods of the Calculator class
+ * {@link it.unisa.se.calculator.model.Calculator}
+ */
 public class TestCalculator {
     private Calculator calculator;
     private ComplexNumberStack numberStack;
 
+    /**
+     * This method starts before @Test methods.
+     * Obtains instances of Calculator and ComplexNumberStack
+     */
     @Before
     public void setUp(){
         calculator = new Calculator();
         numberStack =ComplexNumberStack.getInstance();
     }
 
+    /**
+     * Provides a test capable of checking that the numbers, in particular {@link it.unisa.se.calculator.model.ComplexNumber},
+     * are entered correctly of the InputDispatcher method.
+     * The assertEquals method is used {@link org.junit.Assert}.
+     */
     @Test
     public void testInputDispatcherForNumbers(){
 
@@ -94,6 +107,10 @@ public class TestCalculator {
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
+    /**
+     * Provides a test capable of checking that the operations are entered correctly of the InputDispatcher method.
+     * The assertEquals method is used {@link org.junit.Assert}.
+     */
     @Test
     public void testInputDispatcherForOperations(){
         numberStack.clear();
