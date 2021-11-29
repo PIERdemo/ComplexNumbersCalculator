@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -77,7 +79,19 @@ public class CalculatorController implements Initializable {
         tableElements.setItems(stackView);
         inizializeButtonsEvents();
 
+        initializeEnterPressedOnTextField();
 
+
+    }
+
+    private void initializeEnterPressedOnTextField() {
+        operationField.setOnKeyPressed(ke -> {
+            if (ke.getCode().equals(KeyCode.ENTER)) {
+                calculator.inputDispatcher(operationField.getText());
+                updatestackView();
+                operationField.setText("");
+            }
+        });
     }
 
     private void inizializeButtonsEvents() {
