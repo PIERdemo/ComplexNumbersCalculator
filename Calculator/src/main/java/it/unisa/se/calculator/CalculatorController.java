@@ -78,7 +78,6 @@ public class CalculatorController implements Initializable {
         columnElements.setPrefWidth(12);
         tableElements.setItems(stackView);
         inizializeButtonsEvents();
-
         initializeEnterPressedOnTextField();
 
 
