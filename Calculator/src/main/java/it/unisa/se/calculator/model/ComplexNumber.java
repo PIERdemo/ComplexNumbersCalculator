@@ -86,7 +86,7 @@ public class ComplexNumber {
      */
     @Override
     public String toString() {
-        DecimalFormat decimalFormat = new DecimalFormat("#.#####");
+        DecimalFormat decimalFormat = new DecimalFormat("#.########");
         String imaginarySign = "+";
         if(imaginary<0)
             imaginarySign = "";
