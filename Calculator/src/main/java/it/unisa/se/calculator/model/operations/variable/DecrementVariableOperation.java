@@ -9,8 +9,6 @@ import static it.unisa.se.calculator.model.ComplexNumber.*;
 public class DecrementVariableOperation extends Operation {
 
 
-
-
     @Override
     public void execute(VariablesMap variablesMap, String variable) {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
