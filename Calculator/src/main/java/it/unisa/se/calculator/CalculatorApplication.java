@@ -12,9 +12,10 @@ public class CalculatorApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CalculatorApplication.class.getResource("calculator-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 480, 320);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 400);
         stage.setTitle("Calculator");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
         Label errorLabel = (Label) scene.lookup("#errorLabel");
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> errorLabel.setVisible(true));

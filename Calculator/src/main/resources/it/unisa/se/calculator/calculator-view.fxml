@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="350.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #1C1C1C;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.calculator.CalculatorController">
+<VBox alignment="CENTER" prefHeight="373.0" prefWidth="510.0" spacing="20.0" style="-fx-background-color: #1C1C1C;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.calculator.CalculatorController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <HBox prefHeight="331.0" prefWidth="339.0">
+   <HBox prefHeight="328.0" prefWidth="470.0">
       <children>
          <VBox fx:id="calculatorContainer" prefHeight="310.0" prefWidth="218.0" style="-fx-background-color: #1c1c1c;">
             <children>
@@ -43,11 +43,11 @@
                   <children>
                      <Button fx:id="sumButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSumButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="+" textFill="WHITE">
                         <font>
-                           <Font size="15.0" />
+                           <Font name="System Bold" size="15.0" />
                         </font></Button>
                      <Button fx:id="subtractButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSubtractButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="-" textFill="WHITE" GridPane.columnIndex="1">
                         <font>
-                           <Font size="15.0" />
+                           <Font name="System Bold" size="15.0" />
                         </font></Button>
                      <Button fx:id="multiplyButton" alignment="CENTER" mnemonicParsing="false" onAction="#onMultiplyButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #FF9500; -fx-background-radius: 10px;" text="*" textFill="WHITE" GridPane.rowIndex="1">
                         <font>
@@ -55,11 +55,11 @@
                         </font></Button>
                      <Button fx:id="divideButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDivideButtonCLick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #FF9500; -fx-background-radius: 10px;" text="/" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                         <font>
-                           <Font size="15.0" />
+                           <Font name="System Bold" size="15.0" />
                         </font></Button>
                      <Button fx:id="inversionSignButton" alignment="CENTER" mnemonicParsing="false" onAction="#onInversionSignButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="+-" textFill="WHITE" GridPane.columnIndex="2">
                         <font>
-                           <Font size="15.0" />
+                           <Font name="System Bold" size="15.0" />
                         </font></Button>
                      <Button fx:id="squareButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSquareButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #FF9500; -fx-background-radius: 10px;" text="Sqrt" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                         <font>
@@ -73,35 +73,55 @@
                      <Insets bottom="10.0" top="10.0" />
                   </padding>
                </GridPane>
-               <GridPane visible="false">
-                 <columnConstraints>
-                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="42.0" prefWidth="50.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="44.0" prefWidth="50.0" />
-                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="50.0" prefWidth="80.0" />
-                 </columnConstraints>
-                 <rowConstraints>
-                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                 </rowConstraints>
+               <GridPane alignment="CENTER" prefHeight="132.0" prefWidth="212.0" style="-fx-background-color: #1c1c1c;">
+                  <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
                   <children>
-                     <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="Clear" />
-                     <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" text="Drop" GridPane.columnIndex="1" />
-                     <Button mnemonicParsing="false" prefWidth="45.0" text="Dup" GridPane.columnIndex="2" />
-                     <Button mnemonicParsing="false" prefWidth="45.0" text="Swap" GridPane.rowIndex="1" />
-                     <Button mnemonicParsing="false" prefWidth="45.0" text="Over" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Button fx:id="clearButton" alignment="CENTER" mnemonicParsing="false" onAction="#onClearButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="Clear" textFill="WHITE">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="dropButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDropButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="Drop" textFill="WHITE" GridPane.columnIndex="1">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="swapButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSwapButtonClick" prefHeight="32.0" prefWidth="43.0" style="-fx-background-color: #FF9500; -fx-background-radius: 10px;" text="Swap" textFill="WHITE" GridPane.rowIndex="1">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="dupButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDupButtonClick" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="Dup" textFill="WHITE" GridPane.columnIndex="2">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="overButton" alignment="CENTER" mnemonicParsing="false" onAction="#onOverButtonClick" prefHeight="32.0" prefWidth="43.0" style="-fx-background-color: #FF9500; -fx-background-radius: 10px;" text="Over" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <font>
+                           <Font name="System Bold" size="11.0" />
+                        </font>
+                     </Button>
                   </children>
-                  <VBox.margin>
-                     <Insets top="20.0" />
-                  </VBox.margin>
+                  <padding>
+                     <Insets bottom="10.0" top="10.0" />
+                  </padding>
                </GridPane>
             </children>
             <padding>
                <Insets left="5.0" right="5.0" />
             </padding>
          </VBox>
-         <TableView fx:id="tableElements" editable="true" prefHeight="281.0" prefWidth="219.0">
+         <TableView fx:id="tableElements" editable="true" prefHeight="686.0" prefWidth="238.0">
            <columns>
-             <TableColumn fx:id="columnElements" prefWidth="160.0" sortable="false" style="-fx-font-weight: bold; -fx-alignment: center;" text="Operands" />
+             <TableColumn fx:id="columnElements" prefWidth="134.0" sortable="false" style="-fx-font-weight: bold; -fx-alignment: center;" text="Operands" />
            </columns>
             <HBox.margin>
                <Insets bottom="10.0" left="20.0" top="10.0" />

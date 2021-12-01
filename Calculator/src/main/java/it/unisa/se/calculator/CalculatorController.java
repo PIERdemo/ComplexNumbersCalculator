@@ -2,18 +2,15 @@ package it.unisa.se.calculator;
 
 import it.unisa.se.calculator.model.*;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -22,7 +19,6 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
 
 
 public class CalculatorController implements Initializable {
@@ -55,8 +51,16 @@ public class CalculatorController implements Initializable {
     private ObservableList<ComplexNumber> stackView=FXCollections.observableArrayList(numberStack);
     @FXML
     private VBox calculatorContainer;
-
-
+    @FXML
+    private Button overButton;
+    @FXML
+    private Button swapButton;
+    @FXML
+    private Button dropButton;
+    @FXML
+    private Button clearButton;
+    @FXML
+    private Button dupButton;
 
 
     private void updatestackView(){
@@ -64,7 +68,7 @@ public class CalculatorController implements Initializable {
         int i = 0;
 
         ListIterator<ComplexNumber> complexNumberListIterator = numberStack.listIterator(numberStack.size());
-        while (complexNumberListIterator.hasPrevious() && i<12) {
+        while (complexNumberListIterator.hasPrevious() && i<20) {
             stackView.add(complexNumberListIterator.previous());
             ++i;
         }
@@ -75,9 +79,10 @@ public class CalculatorController implements Initializable {
         errorLabel.setVisible(false);
 
         columnElements.setCellValueFactory(new PropertyValueFactory<>("complexNumberString"));
-        columnElements.setPrefWidth(12);
+
+
         tableElements.setItems(stackView);
-        inizializeButtonsEvents();
+        initializeButtonsEvents();
         initializeEnterPressedOnTextField();
 
 
@@ -88,12 +93,13 @@ public class CalculatorController implements Initializable {
             if (ke.getCode().equals(KeyCode.ENTER)) {
                 calculator.inputDispatcher(operationField.getText());
                 updatestackView();
+                errorLabel.setVisible(false);
                 operationField.setText("");
             }
         });
     }
 
-    private void inizializeButtonsEvents() {
+    private void initializeButtonsEvents() {
         calculatorContainer.getChildren().forEach(node -> {
             if (node instanceof GridPane) {
                 ((GridPane) node).getChildren().forEach(node1 -> {
@@ -162,5 +168,34 @@ public class CalculatorController implements Initializable {
     }
 
 
+    @FXML
+    public void onDupButtonClick(ActionEvent actionEvent) {
+        calculator.inputDispatcher("dup");
+        updatestackView();
+    }
+
+    @FXML
+    public void onClearButtonClick(ActionEvent actionEvent) {
+        calculator.inputDispatcher("clear");
+        updatestackView();
+    }
+
+    @FXML
+    public void onOverButtonClick(ActionEvent actionEvent) {
+        calculator.inputDispatcher("over");
+        updatestackView();
+    }
+
+    @FXML
+    public void onDropButtonClick(ActionEvent actionEvent) {
+        calculator.inputDispatcher("drop");
+        updatestackView();
+    }
+
+    @FXML
+    public void onSwapButtonClick(ActionEvent actionEvent) {
+        calculator.inputDispatcher("swap");
+        updatestackView();
+    }
 }
 
