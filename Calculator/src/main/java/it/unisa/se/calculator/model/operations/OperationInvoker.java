@@ -24,7 +24,9 @@ public class OperationInvoker {
         operationMap.put("/",new DivideOperation());
         operationMap.put("+-",new SignInversionOperation());
         operationMap.put("sqrt",new SquareRootOperation());
-        operationMap.put("swap",new SwapOperation());
+
+        operationMap.put("dup", new DupOperation());
+        operationMap.put("swap", new SwapOperation());
     }
 
     /**

@@ -43,8 +43,6 @@ public class TestOperations {
     }
 
 
-
-
     /**
      * Provides a test capable of checking that execute method of the DivideOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in divide operation.
@@ -552,7 +550,6 @@ public class TestOperations {
     }
 
 
-
     /**
      * Provides a test capable of checking that execute method of the SquareRootOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in square root operation.
@@ -685,6 +682,7 @@ public class TestOperations {
         assertEquals(numberStack.pop(), complexNumber1);
         assertEquals(numberStack.pop(), complexNumber2);
 
+        operationInvoker.execute("dup");
 
         complexNumber1 = new ComplexNumber(3.0, 0);
         complexNumber2 = new ComplexNumber(-7.0, 0.0);
@@ -704,8 +702,18 @@ public class TestOperations {
         assertEquals(numberStack.pop(), complexNumber2);
 
     }
+    /**
+     * Provides a test capable of checking that execute method of the DupOperation class works correctly.
+     * {@link it.unisa.se.calculator.model.operations.DupOperation}.
+     */
+    @Test
+    public void testDup() {
+        ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
+        numberStack.push(complexNumber1);
 
+        assertEquals(numberStack.elementAt(numberStack.size() - 2), numberStack.elementAt(numberStack.size()-1));
 
+    }
 
 
 }
