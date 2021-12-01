@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * The class implements the interface Operation
+ * The class extends the class Operation.
  * It provides a method to execute Sum.
  * */
 public class SumOperation extends Operation {

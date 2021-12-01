@@ -6,7 +6,7 @@ import it.unisa.se.calculator.model.operations.Operation;
 
 import java.util.Iterator;
 /**
- * The class implements the interface Operation
+ * TThe class extends the class Operation.
  * It provides a method to execute over operation.
  * */
 public class OverOperation extends Operation {

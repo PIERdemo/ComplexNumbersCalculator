@@ -7,7 +7,7 @@ import it.unisa.se.calculator.model.operations.Operation;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * The class implements the interface Operation
+ * The class extends the class Operation.
  * It provides a method to execute an insertion onto the stack of a last stack element's copy.
  * */
 public class DupOperation extends Operation {

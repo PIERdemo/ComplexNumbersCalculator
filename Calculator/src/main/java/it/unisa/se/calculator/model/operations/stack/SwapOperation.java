@@ -11,7 +11,7 @@ import java.util.EmptyStackException;
 import java.util.List;
 
 /**
- * The class implements the interface Operation
+ * The class extends the class Operation.
  * It provides a method to execute Swap.
  * */
 public class SwapOperation extends Operation {

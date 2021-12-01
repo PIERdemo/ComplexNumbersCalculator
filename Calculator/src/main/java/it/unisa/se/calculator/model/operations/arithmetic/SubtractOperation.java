@@ -10,7 +10,7 @@ import java.util.EmptyStackException;
 import java.util.List;
 
 /**
- * The class implements the interface Operation
+ * The class extends the class Operation.
  * It provides a method to execute subtraction.
  * */
 public class SubtractOperation extends Operation {
