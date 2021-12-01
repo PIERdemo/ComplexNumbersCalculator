@@ -715,5 +715,24 @@ public class TestOperations {
 
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the DropOperation class works correctly.
+     * In particular, this method test all the possible cases of complex numbers used in drop operation.
+     * {@link it.unisa.se.calculator.model.operations.DropOperation}.
+     */
+
+    @Test
+    public void testDrop() {
+        numberStack.clear();
+
+        ComplexNumber complexNumber1 = new ComplexNumber(3.0, -7.0);
+        ComplexNumber complexNumber2 = new ComplexNumber(7.0, -3.0);
+        numberStack.push(complexNumber1);
+        numberStack.push(complexNumber2);
+        operationInvoker.execute("drop");
+        assertEquals(numberStack.pop(), complexNumber1);
+
+    }
+
 
 }
