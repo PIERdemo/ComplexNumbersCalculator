@@ -95,6 +95,7 @@ public class CalculatorController implements Initializable {
                 updatestackView();
                 errorLabel.setVisible(false);
                 operationField.setText("");
+                errorLabel.setVisible(false);
             }
         });
     }

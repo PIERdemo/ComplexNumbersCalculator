@@ -46,10 +46,10 @@ public class OperationInvoker {
     }
 
     /**
-     *
-     * @param stringOperation the string representing the operation inserted and that has to be executed.
      * The method checks at first if there exists an operation with the specified name.
      * If it exists then it is executed, on the contrary it is thrown a Runtime Exception.
+     *
+     * @param stringOperation the string representing the operation inserted and that has to be executed.
      */
 
     public void execute(String stringOperation){
@@ -60,7 +60,13 @@ public class OperationInvoker {
         operation.execute();
     }
 
-
+    /**
+     * The method checks at first if there exists an operation with the specified name.
+     * If it exists then it is executed, on the contrary it is thrown a Runtime Exception.
+     *
+     * @param stringOperation the string representing the operation inserted and that has to be executed.
+     * @param variablesMap a Map containing all occurrences of previously saved variables
+     */
     public void execute(String stringOperation, VariablesMap variablesMap) {
 
         String variable = "" + stringOperation.charAt(stringOperation.length()-1);

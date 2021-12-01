@@ -5,6 +5,8 @@ import it.unisa.se.calculator.model.ComplexNumberStack;
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.arithmetic.DivideOperation;
+import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
+import it.unisa.se.calculator.model.operations.variable.IncrementVariableOperation;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,6 +36,69 @@ public class TestVariableOperations {
 
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the IncrementVariableOperation class works correctly.
+     * In particular, this method test all the possible cases that can happen in a sum operation between a variable and
+     * an element at the top of the stack.
+     * {@link IncrementVariableOperation}.
+     */
+    @Test
+    public void testIncrementVariableOperation(){
+        complexNumberStack.clear();
+
+        variablesMap.put("a",new ComplexNumber(7,7));
+        complexNumberStack.push(new ComplexNumber(3,3));
+        operationInvoker.execute("+a",variablesMap);
+        assertEquals(variablesMap.get("a"), new ComplexNumber(10, 10));
+
+        variablesMap.put("c",new ComplexNumber(-7,7));
+        complexNumberStack.push(new ComplexNumber(3,-3));
+        operationInvoker.execute("+c",variablesMap);
+        assertEquals(variablesMap.get("c"), new ComplexNumber(-4, 4));
+
+        variablesMap.put("q",new ComplexNumber(0,0));
+        complexNumberStack.push(new ComplexNumber(0,0));
+        operationInvoker.execute("+q",variablesMap);
+        assertEquals(variablesMap.get("q"), new ComplexNumber(0, 0));
+
+        variablesMap.put("z",new ComplexNumber(0,-7));
+        complexNumberStack.push(new ComplexNumber(3,-3));
+        operationInvoker.execute("+z",variablesMap);
+        assertEquals(variablesMap.get("z"), new ComplexNumber(3, -10));
+
+    }
+
+    /**
+     * Provides a test capable of checking that execute method of the IncrementVariableOperation class works correctly.
+     * In particular, this method test all the possible cases that can happen in a subtract operation between a variable and
+     * an element at the top of the stack.
+     * {@link DecrementVariableOperation}.
+     */
+    @Test
+    public void testDecrementVariableOperation(){
+        complexNumberStack.clear();
+
+        variablesMap.put("a",new ComplexNumber(7,7));
+        complexNumberStack.push(new ComplexNumber(3,3));
+        operationInvoker.execute("-a",variablesMap);
+        assertEquals(variablesMap.get("a"), new ComplexNumber(4, 4));
+
+        variablesMap.put("a",new ComplexNumber(-7,7));
+        complexNumberStack.push(new ComplexNumber(3,-3));
+        operationInvoker.execute("-a",variablesMap);
+        assertEquals(variablesMap.get("a"), new ComplexNumber(-10, 10));
+
+        variablesMap.put("a",new ComplexNumber(0,0));
+        complexNumberStack.push(new ComplexNumber(0,0));
+        operationInvoker.execute("-a",variablesMap);
+        assertEquals(variablesMap.get("a"), new ComplexNumber(0, 0));
+
+        variablesMap.put("a",new ComplexNumber(0,-7));
+        complexNumberStack.push(new ComplexNumber(3,-3));
+        operationInvoker.execute("-a",variablesMap);
+        assertEquals(variablesMap.get("a"), new ComplexNumber(-3, -4));
+
+    }
     /**
      * Provides a test capable of checking that execute method of the LoadVariableOperation class works correctly.
      * In particular, this method tests some put operations of variables into the stack
