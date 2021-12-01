@@ -1,7 +1,9 @@
-package it.unisa.se.calculator.model.operations;
+package it.unisa.se.calculator.model.operations.arithmetic;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.operations.Operation;
+
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
@@ -13,7 +15,7 @@ import java.util.List;
  * */
 
 
-public class DivideOperation implements  Operation{
+public class DivideOperation extends Operation {
     /**
      * The function execute is used to calculate the division between the first two operands taken from the stack.
      * Then it pushes the result into the stack.

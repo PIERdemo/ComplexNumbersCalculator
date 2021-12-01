@@ -1,7 +1,9 @@
-package it.unisa.se.calculator.model.operations;
+package it.unisa.se.calculator.model.operations.stack;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.VariablesMap;
+import it.unisa.se.calculator.model.operations.Operation;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -10,11 +12,11 @@ import java.util.List;
 
 /**
  * The class implements the interface Operation
- * It provides a method to execute subtraction.
+ * It provides a method to execute Swap.
  * */
-public class SubtractOperation implements  Operation{
+public class SwapOperation extends Operation {
     /**
-     * The function execute is used to calculate the subtraction between the first two operands taken from the stack.
+     * The function execute is used to calculate the swap between the first two operands taken from the stack.
      * Then it pushes the result into the stack.
      */
     @Override
@@ -23,8 +25,10 @@ public class SubtractOperation implements  Operation{
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 
+        complexNumberStack.push(operands.get(0));
+        complexNumberStack.push(operands.get(1));
 
-        ComplexNumber result = ComplexNumber.subtract(operands.get(0),operands.get(1));
-        complexNumberStack.push(result);
     }
+
+
 }

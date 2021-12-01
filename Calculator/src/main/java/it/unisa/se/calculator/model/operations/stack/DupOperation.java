@@ -1,7 +1,8 @@
-package it.unisa.se.calculator.model.operations;
+package it.unisa.se.calculator.model.operations.stack;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.operations.Operation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * The class implements the interface Operation
  * It provides a method to execute an insertion onto the stack of a last stack element's copy.
  * */
-public class DupOperation implements Operation{
+public class DupOperation extends Operation {
     /**
      * The function execute is used to insert a copy of the last element onto the stack.
      */

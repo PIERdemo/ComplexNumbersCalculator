@@ -5,8 +5,6 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 
 
-
-
 /**
  * The class provides  a custom implementation of Complex Numbers.
  * This class includes also all the operations defined on complex numbers.
@@ -21,7 +19,8 @@ public class ComplexNumber {
 
     /**
      * Constructor of a complex number.
-     * @param real specifies the double value of number's real part
+     *
+     * @param real      specifies the double value of number's real part
      * @param imaginary specifies the double value of number's imaginary part
      */
     public ComplexNumber(double real, double imaginary) {
@@ -30,7 +29,6 @@ public class ComplexNumber {
     }
 
     /**
-     *
      * @return a Double representing the imaginary part of the number.
      */
     public double getImaginary() {
@@ -38,7 +36,6 @@ public class ComplexNumber {
     }
 
     /**
-     *
      * @return a Double representing the real part of the number.
      */
     public double getReal() {
@@ -47,13 +44,16 @@ public class ComplexNumber {
 
     /**
      * Sets the value of real part to the specified parameter.
+     *
      * @param real a Double representing the real part of the number.
      */
     public void setReal(double real) {
         this.real = real;
     }
+
     /**
      * Sets the value of imaginary part to the specified parameter.
+     *
      * @param imaginary a Double representing the imaginary part of the number.
      */
     public void setImaginary(double imaginary) {
@@ -74,30 +74,29 @@ public class ComplexNumber {
      * @param imaginary2 Double representing imaginary part of the second number.
      * @return 0 if both parameters are 0, otherwise the value of the compare of both numbers.
      */
-    private int compareNumbers(double imaginary1, double imaginary2){
-        if(Math.abs(imaginary1) == 0.0 && Math.abs(imaginary2) == 0.0 )
+    private int compareNumbers(double imaginary1, double imaginary2) {
+        if (Math.abs(imaginary1) == 0.0 && Math.abs(imaginary2) == 0.0)
             return 0;
-        return Double.compare(imaginary1,imaginary2);
+        return Double.compare(imaginary1, imaginary2);
     }
 
     /**
-     *
      * @return a string representing the number.
      */
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#.########");
         String imaginarySign = "+";
-        if(imaginary<0)
+        if (imaginary < 0)
             imaginarySign = "";
-        if (Math.abs(imaginary) ==0)
-            return decimalFormat.format(real) +"";
-        if (Math.abs(real) ==0)
-            return decimalFormat.format(imaginary) +"j";
+        if (Math.abs(imaginary) == 0)
+            return decimalFormat.format(real) + "";
+        if (Math.abs(real) == 0)
+            return decimalFormat.format(imaginary) + "j";
         return decimalFormat.format(real) + imaginarySign + decimalFormat.format(imaginary) + "j";
     }
 
-    public String getComplexNumberString(){
+    public String getComplexNumberString() {
         return toString();
     }
 
@@ -108,6 +107,7 @@ public class ComplexNumber {
 
     /**
      * Method that executes the base sum between two complex numbers.
+     *
      * @param complexNumber1 first operand
      * @param complexNumber2 second operand
      * @return a complex number representing the sum between the parameters.
@@ -118,8 +118,10 @@ public class ComplexNumber {
         result.setImaginary(complexNumber1.getImaginary() + complexNumber2.getImaginary());
         return result;
     }
+
     /**
      * Method that executes the base subtract between two complex numbers.
+     *
      * @param complexNumber1 first operand
      * @param complexNumber2 second operand
      * @return a complex number representing the subtraction between the parameters.
@@ -130,8 +132,10 @@ public class ComplexNumber {
         result.setImaginary(complexNumber1.getImaginary() - complexNumber2.getImaginary());
         return result;
     }
+
     /**
      * Method that executes the base multiplication between two complex numbers.
+     *
      * @param complexNumber1 first operand
      * @param complexNumber2 second operand
      * @return a complex number representing the multiplication between the parameters.
@@ -142,58 +146,63 @@ public class ComplexNumber {
         result.setImaginary(complexNumber1.getImaginary() * complexNumber2.getReal() + complexNumber2.getImaginary() * complexNumber1.getReal());
         return result;
     }
+
     /**
      * Method that executes the base division between two complex numbers.
+     *
      * @param complexNumber1 first operand
      * @param complexNumber2 second operand
      * @return a complex number representing the division between the parameters.
      */
-    public static ComplexNumber divide(ComplexNumber complexNumber1, ComplexNumber complexNumber2){
+    public static ComplexNumber divide(ComplexNumber complexNumber1, ComplexNumber complexNumber2) {
         //check if operands are valid
-        if(complexNumber2.getReal() == 0.0  && complexNumber2.getImaginary() == 0.0)
+        if (complexNumber2.getReal() == 0.0 && complexNumber2.getImaginary() == 0.0)
             throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");
 
-        if(complexNumber1.getReal() == 0.0  && complexNumber1.getImaginary() == 0.0)
+        if (complexNumber1.getReal() == 0.0 && complexNumber1.getImaginary() == 0.0)
             return complexNumber1;
 
 
         double a = complexNumber1.getReal();
         double b = complexNumber1.getImaginary();
-        double c= complexNumber2.getReal();
+        double c = complexNumber2.getReal();
         double d = complexNumber2.getImaginary();
-        return new ComplexNumber(((c*a)+(b*d))/(a*a + b*b), ((c*b)-(a*d))/(a*a + b*b));
+        return new ComplexNumber(((c * a) + (b * d)) / (a * a + b * b), ((c * b) - (a * d)) / (a * a + b * b));
 
     }
 
     /**
      * Method that executes the square root between two complex numbers.
+     *
      * @param complexNumber1 operand
      * @return the square root of the operand
      */
-    public static ComplexNumber sqrt(ComplexNumber complexNumber1){
+    public static ComplexNumber sqrt(ComplexNumber complexNumber1) {
         double real = complexNumber1.getReal();
         double imaginary = complexNumber1.getImaginary();
 
-        double module = Math.sqrt(real * real + imaginary* imaginary);
+        double module = Math.sqrt(real * real + imaginary * imaginary);
 
-        double realRoot =  Math.sqrt((real + module) / 2);
+        double realRoot = Math.sqrt((real + module) / 2);
 
-        double imaginaryRoot = Math.sqrt(( module - real) / 2);
-        if(imaginary<0) imaginaryRoot = imaginaryRoot*(-1);
-        return new ComplexNumber(realRoot,imaginaryRoot);
+        double imaginaryRoot = Math.sqrt((module - real) / 2);
+        if (imaginary < 0) imaginaryRoot = imaginaryRoot * (-1);
+        return new ComplexNumber(realRoot, imaginaryRoot);
 
     }
+
     /**
      * Method that executes the sign inversion between two complex numbers.
+     *
      * @param complexNumber1 operand
      * @return the sign inversion of the operand
      */
-    public static ComplexNumber signInversion(ComplexNumber complexNumber1){
+    public static ComplexNumber signInversion(ComplexNumber complexNumber1) {
         double real = complexNumber1.getReal();
         double imaginary = complexNumber1.getImaginary();
 
-        imaginary = (Math.abs(imaginary)==0)?imaginary:imaginary * (-1);
-        real = (Math.abs(real)==0)?real:real * (-1);
+        imaginary = (Math.abs(imaginary) == 0) ? imaginary : imaginary * (-1);
+        real = (Math.abs(real) == 0) ? real : real * (-1);
 
         return new ComplexNumber(real, imaginary);
     }

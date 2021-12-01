@@ -1,31 +1,31 @@
-package it.unisa.se.calculator.model.operations;
+package it.unisa.se.calculator.model.operations.arithmetic;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.operations.Operation;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * The class implements the interface Operation
- * It provides a method to execute Sum.
+ * It provides a method to execute Square root.
  * */
-public class SumOperation implements Operation {
+public class SquareRootOperation extends Operation {
     /**
-     * The function execute is used to calculate the sum between the first two operands taken from the stack.
+     * The function execute is used to calculate the square root on the first operand taken from the stack.
      * Then it pushes the result into the stack.
      */
     @Override
-    public void execute() {
+    public void execute(){
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
-        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
+        complexNumberStack.getOperand(1).forEachRemaining(operands::add);
 
 
-        ComplexNumber result = ComplexNumber.sum(operands.get(0),operands.get(1));
+        ComplexNumber result = ComplexNumber.sqrt(operands.get(0));
         complexNumberStack.push(result);
     }
 }

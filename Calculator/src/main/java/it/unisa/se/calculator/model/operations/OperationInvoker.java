@@ -1,6 +1,14 @@
 package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
+import it.unisa.se.calculator.model.VariablesMap;
+import it.unisa.se.calculator.model.operations.arithmetic.*;
+import it.unisa.se.calculator.model.operations.stack.*;
+import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
+import it.unisa.se.calculator.model.operations.variable.IncrementVariableOperation;
+import it.unisa.se.calculator.model.operations.variable.LoadVariableOperation;
+import it.unisa.se.calculator.model.operations.variable.SaveVariableOperation;
+
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -30,6 +38,11 @@ public class OperationInvoker {
         operationMap.put("drop", new DropOperation());
         operationMap.put("dup", new DupOperation());
         operationMap.put("swap", new SwapOperation());
+        //
+        operationMap.put("<$", new LoadVariableOperation());
+        operationMap.put(">$", new SaveVariableOperation());
+        operationMap.put("+$", new IncrementVariableOperation());
+        operationMap.put("-$", new DecrementVariableOperation());
     }
 
     /**
@@ -40,9 +53,21 @@ public class OperationInvoker {
      */
 
     public void execute(String stringOperation){
-        Operation operation = operationMap.get(stringOperation);
+
+        Operation operation= operationMap.get(stringOperation);
         if(operation == null)
             throw new NotSupportedOperationException("Operation "+stringOperation+" not found");
         operation.execute();
+    }
+
+
+    public void execute(String stringOperation, VariablesMap variablesMap) {
+
+        String variable = "" + stringOperation.charAt(stringOperation.length()-1);
+        stringOperation = stringOperation.charAt(0)+"$";
+
+        Operation operation= operationMap.get(stringOperation);
+        operation.execute(variablesMap,variable);
+
     }
 }

@@ -4,6 +4,8 @@ import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
+import it.unisa.se.calculator.model.operations.arithmetic.*;
+import it.unisa.se.calculator.model.operations.stack.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,7 +49,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the DivideOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in divide operation.
-     * {@link it.unisa.se.calculator.model.operations.DivideOperation}.
+     * {@link DivideOperation}.
      */
     @Test
     public void testDivide() {
@@ -172,7 +174,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the MultiplyOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in multiply operation.
-     * {@link it.unisa.se.calculator.model.operations.MultiplyOperation}.
+     * {@link MultiplyOperation}.
      */
     @Test
     public void testMultiply() {
@@ -299,7 +301,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the SumOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in sum operation.
-     * {@link it.unisa.se.calculator.model.operations.SumOperation}.
+     * {@link SumOperation}.
      */
     @Test
     public void testSum() {
@@ -426,7 +428,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the SubtractOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in subtract operation.
-     * {@link it.unisa.se.calculator.model.operations.SubtractOperation}.
+     * {@link SubtractOperation}.
      */
     @Test
     public void testSubtract() {
@@ -554,7 +556,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the SquareRootOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in square root operation.
-     * {@link it.unisa.se.calculator.model.operations.SquareRootOperation}.
+     * {@link SquareRootOperation}.
      */
     @Test
     public void testSquareRoot() {
@@ -612,7 +614,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the SignInversionOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in sign inversion operation.
-     * {@link it.unisa.se.calculator.model.operations.SignInversionOperation}.
+     * {@link SignInversionOperation}.
      */
     @Test
     public void testSignInversion() {
@@ -669,7 +671,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the SwapOperation class works correctly.
      * In particular, this method test all the possible cases of complex numbers used in swap operation.
-     * {@link it.unisa.se.calculator.model.operations.SwapOperation}.
+     * {@link SwapOperation}.
      */
     @Test
     public void testSwap() {
@@ -705,7 +707,7 @@ public class TestOperations {
     }
     /**
      * Provides a test capable of checking that execute method of the DupOperation class works correctly.
-     * {@link it.unisa.se.calculator.model.operations.DupOperation}.
+     * {@link DupOperation}.
      */
     @Test
     public void testDup() {
@@ -720,7 +722,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the DropOperation class works correctly.
      * In particular, this method test all the possible cases of complex numbers used in drop operation.
-     * {@link it.unisa.se.calculator.model.operations.DropOperation}.
+     * {@link DropOperation}.
      */
 
     @Test
@@ -739,7 +741,7 @@ public class TestOperations {
     /**
      * Provides a test capable of checking that execute method of the ClearOperation class works correctly.
      * In particular, this method after a couple of heterogeneous insert into the stack and  the clear operation, tests is the stack is empty .
-     * {@link it.unisa.se.calculator.model.operations.ClearOperation}.
+     * {@link ClearOperation}.
      */
     @Test
     public void testClear(){
@@ -760,7 +762,7 @@ public class TestOperations {
      * Provides a test capable of checking that execute method of the OverOperation class works correctly.
      * In particular, this method after two insert into the stack, after the operation tests if the third to last element is
      * equals to the top of the stack.
-     * {@link it.unisa.se.calculator.model.operations.OverOperation}.
+     * {@link OverOperation}.
      */
 
     @Test
