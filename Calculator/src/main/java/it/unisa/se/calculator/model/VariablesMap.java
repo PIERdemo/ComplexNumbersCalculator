@@ -1,6 +1,7 @@
 package it.unisa.se.calculator.model;
 
 import it.unisa.se.calculator.exception.InvaidVariableNameException;
+import it.unisa.se.calculator.exception.NotSupportedOperationException;
 
 import java.util.HashMap;
 
@@ -12,6 +13,14 @@ import java.util.HashMap;
  */
 public class VariablesMap extends HashMap<String, ComplexNumber> {
     public VariablesMap() {
+    }
+
+    @Override
+    public ComplexNumber get(Object key) {
+        ComplexNumber returnComplexNumber = super.get(key);
+        if(returnComplexNumber == null)
+            throw new NotSupportedOperationException("variable "+ key +" has not a value yet ");
+        return returnComplexNumber;
     }
 
     @Override
