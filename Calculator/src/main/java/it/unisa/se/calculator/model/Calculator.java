@@ -33,11 +33,19 @@ public class Calculator {
         String formattedNumber = getFormattedNumber(s);
         if (formattedNumber != null)
             saveNumber(formattedNumber);
-        else if (s.matches("[<|>|+|\\-][a-z]")) {
+        else if (s.matches("[<|>|+|\\-][a-z]"))
             operationInvoker.execute(s, variablesMap);
-        } else
+        else
             operationInvoker.execute(s.replaceAll("\\s+", ""));
 
+    }
+
+    public ComplexNumberStack getComplexNumberStack() {
+        return complexNumberStack;
+    }
+
+    public VariablesMap getVariablesMap() {
+        return variablesMap;
     }
 
     /**

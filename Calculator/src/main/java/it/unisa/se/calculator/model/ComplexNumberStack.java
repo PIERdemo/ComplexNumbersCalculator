@@ -1,6 +1,9 @@
 package it.unisa.se.calculator.model;
 
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+
 import java.security.InvalidParameterException;
 import java.util.*;
 import java.util.function.Consumer;
@@ -9,7 +12,7 @@ import java.util.function.Consumer;
  * The class extends the {@link java.util.Stack} class .
  * Provides an implementation of a ComplexNumbers stack.
  */
-public class ComplexNumberStack extends Stack<ComplexNumber> {
+public class ComplexNumberStack extends Stack<ComplexNumber>{
     private static ComplexNumberStack instance = null;
 
     /**

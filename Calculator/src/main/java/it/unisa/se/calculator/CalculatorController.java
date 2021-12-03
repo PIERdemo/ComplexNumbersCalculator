@@ -3,6 +3,7 @@ package it.unisa.se.calculator;
 import it.unisa.se.calculator.model.Calculator;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.VariablesMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,9 +49,11 @@ public class CalculatorController implements Initializable {
     @FXML
     private Label errorLabel;
 
-    private ComplexNumberStack numberStack=ComplexNumberStack.getInstance();
-    private Calculator calculator = new Calculator();
-    private ObservableList<ComplexNumber> stackView=FXCollections.observableArrayList(numberStack);
+
+    private Calculator calculator= new Calculator();
+    private ComplexNumberStack numberStack;
+    private VariablesMap variablesMap;
+    private ObservableList<ComplexNumber> stackView;
 
     @FXML
     private Button overButton;
@@ -97,21 +100,16 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        numberStack = calculator.getComplexNumberStack();
+        stackView = FXCollections.observableArrayList(numberStack);
+        variablesMap = calculator.getVariablesMap();
         errorLabel.setVisible(false);
-
         columnElements.setCellValueFactory(new PropertyValueFactory<>("complexNumberString"));
-
 
         tableElements.setItems(stackView);
         initializeButtonsEvents();
         initializeEnterPressedOnTextField();
-
-        tableVariables.setColumnResizePolicy(new Callback<TableView.ResizeFeatures, Boolean>() {
-            @Override
-            public Boolean call(TableView.ResizeFeatures resizeFeatures) {
-                return false;
-            }
-        });
+        tableVariables.setColumnResizePolicy((Callback<TableView.ResizeFeatures, Boolean>) resizeFeatures -> false);
     }
 
     private void initializeEnterPressedOnTextField() {
