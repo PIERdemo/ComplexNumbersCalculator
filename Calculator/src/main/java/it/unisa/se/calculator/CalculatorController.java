@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -49,8 +50,7 @@ public class CalculatorController implements Initializable {
     private ComplexNumberStack numberStack=ComplexNumberStack.getInstance();
     private Calculator calculator = new Calculator();
     private ObservableList<ComplexNumber> stackView=FXCollections.observableArrayList(numberStack);
-    @FXML
-    private VBox calculatorContainer;
+
     @FXML
     private Button overButton;
     @FXML
@@ -61,6 +61,22 @@ public class CalculatorController implements Initializable {
     private Button clearButton;
     @FXML
     private Button dupButton;
+    @FXML
+    private TabPane TabPane;
+    @FXML
+    private TextField OperationName;
+    @FXML
+    private Button submitOperationButton;
+    @FXML
+    private TextField OperationFormula;
+    @FXML
+    private VBox calculatorContainer;
+    @FXML
+    private TableColumn columnNameVariables;
+    @FXML
+    private TableColumn columnValueVariables;
+    @FXML
+    private AnchorPane calculatorPane;
 
 
     private void updatestackView(){
@@ -197,6 +213,11 @@ public class CalculatorController implements Initializable {
     public void onSwapButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("swap");
         updatestackView();
+    }
+
+    @FXML
+    public void onSubmitOperationButtonClick(ActionEvent actionEvent) {
+
     }
 }
 

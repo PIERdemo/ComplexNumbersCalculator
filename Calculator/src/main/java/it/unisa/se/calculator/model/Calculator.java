@@ -38,7 +38,6 @@ public class Calculator {
         } else
             operationInvoker.execute(s.replaceAll("\\s+", ""));
 
-
     }
 
     /**
