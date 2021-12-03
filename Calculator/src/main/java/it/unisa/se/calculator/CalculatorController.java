@@ -1,8 +1,8 @@
 package it.unisa.se.calculator;
 
-import it.unisa.se.calculator.model.*;
-
-import javafx.beans.binding.Bindings;
+import it.unisa.se.calculator.model.Calculator;
+import it.unisa.se.calculator.model.ComplexNumber;
+import it.unisa.se.calculator.model.ComplexNumberStack;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -100,6 +100,7 @@ public class CalculatorController implements Initializable {
         tableElements.setItems(stackView);
         initializeButtonsEvents();
         initializeEnterPressedOnTextField();
+
 
 
     }

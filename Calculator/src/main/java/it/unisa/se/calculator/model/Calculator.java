@@ -49,7 +49,7 @@ public class Calculator {
      * @return a formatted string if s is a number, otherwise null.
      */
     private String getFormattedNumber(String s) {
-        String onlyReal = "[\\+\\-]?((([0-9]*).([0-9]+))|([0-9]+))";
+        String onlyReal = "^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$";
         String onlyImaginary = "[\\+|\\-|\\s]?((([0-9]*).([0-9]+))|([0-9]+))[ij]";
         String fullComplexNumber = "[\\+\\- ]?((([0-9]*).([0-9]+))|([0-9]+))[ ]?[\\+\\-]((([0-9]*).([0-9]+))|([0-9]+))[ij]";
 
