@@ -4,14 +4,10 @@ import it.unisa.se.calculator.exception.InvaidVariableNameException;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.interfaces.Observable;
 import it.unisa.se.calculator.interfaces.Observer;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleMapProperty;
-import javafx.collections.FXCollections;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.Consumer;
 
 
 /**
@@ -19,11 +15,11 @@ import java.util.function.Consumer;
  * Each String variable is associated with a CompleNumber.
  * The class extend HashMap class {@link HashMap}
  */
-public class VariablesMap extends SimpleMapProperty<String,ComplexNumber> implements Observable {
+public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable {
     private List<Observer> stackObserver;
 
     public VariablesMap() {
-        super(FXCollections.observableHashMap());
+        super();
         stackObserver = new ArrayList<>();
     }
 
@@ -59,8 +55,11 @@ public class VariablesMap extends SimpleMapProperty<String,ComplexNumber> implem
 
     @Override
     public void notifyObservers() {
+        List<Entry<String, ComplexNumber>> entryList = this.entrySet().stream().sorted(Entry.comparingByKey()).toList();
         for (Observer observer : stackObserver) {
-            observer.update(this.entrySet().stream().toList());
+            observer.update(entryList);
         }
     }
+
+
 }

@@ -1,16 +1,7 @@
 package it.unisa.se.calculator;
 
-import it.unisa.se.calculator.interfaces.Observer;
 import it.unisa.se.calculator.model.*;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.MapBinding;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,14 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
 
 public class CalculatorController implements Initializable {
 
@@ -70,6 +57,7 @@ public class CalculatorController implements Initializable {
         columnNameVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getKey()));
         columnValueVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getValue().getComplexNumberString()));
         tableVariables.setItems(variablesMapObserver);
+
 
 
 
