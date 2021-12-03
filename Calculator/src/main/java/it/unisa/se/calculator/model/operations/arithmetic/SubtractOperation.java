@@ -23,7 +23,7 @@ public class SubtractOperation extends Operation {
         complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 
 
-        ComplexNumber result = ComplexNumber.subtract(operands.get(0),operands.get(1));
+        ComplexNumber result = ComplexNumber.subtract(operands.get(1),operands.get(0));
         complexNumberStack.push(result);
     }
 }
