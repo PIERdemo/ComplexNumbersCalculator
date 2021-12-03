@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ListIterator;
@@ -77,6 +78,10 @@ public class CalculatorController implements Initializable {
     private TableColumn columnValueVariables;
     @FXML
     private AnchorPane calculatorPane;
+    @FXML
+    private TableView tableVariables;
+    @FXML
+    private SplitPane splitPane;
 
 
     private void updatestackView(){
@@ -101,8 +106,12 @@ public class CalculatorController implements Initializable {
         initializeButtonsEvents();
         initializeEnterPressedOnTextField();
 
-
-
+        tableVariables.setColumnResizePolicy(new Callback<TableView.ResizeFeatures, Boolean>() {
+            @Override
+            public Boolean call(TableView.ResizeFeatures resizeFeatures) {
+                return false;
+            }
+        });
     }
 
     private void initializeEnterPressedOnTextField() {
