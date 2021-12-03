@@ -2,6 +2,7 @@ package it.unisa.se.calculator.model;
 
 
 import it.unisa.se.calculator.interfaces.Observable;
+import it.unisa.se.calculator.interfaces.Observer;
 
 import java.security.InvalidParameterException;
 import java.util.*;
@@ -13,7 +14,7 @@ import java.util.*;
 public class ComplexNumberStack extends Stack<ComplexNumber> implements Observable {
 
     private static ComplexNumberStack instance = null;
-    private List<StackObserver> stackObserver;
+    private List<Observer> stackObserver;
 
 
     /**
@@ -51,17 +52,17 @@ public class ComplexNumberStack extends Stack<ComplexNumber> implements Observab
         return operands.iterator();
     }
 
-    public void addListener(StackObserver observer) {
+    public void addListener(Observer observer) {
         stackObserver.add(observer);
     }
 
-    public void removeListener(StackObserver observer) {
+    public void removeListener(Observer observer) {
         stackObserver.remove(observer);
     }
 
 
     public void notifyObservers() {
-        for (StackObserver stackOb : stackObserver) {
+        for (Observer stackOb : stackObserver) {
             List<ComplexNumber> list =new ArrayList<>(this);
             Collections.reverse(list);
             stackOb.update(list);

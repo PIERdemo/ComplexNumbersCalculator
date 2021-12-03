@@ -1,6 +1,16 @@
 package it.unisa.se.calculator;
 
+import it.unisa.se.calculator.interfaces.Observer;
 import it.unisa.se.calculator.model.*;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.MapBinding;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +24,12 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
+
 public class CalculatorController implements Initializable {
 
     @FXML
@@ -28,25 +43,38 @@ public class CalculatorController implements Initializable {
     @FXML
     private VBox calculatorContainer;
     @FXML
-    private TableView tableVariables;
+    private TableView<Map.Entry<String,ComplexNumber>> tableVariables;
+    @FXML
+    private TableColumn<Map.Entry<String, ComplexNumber>, String> columnValueVariables;
+
+    @FXML
+    private TableColumn<Map.Entry<String, ComplexNumber>, String>columnNameVariables;
+
 
     private Calculator calculator = new Calculator();
-    //private VariablesMap variablesMap;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         ComplexNumberStack numberStack = calculator.getComplexNumberStack();
+        VariablesMap variablesMap = calculator.getVariablesMap();
+
         StackObserver stackObserver = new StackObserver();
         numberStack.addListener(stackObserver);
         columnElements.setCellValueFactory(new PropertyValueFactory<>("complexNumberString"));
         tableElements.setItems(stackObserver);
 
-        //variablesMap = calculator.getVariablesMap();
-        tableVariables.setColumnResizePolicy((Callback<TableView.ResizeFeatures, Boolean>) resizeFeatures -> false);
+
+        VariablesMapObserver variablesMapObserver= new VariablesMapObserver();
+        variablesMap.addListener(variablesMapObserver);
+        columnNameVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getKey()));
+        columnValueVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getValue().getComplexNumberString()));
+        tableVariables.setItems(variablesMapObserver);
+
+
 
         errorLabel.setVisible(false);
-
+        tableVariables.setColumnResizePolicy(resizeFeatures -> false);
         initializeButtonsEvents();
         initializeEnterPressedOnTextField();
 

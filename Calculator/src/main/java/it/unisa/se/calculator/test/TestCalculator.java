@@ -123,7 +123,7 @@ public class TestCalculator {
         numberStack.push(new ComplexNumber(3.0, 7.0));
         numberStack.push(new ComplexNumber(7.0, 3.0));
         calculator.inputDispatcher("-");
-        assertEquals(numberStack.pop(), new ComplexNumber(4.0, -4.0));
+        assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 4.0));
 
 
         numberStack.push(new ComplexNumber(3.0, 7.0));
