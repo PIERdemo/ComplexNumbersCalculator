@@ -16,7 +16,7 @@ public class DupOperation extends Operation {
      */
     @Override
     public void execute() {
-        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(1).forEachRemaining(operands::add);
         ComplexNumber lastElement = operands.get(0);

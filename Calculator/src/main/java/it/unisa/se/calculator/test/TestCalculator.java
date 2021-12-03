@@ -23,7 +23,7 @@ public class TestCalculator {
     @Before
     public void setUp(){
         calculator = new Calculator();
-        numberStack =ComplexNumberStack.getInstance();
+        numberStack = ComplexNumberStack.getInstance();
     }
 
     /**

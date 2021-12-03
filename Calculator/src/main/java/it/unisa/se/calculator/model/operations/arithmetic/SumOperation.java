@@ -4,11 +4,8 @@ import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * The class extends the class Operation.
@@ -21,12 +18,12 @@ public class SumOperation extends Operation {
      */
     @Override
     public void execute() {
-        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
+        ComplexNumberStack observableStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
-        complexNumberStack.getOperand(2).forEachRemaining(operands::add);
+        observableStack.getOperand(2).forEachRemaining(operands::add);
 
 
         ComplexNumber result = ComplexNumber.sum(operands.get(0),operands.get(1));
-        complexNumberStack.push(result);
+        observableStack.push(result);
     }
 }

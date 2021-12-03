@@ -58,6 +58,7 @@ public class OperationInvoker {
         if(operation == null)
             throw new NotSupportedOperationException("Operation "+stringOperation+" not found");
         operation.execute();
+
     }
 
     /**

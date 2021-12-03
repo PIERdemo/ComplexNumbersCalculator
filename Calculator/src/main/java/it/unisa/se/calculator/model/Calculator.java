@@ -16,8 +16,9 @@ public class Calculator {
     private OperationInvoker operationInvoker;
     private VariablesMap variablesMap;
 
+
     public Calculator() {
-        complexNumberStack = ComplexNumberStack.getInstance();
+        complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         operationInvoker = new OperationInvoker();
         variablesMap = new VariablesMap();
     }

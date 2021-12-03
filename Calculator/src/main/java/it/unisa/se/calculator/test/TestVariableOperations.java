@@ -4,7 +4,6 @@ import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
-import it.unisa.se.calculator.model.operations.arithmetic.DivideOperation;
 import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
 import it.unisa.se.calculator.model.operations.variable.IncrementVariableOperation;
 import org.junit.Before;
@@ -110,11 +109,11 @@ public class TestVariableOperations {
         ComplexNumber complexNumber1 = new ComplexNumber(3,-4);
         variablesMap.put("a",complexNumber);
         operationInvoker.execute("<a",variablesMap);
-        assertEquals(complexNumber,complexNumberStack.peek());
+        assertEquals(complexNumber, complexNumberStack.peek());
 
         variablesMap.put("b",complexNumber1);
         operationInvoker.execute("<b",variablesMap);
-        assertEquals(complexNumber1,complexNumberStack.peek());
+        assertEquals(complexNumber1, complexNumberStack.peek());
 
     }
 

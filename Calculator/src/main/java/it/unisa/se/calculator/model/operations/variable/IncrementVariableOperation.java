@@ -4,7 +4,6 @@ import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.Operation;
-import it.unisa.se.calculator.model.operations.arithmetic.SumOperation;
 
 /**
  * The class implements the interface Operation
@@ -21,7 +20,7 @@ public class IncrementVariableOperation extends Operation {
      */
     @Override
     public void  execute(VariablesMap variablesMap, String variable){
-        ComplexNumberStack complexNumberStack= ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         ComplexNumber complexNumberVariable = variablesMap.get(variable);
         ComplexNumber complexNumber = complexNumberStack.pop();
 

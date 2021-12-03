@@ -2,12 +2,9 @@ package it.unisa.se.calculator.model.operations.stack;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.Operation;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
 
 /**
@@ -21,7 +18,7 @@ public class SwapOperation extends Operation {
      */
     @Override
     public void execute() {
-        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 

@@ -13,7 +13,7 @@ public class ClearOperation extends Operation {
      */
     @Override
     public void execute() {
-        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         complexNumberStack.clear();
 
     }

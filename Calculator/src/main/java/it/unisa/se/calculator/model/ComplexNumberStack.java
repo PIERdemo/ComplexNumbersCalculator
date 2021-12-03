@@ -1,19 +1,20 @@
 package it.unisa.se.calculator.model;
 
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
+import it.unisa.se.calculator.interfaces.Observable;
 
 import java.security.InvalidParameterException;
 import java.util.*;
-import java.util.function.Consumer;
 
 /**
  * The class extends the {@link java.util.Stack} class .
  * Provides an implementation of a ComplexNumbers stack.
  */
-public class ComplexNumberStack extends Stack<ComplexNumber>{
+public class ComplexNumberStack extends Stack<ComplexNumber> implements Observable {
+
     private static ComplexNumberStack instance = null;
+    private List<StackObserver> stackObserver;
+
 
     /**
      * This method provide an instance of a ComplexNumberStack.
@@ -24,27 +25,11 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
         return instance;
     }
 
-    /**
-     * Constructor of a complex number.
-     *
-     * @param k specifies the int value which will be the length of the list of return values
-     * @return a list of the last k elements(ComplexNumber) of the stack
-     */
-    public List<ComplexNumber> topKElements(int k) {
-
-        List<ComplexNumber> renderedComplexNumbers = new ArrayList<>();
-        while (k != 0 && !empty()) {
-            renderedComplexNumbers.add(pop());
-            k--;
-        }
-        for (int i = renderedComplexNumbers.size(); i > 0; i--) {
-            push(renderedComplexNumbers.get(i - 1));
-        }
-        Collections.reverse(renderedComplexNumbers);
-        return renderedComplexNumbers;
-
-
+    public ComplexNumberStack() {
+        this.stackObserver = new ArrayList<>();
     }
+
+
 
     /**
      * This method provides a secure implementation of massive pop of operandNumber operands from the stack
@@ -66,4 +51,39 @@ public class ComplexNumberStack extends Stack<ComplexNumber>{
         return operands.iterator();
     }
 
+    public void addListener(StackObserver observer) {
+        stackObserver.add(observer);
+    }
+
+    public void removeListener(StackObserver observer) {
+        stackObserver.remove(observer);
+    }
+
+
+    public void notifyObservers() {
+        for (StackObserver stackOb : stackObserver) {
+            List<ComplexNumber> list =new ArrayList<>(this);
+            Collections.reverse(list);
+            stackOb.update(list);
+        }
+    }
+
+
+    @Override
+    public ComplexNumber push(ComplexNumber item) {
+        super.push(item);
+        notifyObservers();
+        return item;
+    }
+    @Override
+    public ComplexNumber pop() {
+        ComplexNumber item =super.pop();
+        notifyObservers();
+        return item;
+    }
+    @Override
+    public void clear() {
+        super.clear();
+        notifyObservers();
+    }
 }

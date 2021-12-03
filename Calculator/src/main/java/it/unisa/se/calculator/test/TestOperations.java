@@ -32,7 +32,7 @@ public class TestOperations {
     @Before
     public void setUp() {
         operationInvoker = new OperationInvoker();
-        numberStack = ComplexNumberStack.getInstance();
+        numberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
     }
 
 

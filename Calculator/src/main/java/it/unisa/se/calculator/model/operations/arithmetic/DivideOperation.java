@@ -6,7 +6,6 @@ import it.unisa.se.calculator.model.operations.Operation;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
 
 /**
