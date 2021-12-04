@@ -11,9 +11,10 @@ import java.util.List;
 
 
 /**
- * a Map containing 26 variables identified by a letter of the alphabet (a-z).
- * Each String variable is associated with a CompleNumber.
- * The class extend HashMap class {@link HashMap}
+ * A Map containing 26 variables identified by a letter of the alphabet (a-z).
+ * Each String variable will be associated with a ComplexNumber. The class also provides
+ * a list of Observers to notify of any changes within the VariablesMap.
+ * The class extend {@link HashMap} class and implements {@link Observable} class.
  */
 public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable {
     private List<Observer> stackObserver;

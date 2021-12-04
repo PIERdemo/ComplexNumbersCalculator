@@ -7,8 +7,9 @@ import it.unisa.se.calculator.model.operations.OperationInvoker;
  * It analyses the input and if it is a number, it is saved onto the stack, if it is
  * an operation it is executed, otherwise an error occurs.
  * <p>
- * The class has the stack of complex numbers, which stores the operands and
- * an object OperationInvoker which allows the invocation of operations.
+ * The class has the stack of complex numbers, which stores the operands,
+ * an object OperationInvoker which allows the invocation of operations and
+ * a VariablesMap object which allows the creation of a map of variables.
  */
 public class Calculator {
 
@@ -17,6 +18,12 @@ public class Calculator {
     private VariablesMap variablesMap;
 
 
+    /**
+     * The following constructor initialises the variables that will be used
+     * to manage and address the values.
+     * The class has an instance of complex numbers stack,
+     * an object OperationInvoker and a VariablesMap object.
+     */
     public Calculator() {
         complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         operationInvoker = new OperationInvoker();
