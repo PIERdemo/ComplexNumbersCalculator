@@ -21,7 +21,14 @@ public class CalculatorApplication extends Application {
         stage.setResizable(false);
         stage.show();
         Label errorLabel = (Label) scene.lookup("#errorLabel");
-        Thread.setDefaultUncaughtExceptionHandler((t, e) -> errorLabel.setVisible(true));
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            String errorString = e.getCause().getCause().getMessage();
+            if (errorString == null)
+                errorString = "Stack is empty";
+
+            //errorLabel.setText(errorString);
+            errorLabel.setVisible(true);
+        });
     }
 
 

@@ -15,4 +15,5 @@ module it.unisa.se.calculator {
     exports it.unisa.se.calculator.model;
     exports it.unisa.se.calculator.exception;
     exports it.unisa.se.calculator.interfaces;
+    exports it.unisa.se.calculator.model.operations;
 }

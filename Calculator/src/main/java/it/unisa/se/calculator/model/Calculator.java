@@ -2,6 +2,7 @@ package it.unisa.se.calculator.model;
 
 import it.unisa.se.calculator.model.operations.Operation;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
+import it.unisa.se.calculator.model.operations.OperationMap;
 
 import java.util.Map;
 
@@ -52,6 +53,7 @@ public class Calculator {
             operationInvoker.execute(s.replaceAll("\\s+", ""));
 
     }
+
 
     public ComplexNumberStack getComplexNumberStack() {
         return complexNumberStack;
@@ -113,6 +115,9 @@ public class Calculator {
         String[] numbers = s.split("[\\+|\\-]");
         complexNumberStack.push(new ComplexNumber(realSign * Double.parseDouble(numbers[1]), imaginarySign * Double.parseDouble(numbers[2])));
     }
+
+
+
 
 
 }

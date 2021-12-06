@@ -1,6 +1,5 @@
-package it.unisa.se.calculator.model;
+package it.unisa.se.calculator.model.operations;
 
-import it.unisa.se.calculator.model.operations.Operation;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
 import it.unisa.se.calculator.model.operations.stack.*;
 import it.unisa.se.calculator.model.operations.variable.*;
@@ -22,7 +21,7 @@ public class OperationMap extends HashMap<String, Operation> {
         put("drop", new DropOperation());
         put("dup", new DupOperation());
         put("swap", new SwapOperation());
-        //
+        //varaibles operations
         for(char  ch='a'; ch<='z';ch++){
             put("<"+ch, new LoadVariableOperation());
             put(">"+ch, new SaveVariableOperation());

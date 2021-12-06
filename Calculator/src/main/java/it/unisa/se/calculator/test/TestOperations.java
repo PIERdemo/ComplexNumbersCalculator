@@ -3,7 +3,7 @@ package it.unisa.se.calculator.test;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.OperationMap;
+import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
 import it.unisa.se.calculator.model.operations.stack.*;
