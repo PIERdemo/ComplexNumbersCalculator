@@ -12,21 +12,26 @@ import static it.unisa.se.calculator.model.ComplexNumber.*;
  * top element from the stack and subtract it to the value of a variable
  * */
 public class DecrementVariableOperation extends Operation {
+    private  String character;
+    private VariablesMap variablesMap;
+
+    public DecrementVariableOperation(char character, VariablesMap variablesMap) {
+        this.character = String.valueOf(character);
+        this.variablesMap = variablesMap;
+    }
 
     /**
      * The function execute is used to take the
      * top element from the stack and subtract it to the value of a variable
-     * @param variablesMap a Map containing all occurrences of previously saved variables
-     * @param variable a String containing the variable to be modified
      */
 
     @Override
-    public void execute(VariablesMap variablesMap, String variable) {
+    public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber valueNumber = variablesMap.get(variable);
+        ComplexNumber valueNumber = variablesMap.get(character);
         ComplexNumber topStackNumber = complexNumberStack.pop();
 
         ComplexNumber result = subtract(valueNumber,topStackNumber);
-        variablesMap.put(variable,result);
+        variablesMap.put(character,result);
     }
 }

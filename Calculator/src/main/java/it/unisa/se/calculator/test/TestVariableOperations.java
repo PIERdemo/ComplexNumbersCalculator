@@ -2,17 +2,15 @@ package it.unisa.se.calculator.test;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
+import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
 import it.unisa.se.calculator.model.operations.variable.IncrementVariableOperation;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-
-
 /**
  * Test
  * Defines tests to verify the correct functioning of instaces of Operation class
@@ -30,9 +28,11 @@ public class TestVariableOperations {
      */
     @Before
     public void setUp() {
-        variablesMap = new VariablesMap();
+
         complexNumberStack = ComplexNumberStack.getInstance();
-        operationInvoker = new OperationInvoker(OperationMap.getInstance());
+        OperationMap operationMap = OperationMap.getInstance(new VariablesMap());
+        variablesMap = operationMap.getVariablesMap();
+        operationInvoker = new OperationInvoker(operationMap);
 
     }
 
@@ -48,22 +48,26 @@ public class TestVariableOperations {
 
         variablesMap.put("a",new ComplexNumber(7,7));
         complexNumberStack.push(new ComplexNumber(3,3));
-        operationInvoker.execute("+a",variablesMap);
-        assertEquals(variablesMap.get("a"), new ComplexNumber(10, 10));
+        //operationInvoker.execute("+a",variablesMap);
+        operationInvoker.execute("+a");
+        assertEquals(new ComplexNumber(10, 10),variablesMap.get("a"));
 
         variablesMap.put("c",new ComplexNumber(-7,7));
         complexNumberStack.push(new ComplexNumber(3,-3));
-        operationInvoker.execute("+c",variablesMap);
+        //operationInvoker.execute("+c",variablesMap);
+        operationInvoker.execute("+c");
         assertEquals(variablesMap.get("c"), new ComplexNumber(-4, 4));
 
         variablesMap.put("q",new ComplexNumber(0,0));
         complexNumberStack.push(new ComplexNumber(0,0));
-        operationInvoker.execute("+q",variablesMap);
+        //operationInvoker.execute("+q",variablesMap);
+        operationInvoker.execute("+q");
         assertEquals(variablesMap.get("q"), new ComplexNumber(0, 0));
 
         variablesMap.put("z",new ComplexNumber(0,-7));
         complexNumberStack.push(new ComplexNumber(3,-3));
-        operationInvoker.execute("+z",variablesMap);
+        //operationInvoker.execute("+z",variablesMap);
+        operationInvoker.execute("+z");
         assertEquals(variablesMap.get("z"), new ComplexNumber(3, -10));
 
     }
@@ -80,25 +84,31 @@ public class TestVariableOperations {
 
         variablesMap.put("a",new ComplexNumber(7,7));
         complexNumberStack.push(new ComplexNumber(3,3));
-        operationInvoker.execute("-a",variablesMap);
+       // operationInvoker.execute("-a",variablesMap);
+        operationInvoker.execute("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(4, 4));
 
         variablesMap.put("a",new ComplexNumber(-7,7));
         complexNumberStack.push(new ComplexNumber(3,-3));
-        operationInvoker.execute("-a",variablesMap);
+        //operationInvoker.execute("-a",variablesMap);
+        operationInvoker.execute("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(-10, 10));
 
         variablesMap.put("a",new ComplexNumber(0,0));
         complexNumberStack.push(new ComplexNumber(0,0));
-        operationInvoker.execute("-a",variablesMap);
+        //operationInvoker.execute("-a",variablesMap);
+        operationInvoker.execute("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(0, 0));
 
         variablesMap.put("a",new ComplexNumber(0,-7));
         complexNumberStack.push(new ComplexNumber(3,-3));
-        operationInvoker.execute("-a",variablesMap);
+        //operationInvoker.execute("-a",variablesMap);
+        operationInvoker.execute("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(-3, -4));
 
     }
+
+
     /**
      * Provides a test capable of checking that execute method of the LoadVariableOperation class works correctly.
      * In particular, this method tests some put operations of variables into the stack
@@ -106,14 +116,17 @@ public class TestVariableOperations {
      */
     @Test
     public void testLoadVariable(){
+        complexNumberStack.clear();
         ComplexNumber complexNumber = new ComplexNumber(1,2);
         ComplexNumber complexNumber1 = new ComplexNumber(3,-4);
         variablesMap.put("a",complexNumber);
-        operationInvoker.execute("<a",variablesMap);
+        //operationInvoker.execute("<a",variablesMap);
+        operationInvoker.execute("<a");
         assertEquals(complexNumber, complexNumberStack.peek());
 
         variablesMap.put("b",complexNumber1);
-        operationInvoker.execute("<b",variablesMap);
+        //operationInvoker.execute("<b",variablesMap);
+        operationInvoker.execute("<b");
         assertEquals(complexNumber1, complexNumberStack.peek());
 
     }
@@ -125,15 +138,18 @@ public class TestVariableOperations {
      */
     @Test
     public void testSaveVariable(){
+        complexNumberStack.clear();
         ComplexNumber complexNumber = new ComplexNumber(1,2);
         ComplexNumber complexNumber1 = new ComplexNumber(3,-4);
 
         complexNumberStack.push(complexNumber);
-        operationInvoker.execute(">a",variablesMap);
+        //operationInvoker.execute(">a",variablesMap);
+        operationInvoker.execute(">a");
         assertEquals(variablesMap.get("a"),complexNumber);
 
         complexNumberStack.push(complexNumber1);
-        operationInvoker.execute(">b",variablesMap);
+        //operationInvoker.execute(">b",variablesMap);
+        operationInvoker.execute(">b");
         assertEquals(variablesMap.get("b"),complexNumber1);
 
     }

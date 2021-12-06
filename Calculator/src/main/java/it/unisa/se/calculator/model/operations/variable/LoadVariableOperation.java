@@ -11,16 +11,21 @@ import it.unisa.se.calculator.model.operations.Operation;
  * */
 
 public class LoadVariableOperation extends Operation {
+    private String character;
+    private VariablesMap variablesMap;
+
+    public LoadVariableOperation(char character, VariablesMap variablesMap) {
+        this.character = String.valueOf(character);
+        this.variablesMap = variablesMap;
+    }
 
     /**
-     * The function execute is used to get a complexNumber relative to a variable and insert it into the stack
-     * @param variablesMap the map of all variables from a to z
-     * @param variable the variable whose value is taken
+     * The function execute is used to get a complexNumber relative to a variable and insert it into the stack.
      */
     @Override
-    public void execute(VariablesMap variablesMap, String variable) {
+    public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
-        ComplexNumber complexNumber = variablesMap.get(variable);
+        ComplexNumber complexNumber = variablesMap.get(character);
         complexNumberStack.push(complexNumber);
     }
 

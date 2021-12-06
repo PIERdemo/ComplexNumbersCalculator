@@ -1,7 +1,6 @@
 package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
-import it.unisa.se.calculator.model.VariablesMap;
 
 import java.util.Map;
 /**
@@ -43,13 +42,13 @@ public class OperationInvoker {
      *
      * @param stringOperation the string representing the operation inserted and that has to be executed.
      * @param variablesMap a Map containing all occurrences of previously saved variables
-     */
-    public void execute(String stringOperation, VariablesMap variablesMap) {
 
+    public void execute(String stringOperation, VariablesMap variablesMap) {
         String variable = "" + stringOperation.charAt(stringOperation.length()-1);
 
         Operation operation= operationMap.get(stringOperation);
         operation.execute(variablesMap,variable);
 
-    }
+    } */
+
 }

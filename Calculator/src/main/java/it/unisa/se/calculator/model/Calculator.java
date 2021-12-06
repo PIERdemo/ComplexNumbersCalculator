@@ -19,9 +19,8 @@ public class Calculator {
 
     private ComplexNumberStack complexNumberStack;
     private OperationInvoker operationInvoker;
-    private VariablesMap variablesMap;
     private Map<String, Operation> operationMap;
-
+    private VariablesMap variablesMap;
 
 
     /**
@@ -31,11 +30,10 @@ public class Calculator {
      * an object OperationInvoker and a VariablesMap object.
      */
     public Calculator() {
-        operationMap = OperationMap.getInstance();
+        variablesMap = new VariablesMap();
+        operationMap = OperationMap.getInstance(variablesMap);
         complexNumberStack = ComplexNumberStack.getInstance();
         operationInvoker = new OperationInvoker(operationMap);
-        variablesMap = new VariablesMap();
-
     }
 
     /**
@@ -45,12 +43,13 @@ public class Calculator {
      * @param s incoming string that has to be analyzed
      */
     public void inputDispatcher(String s) {
-
-        String formattedNumber = getFormattedNumber(s);
-        if (formattedNumber != null)
-            saveNumber(formattedNumber);
+        //check if the value is a proper complex number. If so the number is stored into the stack.
+        ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(s);
+        if (complexNumber != null)
+            complexNumberStack.push(complexNumber);
+/*
         else if (s.matches("[<|>|+|\\-][a-z]"))
-            operationInvoker.execute(s, variablesMap);
+            operationInvoker.execute(s, variablesMap);*/
         else
             operationInvoker.execute(s);
 
@@ -64,62 +63,4 @@ public class Calculator {
     public VariablesMap getVariablesMap() {
         return variablesMap;
     }
-
-    /**
-     * The method is invoked to check if the string in input is a representation of a number.
-     * If so, the string is adjusted according to a specific format +/-XX.XX+/-XX.XXj.
-     * Otherwise, a null string is returned.
-     *
-     * @param s string that has to be analyzed
-     * @return a formatted string if s is a number, otherwise null.
-     */
-    private String getFormattedNumber(String s) {
-        String onlyReal = "^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$";
-        String onlyImaginary = "[\\+|\\-|\\s]?((([0-9]*).([0-9]+))|([0-9]+))[ij]";
-        String fullComplexNumber = "[\\+\\- ]?((([0-9]*).([0-9]+))|([0-9]+))[ ]?[\\+\\-]((([0-9]*).([0-9]+))|([0-9]+))[ij]";
-
-        if (s.matches(fullComplexNumber))
-            return s;
-        else if (s.matches(onlyReal))
-            return s + "+0j";
-        else if (s.matches(onlyImaginary)) {
-            s = ((s.charAt(0) + "").matches("[0-9]")) ? ("+" + s) : s;
-            return "+0" + s;
-        }
-        return null;
-    }
-
-    /**
-     * The method allows the storage of a number expressed as a string into the stack of operands.
-     * The string in input is read as a complex number, and then it is saved.
-     *
-     * @param s string representing a complex number
-     */
-
-    private void saveNumber(String s) {
-        if (s.charAt(0) != '-' && s.charAt(0) != '+')
-            s = "+" + s;
-        int realSign = 1, imaginarySign = 1;
-
-        if (s.matches(".*-.*-.*")) {
-            realSign = -1;
-            imaginarySign = -1;
-        } else {
-            int minusPosition = s.indexOf("-");
-            if (minusPosition != -1) {
-                if (minusPosition == 0)
-                    realSign = -1;
-                else
-                    imaginarySign = -1;
-            }
-        }
-        s = s.replaceAll("j", "");
-        String[] numbers = s.split("[\\+|\\-]");
-        complexNumberStack.push(new ComplexNumber(realSign * Double.parseDouble(numbers[1]), imaginarySign * Double.parseDouble(numbers[2])));
-    }
-
-
-
-
-
 }

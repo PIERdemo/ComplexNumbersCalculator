@@ -3,6 +3,7 @@ package it.unisa.se.calculator.test;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
@@ -24,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class TestOperations {
     private OperationInvoker operationInvoker;
     private ComplexNumberStack numberStack;
+    private VariablesMap variablesMap;
 
 
     /**
@@ -32,7 +34,8 @@ public class TestOperations {
      */
     @Before
     public void setUp() {
-        operationInvoker = new OperationInvoker(OperationMap.getInstance());
+        variablesMap =  new VariablesMap();
+        operationInvoker = new OperationInvoker(OperationMap.getInstance(variablesMap));
         numberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
     }
 
