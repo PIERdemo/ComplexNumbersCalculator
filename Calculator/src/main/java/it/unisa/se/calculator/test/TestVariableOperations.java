@@ -2,6 +2,7 @@ package it.unisa.se.calculator.test;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.OperationMap;
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
@@ -31,7 +32,7 @@ public class TestVariableOperations {
     public void setUp() {
         variablesMap = new VariablesMap();
         complexNumberStack = ComplexNumberStack.getInstance();
-        operationInvoker = new OperationInvoker();
+        operationInvoker = new OperationInvoker(OperationMap.getInstance());
 
     }
 

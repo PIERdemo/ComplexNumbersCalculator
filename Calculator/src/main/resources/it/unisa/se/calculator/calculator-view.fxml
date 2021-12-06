@@ -2,10 +2,11 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="calculatorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.calculator.CalculatorController">
+<AnchorPane fx:id="calculatorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="666.0" stylesheets="@calculator.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.se.calculator.CalculatorController">
    <children>
       <SplitPane fx:id="splitPane" dividerPositions="0.46987951807228917" prefHeight="492.0" prefWidth="620.0" style="-fx-background-color: #1c1c1c;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -92,7 +93,7 @@
                                     <Font name="System Bold" size="11.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="dupButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDupButtonClick" prefHeight="32.0" prefWidth="50.0" style="-fx-background-color: #ff9500; -fx-background-radius: 10px;" text="Dup" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Button fx:id="dupButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDupButtonClick" prefHeight="32.0" prefWidth="50.0" style="-fx-background-radius: 10px; -fx-background-color: #ff9500;" text="Dup" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="System Bold" size="11.0" />
                                  </font>
@@ -161,7 +162,7 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab text="Variables">
+                              <Tab fx:id="VariablesTab" style="tab-header-background: transparent;" text="Variables">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -179,6 +180,9 @@
                                  </content>
                               </Tab>
                            </tabs>
+                           <effect>
+                              <ColorAdjust />
+                           </effect>
                         </TabPane>
                      </children>
                      <padding>

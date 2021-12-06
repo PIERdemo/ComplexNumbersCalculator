@@ -1,3 +1,7 @@
-
-
+#TabPane{
+    --fxbackground-color: black;
+}
+.tab-pane *.tab-header-background{
+    --fxbackground-color: transparent;
+}
 

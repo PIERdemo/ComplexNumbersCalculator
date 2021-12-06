@@ -1,6 +1,9 @@
 package it.unisa.se.calculator.model;
 
+import it.unisa.se.calculator.model.operations.Operation;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
+
+import java.util.Map;
 
 /**
  * The class calculator provides an implementation of calculator's logic.
@@ -16,6 +19,7 @@ public class Calculator {
     private ComplexNumberStack complexNumberStack;
     private OperationInvoker operationInvoker;
     private VariablesMap variablesMap;
+    private Map<String, Operation> operationMap;
 
 
     /**
@@ -25,8 +29,9 @@ public class Calculator {
      * an object OperationInvoker and a VariablesMap object.
      */
     public Calculator() {
-        complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
-        operationInvoker = new OperationInvoker();
+        operationMap = OperationMap.getInstance();
+        complexNumberStack = ComplexNumberStack.getInstance();
+        operationInvoker = new OperationInvoker(operationMap);
         variablesMap = new VariablesMap();
     }
 

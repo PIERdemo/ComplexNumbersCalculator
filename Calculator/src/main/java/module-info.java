@@ -6,6 +6,7 @@ module it.unisa.se.calculator {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires junit;
+    requires org.apache.commons.lang3;
 
 
     opens it.unisa.se.calculator to javafx.graphics, javafx.fxml, javafx.base;
