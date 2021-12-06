@@ -49,7 +49,8 @@ public class Calculator {
             complexNumberStack.push(complexNumber);
 /*
         else if (s.matches("[<|>|+|\\-][a-z]"))
-            operationInvoker.execute(s, variablesMap);*/
+            operationInvoker.execute(s, variablesMap);
+*/
         else
             operationInvoker.execute(s);
 
