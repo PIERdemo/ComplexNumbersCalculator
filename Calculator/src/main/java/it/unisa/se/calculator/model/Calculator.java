@@ -23,6 +23,7 @@ public class Calculator {
     private Map<String, Operation> operationMap;
 
 
+
     /**
      * The following constructor initialises the variables that will be used
      * to manage and address the values.
@@ -34,6 +35,7 @@ public class Calculator {
         complexNumberStack = ComplexNumberStack.getInstance();
         operationInvoker = new OperationInvoker(operationMap);
         variablesMap = new VariablesMap();
+
     }
 
     /**
@@ -50,7 +52,7 @@ public class Calculator {
         else if (s.matches("[<|>|+|\\-][a-z]"))
             operationInvoker.execute(s, variablesMap);
         else
-            operationInvoker.execute(s.replaceAll("\\s+", ""));
+            operationInvoker.execute(s);
 
     }
 

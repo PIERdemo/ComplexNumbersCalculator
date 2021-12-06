@@ -30,12 +30,12 @@ public class CalculatorController implements Initializable {
     @FXML
     private VBox calculatorContainer;
     @FXML
-    private TableView<Map.Entry<String,ComplexNumber>> tableVariables;
+    private TableView<Map.Entry<String, ComplexNumber>> tableVariables;
     @FXML
     private TableColumn<Map.Entry<String, ComplexNumber>, String> columnValueVariables;
 
     @FXML
-    private TableColumn<Map.Entry<String, ComplexNumber>, String>columnNameVariables;
+    private TableColumn<Map.Entry<String, ComplexNumber>, String> columnNameVariables;
 
 
     private Calculator calculator = new Calculator();
@@ -52,13 +52,11 @@ public class CalculatorController implements Initializable {
         tableElements.setItems(stackObserver);
 
 
-        VariablesMapObserver variablesMapObserver= new VariablesMapObserver();
+        VariablesMapObserver variablesMapObserver = new VariablesMapObserver();
         variablesMap.addListener(variablesMapObserver);
         columnNameVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getKey()));
         columnValueVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getValue().getComplexNumberString()));
         tableVariables.setItems(variablesMapObserver);
-
-
 
 
         errorLabel.setVisible(false);
@@ -74,7 +72,6 @@ public class CalculatorController implements Initializable {
                 calculator.inputDispatcher(operationField.getText());
                 errorLabel.setVisible(false);
                 operationField.setText("");
-                errorLabel.setVisible(false);
             }
         });
     }
@@ -86,18 +83,23 @@ public class CalculatorController implements Initializable {
                     if (node1 instanceof Button) {
                         node1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
                             errorLabel.setVisible(false);
+                            operationField.setText("");
                             operationField.requestFocus();
                         });
                     }
                 });
             }
-            if (node instanceof HBox) {
-                ((HBox) node).getChildren().forEach(node12 -> {
-                    if (node12 instanceof Button) {
-                        node12.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                            errorLabel.setVisible(false);
-                            operationField.setText("");
-                            operationField.requestFocus();
+            if (node instanceof VBox) {
+                ((VBox) node).getChildren().forEach(node13 -> {
+                    if (node13 instanceof HBox) {
+                        ((HBox) node13).getChildren().forEach(node12 -> {
+                            if (node12 instanceof Button) {
+                                node12.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                                    errorLabel.setVisible(false);
+                                    operationField.setText("");
+                                    operationField.requestFocus();
+                                });
+                            }
                         });
                     }
                 });
@@ -120,7 +122,8 @@ public class CalculatorController implements Initializable {
     @FXML
     public void onSubmitButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher(operationField.getText());
-
+        errorLabel.setVisible(false);
+        operationField.setText("");
     }
 
     @FXML
@@ -130,7 +133,7 @@ public class CalculatorController implements Initializable {
     }
 
     @FXML
-    public void onDivideButtonCLick(ActionEvent actionEvent) {
+    public void onDivideButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("/");
 
     }
@@ -178,9 +181,6 @@ public class CalculatorController implements Initializable {
 
     }
 
-    @FXML
-    public void onSubmitOperationButtonClick(ActionEvent actionEvent) {
 
-    }
 }
 

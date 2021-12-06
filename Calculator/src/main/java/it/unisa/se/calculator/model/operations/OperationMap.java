@@ -29,6 +29,7 @@ public class OperationMap extends HashMap<String, Operation> {
             put("-"+ch, new DecrementVariableOperation());
         }
 
+
     }
 
     public static OperationMap getInstance() {

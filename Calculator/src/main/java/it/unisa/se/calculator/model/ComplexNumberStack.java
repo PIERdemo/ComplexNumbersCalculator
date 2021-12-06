@@ -26,7 +26,7 @@ public class ComplexNumberStack extends Stack<ComplexNumber> implements Observab
         return instance;
     }
 
-    public ComplexNumberStack() {
+    private ComplexNumberStack() {
         this.stackObserver = new ArrayList<>();
     }
 

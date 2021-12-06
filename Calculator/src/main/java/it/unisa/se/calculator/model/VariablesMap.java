@@ -16,7 +16,7 @@ import java.util.List;
  * a list of Observers to notify of any changes within the VariablesMap.
  * The class extend {@link HashMap} class and implements {@link Observable} class.
  */
-public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable {
+public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable{
     private List<Observer> stackObserver;
 
     public VariablesMap() {
