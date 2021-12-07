@@ -8,6 +8,7 @@ import it.unisa.se.calculator.interfaces.Observer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -43,6 +44,11 @@ public class VariablesMap extends HashMap<String,ComplexNumber> implements Obser
         return complexNumber;
     }
 
+    @Override
+    public void putAll(Map<? extends String, ? extends ComplexNumber> m) {
+        super.putAll(m);
+        notifyObservers();
+    }
 
     @Override
     public void addListener(Observer observer) {

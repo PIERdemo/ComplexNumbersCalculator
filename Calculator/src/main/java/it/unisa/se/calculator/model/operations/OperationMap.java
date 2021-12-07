@@ -33,6 +33,8 @@ public class OperationMap extends HashMap<String, Operation> {
             put("+" + ch, new IncrementVariableOperation(ch, this.variablesMap));
             put("-" + ch, new DecrementVariableOperation(ch, this.variablesMap));
         }
+        put("save", new SaveVariablesOperation(this.variablesMap));
+        put("restore", new RestoreVariablesOperation(this.variablesMap));
     }
 
     public VariablesMap getVariablesMap() {
