@@ -43,19 +43,17 @@ public class Calculator {
      * @param s incoming string that has to be analyzed
      */
     public void inputDispatcher(String s) {
-        //check if the value is a proper complex number. If so the number is stored into the stack.
         ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(s);
         if (complexNumber != null)
             complexNumberStack.push(complexNumber);
-/*
-        else if (s.matches("[<|>|+|\\-][a-z]"))
-            operationInvoker.execute(s, variablesMap);
-*/
         else
             operationInvoker.execute(s);
 
     }
-
+    public void executeCustomOperation(String s){
+        for (String s1 : s.split("\\s+"))
+            inputDispatcher(s1);
+    }
 
     public ComplexNumberStack getComplexNumberStack() {
         return complexNumberStack;

@@ -1,6 +1,7 @@
 package it.unisa.se.calculator.model.operations.variable;
 
 import it.unisa.se.calculator.model.VariablesMap;
+import it.unisa.se.calculator.model.VariablesMapStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
 public class SaveVariablesOperation extends Operation {
@@ -13,7 +14,9 @@ public class SaveVariablesOperation extends Operation {
     @Override
     public void execute() {
         VariablesMap clonedVariablesMap = (VariablesMap) variablesMap.clone();
+        VariablesMapStack variablesMapStack = VariablesMapStack.getInstance();
 
-        clonedVariablesMap.forEach((s, complexNumber) -> System.out.println(s+" valore: "+complexNumber));
+        variablesMapStack.push(clonedVariablesMap);
+
     }
 }

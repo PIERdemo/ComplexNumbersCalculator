@@ -1,6 +1,8 @@
 package it.unisa.se.calculator;
 
 import it.unisa.se.calculator.model.*;
+import it.unisa.se.calculator.model.observers.StackObserver;
+import it.unisa.se.calculator.model.observers.VariablesMapObserver;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -2,8 +2,8 @@ package it.unisa.se.calculator.model;
 
 import it.unisa.se.calculator.exception.InvaidVariableNameException;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
-import it.unisa.se.calculator.interfaces.Observable;
-import it.unisa.se.calculator.interfaces.Observer;
+import it.unisa.se.calculator.model.observers.Observable;
+import it.unisa.se.calculator.model.observers.Observer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

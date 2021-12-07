@@ -1,4 +1,4 @@
-package it.unisa.se.calculator.interfaces;
+package it.unisa.se.calculator.model.observers;
 
 /**
  * The following interface is used to define methods for applying the Observer pattern.

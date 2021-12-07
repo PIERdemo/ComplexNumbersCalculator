@@ -1,8 +1,4 @@
-package it.unisa.se.calculator.interfaces;
-
-import it.unisa.se.calculator.model.StackObserver;
-
-import java.util.HashMap;
+package it.unisa.se.calculator.model.observers;
 
 /**
  * The following interface is used to define methods for applying the Observer pattern.
