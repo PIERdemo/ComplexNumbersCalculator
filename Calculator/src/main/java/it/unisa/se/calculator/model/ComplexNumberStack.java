@@ -1,6 +1,7 @@
 package it.unisa.se.calculator.model;
 
 
+import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.observers.Observable;
 import it.unisa.se.calculator.model.observers.Observer;
 
@@ -43,7 +44,7 @@ public class ComplexNumberStack extends Stack<ComplexNumber> implements Observab
         for (int i = 0; i < operandNumber; i++) {
             try {
                 operands.add(pop());
-            } catch (EmptyStackException e) {
+            } catch (RuntimeException e) {
                 Collections.reverse(operands);
                 operands.forEach(this::push);
                 throw new InvalidParameterException("There aren't enough operands into the stack");
@@ -78,7 +79,12 @@ public class ComplexNumberStack extends Stack<ComplexNumber> implements Observab
     }
     @Override
     public ComplexNumber pop() {
-        ComplexNumber item =super.pop();
+        ComplexNumber item;
+        try {
+            item = super.pop();
+        }catch (EmptyStackException e){
+            throw new NotSupportedOperationException("There must be at least an operand into the stack");
+        }
         notifyObservers();
         return item;
     }

@@ -72,7 +72,6 @@ public class CalculatorController implements Initializable {
         operationField.setOnKeyPressed(ke -> {
             if (ke.getCode().equals(KeyCode.ENTER)) {
                 calculator.inputDispatcher(operationField.getText());
-                errorLabel.setVisible(false);
                 operationField.setText("");
             }
         });
@@ -84,7 +83,7 @@ public class CalculatorController implements Initializable {
                 ((GridPane) node).getChildren().forEach(node1 -> {
                     if (node1 instanceof Button) {
                         node1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                            errorLabel.setVisible(false);
+
                             operationField.setText("");
                             operationField.requestFocus();
                         });
@@ -97,7 +96,7 @@ public class CalculatorController implements Initializable {
                         ((HBox) node13).getChildren().forEach(node12 -> {
                             if (node12 instanceof Button) {
                                 node12.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                                    errorLabel.setVisible(false);
+
                                     operationField.setText("");
                                     operationField.requestFocus();
                                 });

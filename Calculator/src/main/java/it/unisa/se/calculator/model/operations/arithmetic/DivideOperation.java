@@ -31,7 +31,7 @@ public class DivideOperation implements Operation {
         } catch (InvalidParameterException e) {
             complexNumberStack.push(operands.get(1));
             complexNumberStack.push(operands.get(0));
-            throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");
+            throw new InvalidParameterException("Undefined division, second operand must be different from 0+0j");
         }
     }
 }

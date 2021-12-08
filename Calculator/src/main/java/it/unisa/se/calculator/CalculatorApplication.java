@@ -3,7 +3,10 @@ package it.unisa.se.calculator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,8 +26,17 @@ public class CalculatorApplication extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        Label errorLabel = (Label) scene.lookup("#errorLabel");
-        Thread.setDefaultUncaughtExceptionHandler((t, e) -> errorLabel.setVisible(true));
+
+        Alert alert = new Alert(Alert.AlertType.ERROR, "", new ButtonType("Return back"));
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.setTitle("Error Occurred");
+            alert.setHeaderText("Error Occurred during the execution");
+
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            System.out.println(e.getCause().getCause().getMessage());
+            alert.setContentText(e.getCause().getCause().getMessage());
+            alert.showAndWait();
+        });
     }
 
 

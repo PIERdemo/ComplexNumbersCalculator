@@ -18,11 +18,11 @@ import java.util.Map;
  * The class extend {@link HashMap} class and implements {@link Observable} class.
  */
 public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable{
-    private List<Observer> stackObserver;
+    private List<Observer> observerList;
 
     public VariablesMap() {
         super();
-        stackObserver = new ArrayList<>();
+        observerList = new ArrayList<>();
     }
 
 
@@ -52,18 +52,18 @@ public class VariablesMap extends HashMap<String,ComplexNumber> implements Obser
 
     @Override
     public void addListener(Observer observer) {
-        stackObserver.add(observer);
+        observerList.add(observer);
     }
 
     @Override
     public void removeListener(Observer observer) {
-        stackObserver.remove(observer);
+        observerList.remove(observer);
     }
 
     @Override
     public void notifyObservers() {
         List<Entry<String, ComplexNumber>> entryList = this.entrySet().stream().sorted(Entry.comparingByKey()).toList();
-        for (Observer observer : stackObserver) {
+        for (Observer observer : observerList) {
             observer.update(entryList);
         }
     }

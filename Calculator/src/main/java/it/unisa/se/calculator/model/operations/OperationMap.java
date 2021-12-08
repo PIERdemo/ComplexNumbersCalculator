@@ -41,10 +41,17 @@ public class OperationMap extends HashMap<String, Operation> {
         return variablesMap;
     }
 
+    public void setVariablesMap(VariablesMap variablesMap) {
+        this.variablesMap = variablesMap;
+    }
 
     public static OperationMap getInstance(VariablesMap variablesMap) {
         if (instance == null)
             instance = new OperationMap(variablesMap);
+        instance.setVariablesMap(variablesMap);
         return instance;
     }
+
+
+
 }
