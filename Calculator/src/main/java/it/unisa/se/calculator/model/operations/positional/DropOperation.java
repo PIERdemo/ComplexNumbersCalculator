@@ -11,7 +11,6 @@ public class DropOperation implements Operation {
     /**
      * The function execute is used to calculate the drop of the top operand of the stack.
      */
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         complexNumberStack.pop();

@@ -15,7 +15,6 @@ public class OverOperation implements Operation {
      * The function execute is used to take the second to last element into the stack.
      * Then it pushes the element into the stack.
      */
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         Iterator<ComplexNumber> operands = complexNumberStack.getOperand(2);
