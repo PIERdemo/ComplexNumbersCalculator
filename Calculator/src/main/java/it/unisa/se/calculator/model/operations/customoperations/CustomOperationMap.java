@@ -17,9 +17,7 @@ public class CustomOperationMap extends HashMap<String, MutableTriple<String, Ar
         return instance;
     }
 
-    private CustomOperationMap() {
-
-    }
+    private CustomOperationMap() {}
 
     /**
      * method remove

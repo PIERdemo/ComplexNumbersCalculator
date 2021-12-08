@@ -11,8 +11,7 @@ import java.util.List;
 /**
  * The class extends the class Operation.
  * It provides a method to execute division.
- * */
-
+ */
 
 public class DivideOperation extends Operation {
     /**
@@ -27,9 +26,9 @@ public class DivideOperation extends Operation {
         ComplexNumber result;
 
         try {
-            result = ComplexNumber.divide(operands.get(0),operands.get(1));
+            result = ComplexNumber.divide(operands.get(0), operands.get(1));
             complexNumberStack.push(result);
-        }catch (InvalidParameterException e) {
+        } catch (InvalidParameterException e) {
             complexNumberStack.push(operands.get(1));
             complexNumberStack.push(operands.get(0));
             throw new InvalidParameterException("Undefined division, second operand must be different from 0+0i");

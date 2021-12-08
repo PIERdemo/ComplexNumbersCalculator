@@ -18,7 +18,7 @@ public class SubtractOperation extends Operation {
      */
     @Override
     public void execute() {
-        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 

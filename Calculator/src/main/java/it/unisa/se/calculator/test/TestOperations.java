@@ -7,7 +7,7 @@ import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
-import it.unisa.se.calculator.model.operations.stack.*;
+import it.unisa.se.calculator.model.operations.positional.*;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -2,7 +2,7 @@ package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
-import it.unisa.se.calculator.model.operations.stack.*;
+import it.unisa.se.calculator.model.operations.positional.*;
 import it.unisa.se.calculator.model.operations.variable.*;
 
 import java.util.HashMap;

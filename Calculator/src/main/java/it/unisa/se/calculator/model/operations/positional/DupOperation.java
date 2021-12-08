@@ -1,4 +1,4 @@
-package it.unisa.se.calculator.model.operations.stack;
+package it.unisa.se.calculator.model.operations.positional;
 
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
