@@ -40,14 +40,14 @@ public class Calculator {
      * The method allows verifying if the string in input is a number or an operation.
      * If the string is a number, the method save number is called, otherwise an operation is invoked.
      *
-     * @param s incoming string that has to be analyzed
+     * @param inputString incoming string that has to be analyzed
      */
-    public void inputDispatcher(String s) {
-        ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(s);
+    public void inputDispatcher(String inputString) {
+        ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(inputString);
         if (complexNumber != null)
             complexNumberStack.push(complexNumber);
         else
-            operationInvoker.execute(s);
+            operationInvoker.execute(inputString);
 
     }
 
