@@ -14,7 +14,6 @@ public class DupOperation implements Operation {
     /**
      * The function execute is used to insert a copy of the last element onto the stack.
      */
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
