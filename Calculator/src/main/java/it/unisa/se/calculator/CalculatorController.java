@@ -35,12 +35,15 @@ public class CalculatorController implements Initializable {
     private TableView<Map.Entry<String, ComplexNumber>> tableVariables;
     @FXML
     private TableColumn<Map.Entry<String, ComplexNumber>, String> columnValueVariables;
-
     @FXML
     private TableColumn<Map.Entry<String, ComplexNumber>, String> columnNameVariables;
-
+    @FXML
+    private Button submitButton;
 
     private Calculator calculator = new Calculator();
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,10 +72,9 @@ public class CalculatorController implements Initializable {
     }
 
     private void initializeEnterPressedOnTextField() {
-        operationField.setOnKeyPressed(ke -> {
-            if (ke.getCode().equals(KeyCode.ENTER)) {
-                calculator.inputDispatcher(operationField.getText());
-                operationField.setText("");
+        operationField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+                submitButton.fire();
             }
         });
     }
