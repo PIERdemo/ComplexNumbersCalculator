@@ -7,7 +7,7 @@ import it.unisa.se.calculator.model.operations.Operation;
  * The class extends the class Operation.
  * It provides a method to execute the storage of last stack element into the specified variable .
  */
-public class SaveVariableOperation extends Operation {
+public class SaveVariableOperation implements Operation {
     private String character;
     private VariablesMap variablesMap;
 

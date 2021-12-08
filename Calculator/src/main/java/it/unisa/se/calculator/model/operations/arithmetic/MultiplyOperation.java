@@ -11,7 +11,7 @@ import java.util.List;
  * The class implements the interface Operation
  * It provides a method to execute multiplication.
  */
-public class MultiplyOperation extends Operation {
+public class MultiplyOperation implements Operation {
     /**
      * The function execute is used to calculate the multiplication between the first two operands taken from the stack.
      * Then it pushes the result into the stack.

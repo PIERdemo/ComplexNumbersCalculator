@@ -4,7 +4,7 @@ import it.unisa.se.calculator.model.VariablesMap;
 import it.unisa.se.calculator.model.VariablesMapStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
-public class RestoreVariablesOperation extends Operation {
+public class RestoreVariablesOperation implements Operation {
     private VariablesMap variablesMap;
 
     public RestoreVariablesOperation(VariablesMap variablesMap) {

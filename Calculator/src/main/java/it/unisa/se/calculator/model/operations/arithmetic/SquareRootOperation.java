@@ -11,7 +11,7 @@ import java.util.List;
  * The class extends the class Operation.
  * It provides a method to execute Square root.
  * */
-public class SquareRootOperation extends Operation {
+public class SquareRootOperation implements Operation {
     /**
      * The function execute is used to calculate the square root on the first operand taken from the stack.
      * Then it pushes the result into the stack.

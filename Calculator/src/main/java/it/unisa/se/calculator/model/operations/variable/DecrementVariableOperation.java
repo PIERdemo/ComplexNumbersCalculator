@@ -11,7 +11,7 @@ import static it.unisa.se.calculator.model.ComplexNumber.*;
  * It provides a method that takes the
  * top element from the stack and subtract it to the value of a variable
  * */
-public class DecrementVariableOperation extends Operation {
+public class DecrementVariableOperation implements Operation {
     private  String character;
     private VariablesMap variablesMap;
 

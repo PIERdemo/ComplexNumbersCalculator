@@ -11,7 +11,7 @@ import java.util.List;
  * The class extends the class Operation.
  * It provides a method to execute sign inversion.
  * */
-public class SignInversionOperation extends Operation {
+public class SignInversionOperation implements Operation {
     /**
      * The function execute is used to calculate the sign inversion on the first operand taken from the stack.
      * Then it pushes the result into the stack.

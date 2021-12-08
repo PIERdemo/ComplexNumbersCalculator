@@ -10,7 +10,7 @@ import it.unisa.se.calculator.model.operations.Operation;
  * It provides a method to execute the load operation on the stack.
  * */
 
-public class LoadVariableOperation extends Operation {
+public class LoadVariableOperation implements Operation {
     private String character;
     private VariablesMap variablesMap;
 

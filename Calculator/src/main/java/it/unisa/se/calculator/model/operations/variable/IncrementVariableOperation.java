@@ -10,7 +10,7 @@ import it.unisa.se.calculator.model.operations.Operation;
  * It provides a method that takes the
  * top element from the stack and add it to the value of a variable
  * */
-public class IncrementVariableOperation extends Operation {
+public class IncrementVariableOperation implements Operation {
 private String character ;
 private VariablesMap variablesMap;
 

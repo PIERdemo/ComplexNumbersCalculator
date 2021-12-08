@@ -10,7 +10,7 @@ import java.util.List;
  * The class extends the class Operation.
  * It provides a method to execute an insertion onto the stack of a last stack element's copy.
  * */
-public class DupOperation extends Operation {
+public class DupOperation implements Operation {
     /**
      * The function execute is used to insert a copy of the last element onto the stack.
      */

@@ -50,10 +50,7 @@ public class Calculator {
             operationInvoker.execute(s);
 
     }
-    public void executeCustomOperation(String s){
-        for (String s1 : s.split("\\s+"))
-            inputDispatcher(s1);
-    }
+
 
     public ComplexNumberStack getComplexNumberStack() {
         return complexNumberStack;

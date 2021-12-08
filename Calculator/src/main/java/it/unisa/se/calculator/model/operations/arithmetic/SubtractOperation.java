@@ -11,7 +11,7 @@ import java.util.List;
  * The class extends the class Operation.
  * It provides a method to execute subtraction.
  * */
-public class SubtractOperation extends Operation {
+public class SubtractOperation implements Operation {
     /**
      * The function execute is used to calculate the subtraction between the first two operands taken from the stack.
      * Then it pushes the result into the stack.
