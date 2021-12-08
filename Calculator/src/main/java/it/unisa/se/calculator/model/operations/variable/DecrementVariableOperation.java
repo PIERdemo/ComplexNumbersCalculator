@@ -24,8 +24,6 @@ public class DecrementVariableOperation implements Operation {
      * The function execute is used to take the
      * top element from the stack and subtract it to the value of a variable
      */
-
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         ComplexNumber valueNumber = variablesMap.get(character);

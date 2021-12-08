@@ -23,7 +23,6 @@ private VariablesMap variablesMap;
      * The function execute is used to take the
      * top element from the stack and add it to the value of a variable
      */
-    @Override
     public void  execute(){
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         ComplexNumber complexNumberVariable = variablesMap.get(character);

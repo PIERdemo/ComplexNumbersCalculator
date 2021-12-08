@@ -20,7 +20,6 @@ public class SaveVariableOperation implements Operation {
      * This method allows the user to take the top value of the stack and store its value into the variable.
      * The value taken will be popped out of the stack.
      */
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         ComplexNumber variableValue = complexNumberStack.pop();

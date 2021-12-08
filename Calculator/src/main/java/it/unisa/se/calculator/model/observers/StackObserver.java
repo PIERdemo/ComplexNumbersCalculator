@@ -20,6 +20,10 @@ public class StackObserver extends SimpleListProperty<ComplexNumber> implements 
         super(FXCollections.observableArrayList());
     }
 
+    /**
+     * The method provides an implementation of the update of list's content.
+     * @param o an object passed that has to be set as the new content of the observer.
+     */
     @Override
     public void update(Object o) {
         List<ComplexNumber> list = (List<ComplexNumber>) o;

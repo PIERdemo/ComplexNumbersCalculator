@@ -10,7 +10,10 @@ public class RestoreVariablesOperation implements Operation {
     public RestoreVariablesOperation(VariablesMap variablesMap) {
         this.variablesMap = variablesMap;
     }
-    @Override
+
+    /**
+     * The method executes the restore of the last variable copy.
+     */
     public void execute() {
         VariablesMapStack variablesMapStack = VariablesMapStack.getInstance();
         variablesMap.clear();

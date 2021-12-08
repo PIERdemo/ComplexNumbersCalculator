@@ -22,7 +22,6 @@ public class LoadVariableOperation implements Operation {
     /**
      * The function execute is used to get a complexNumber relative to a variable and insert it into the stack.
      */
-    @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         ComplexNumber complexNumber = variablesMap.get(character);

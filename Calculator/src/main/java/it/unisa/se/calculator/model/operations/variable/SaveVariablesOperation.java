@@ -11,7 +11,9 @@ public class SaveVariablesOperation implements Operation {
         this.variablesMap = variablesMap;
     }
 
-    @Override
+    /**
+     * The method executes the load into a memory of a copy of the last variable's values.
+     */
     public void execute() {
         VariablesMap clonedVariablesMap = (VariablesMap) variablesMap.clone();
         VariablesMapStack variablesMapStack = VariablesMapStack.getInstance();

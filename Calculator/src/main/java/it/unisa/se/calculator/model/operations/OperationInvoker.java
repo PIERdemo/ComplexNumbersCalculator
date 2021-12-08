@@ -26,7 +26,6 @@ public class OperationInvoker {
      *
      * @param stringOperation the string representing the operation inserted and that has to be executed.
      */
-
     public void execute(String stringOperation){
         Operation operation= operationMap.get(stringOperation);
         if(operation == null)
