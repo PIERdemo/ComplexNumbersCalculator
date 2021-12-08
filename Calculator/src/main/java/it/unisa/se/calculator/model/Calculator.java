@@ -43,12 +43,7 @@ public class Calculator {
      * @param inputString incoming string that has to be analyzed
      */
     public void inputDispatcher(String inputString) {
-        ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(inputString);
-        if (complexNumber != null)
-            complexNumberStack.push(complexNumber);
-        else
-            operationInvoker.execute(inputString);
-
+        operationInvoker.resolve(inputString);
     }
 
 

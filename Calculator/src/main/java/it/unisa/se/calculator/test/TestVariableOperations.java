@@ -49,25 +49,25 @@ public class TestVariableOperations {
         variablesMap.put("a",new ComplexNumber(7,7));
         complexNumberStack.push(new ComplexNumber(3,3));
         //operationInvoker.execute("+a",variablesMap);
-        operationInvoker.execute("+a");
+        operationInvoker.executeOperation("+a");
         assertEquals(new ComplexNumber(10, 10),variablesMap.get("a"));
 
         variablesMap.put("c",new ComplexNumber(-7,7));
         complexNumberStack.push(new ComplexNumber(3,-3));
         //operationInvoker.execute("+c",variablesMap);
-        operationInvoker.execute("+c");
+        operationInvoker.executeOperation("+c");
         assertEquals(variablesMap.get("c"), new ComplexNumber(-4, 4));
 
         variablesMap.put("q",new ComplexNumber(0,0));
         complexNumberStack.push(new ComplexNumber(0,0));
         //operationInvoker.execute("+q",variablesMap);
-        operationInvoker.execute("+q");
+        operationInvoker.executeOperation("+q");
         assertEquals(variablesMap.get("q"), new ComplexNumber(0, 0));
 
         variablesMap.put("z",new ComplexNumber(0,-7));
         complexNumberStack.push(new ComplexNumber(3,-3));
         //operationInvoker.execute("+z",variablesMap);
-        operationInvoker.execute("+z");
+        operationInvoker.executeOperation("+z");
         assertEquals(variablesMap.get("z"), new ComplexNumber(3, -10));
 
     }
@@ -85,25 +85,25 @@ public class TestVariableOperations {
         variablesMap.put("a",new ComplexNumber(7,7));
         complexNumberStack.push(new ComplexNumber(3,3));
        // operationInvoker.execute("-a",variablesMap);
-        operationInvoker.execute("-a");
+        operationInvoker.executeOperation("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(4, 4));
 
         variablesMap.put("a",new ComplexNumber(-7,7));
         complexNumberStack.push(new ComplexNumber(3,-3));
         //operationInvoker.execute("-a",variablesMap);
-        operationInvoker.execute("-a");
+        operationInvoker.executeOperation("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(-10, 10));
 
         variablesMap.put("a",new ComplexNumber(0,0));
         complexNumberStack.push(new ComplexNumber(0,0));
         //operationInvoker.execute("-a",variablesMap);
-        operationInvoker.execute("-a");
+        operationInvoker.executeOperation("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(0, 0));
 
         variablesMap.put("a",new ComplexNumber(0,-7));
         complexNumberStack.push(new ComplexNumber(3,-3));
         //operationInvoker.execute("-a",variablesMap);
-        operationInvoker.execute("-a");
+        operationInvoker.executeOperation("-a");
         assertEquals(variablesMap.get("a"), new ComplexNumber(-3, -4));
 
     }
@@ -121,12 +121,12 @@ public class TestVariableOperations {
         ComplexNumber complexNumber1 = new ComplexNumber(3,-4);
         variablesMap.put("a",complexNumber);
         //operationInvoker.execute("<a",variablesMap);
-        operationInvoker.execute("<a");
+        operationInvoker.executeOperation("<a");
         assertEquals(complexNumber, complexNumberStack.peek());
 
         variablesMap.put("b",complexNumber1);
         //operationInvoker.execute("<b",variablesMap);
-        operationInvoker.execute("<b");
+        operationInvoker.executeOperation("<b");
         assertEquals(complexNumber1, complexNumberStack.peek());
 
     }
@@ -144,12 +144,12 @@ public class TestVariableOperations {
 
         complexNumberStack.push(complexNumber);
         //operationInvoker.execute(">a",variablesMap);
-        operationInvoker.execute(">a");
+        operationInvoker.executeOperation(">a");
         assertEquals(variablesMap.get("a"),complexNumber);
 
         complexNumberStack.push(complexNumber1);
         //operationInvoker.execute(">b",variablesMap);
-        operationInvoker.execute(">b");
+        operationInvoker.executeOperation(">b");
         assertEquals(variablesMap.get("b"),complexNumber1);
 
     }

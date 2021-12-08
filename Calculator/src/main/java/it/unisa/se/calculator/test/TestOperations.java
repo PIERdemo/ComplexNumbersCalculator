@@ -46,7 +46,7 @@ public class TestOperations {
      */
     @Test(expected = NotSupportedOperationException.class)
     public void testOperationNotFound() {
-        operationInvoker.execute("^");
+        operationInvoker.executeOperation("^");
     }
 
 
@@ -63,112 +63,112 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, 0.0));
 
         complexNumber1 = new ComplexNumber(3.0, 9.0);
         complexNumber2 = new ComplexNumber(-3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(0.8, -0.6));
 
         complexNumber1 = new ComplexNumber(3.0, 9.0);
         complexNumber2 = new ComplexNumber(-3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 0.0));
 
         complexNumber1 = new ComplexNumber(3.0, 9.0);
         complexNumber2 = new ComplexNumber(3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-0.8, 0.6));
 
         complexNumber1 = new ComplexNumber(-3.0, 9.0);
         complexNumber2 = new ComplexNumber(3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(0.8, 0.6));
 
         complexNumber1 = new ComplexNumber(-3.0, 9.0);
         complexNumber2 = new ComplexNumber(-3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, 0.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 9.0);
         complexNumber2 = new ComplexNumber(-3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-0.8, -0.6));
 
         complexNumber1 = new ComplexNumber(-3.0, 9.0);
         complexNumber2 = new ComplexNumber(3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 0));
 
         complexNumber1 = new ComplexNumber(-3.0, -9.0);
         complexNumber2 = new ComplexNumber(3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 0));
 
         complexNumber1 = new ComplexNumber(-3.0, -9.0);
         complexNumber2 = new ComplexNumber(-3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-0.8, 0.6));
 
         complexNumber1 = new ComplexNumber(-3.0, -9.0);
         complexNumber2 = new ComplexNumber(-3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, 0));
 
         complexNumber1 = new ComplexNumber(-3.0, -9.0);
         complexNumber2 = new ComplexNumber(3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(0.8, -0.6));
 
         complexNumber1 = new ComplexNumber(3.0, -9.0);
         complexNumber2 = new ComplexNumber(3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-0.8, -0.6));
 
         complexNumber1 = new ComplexNumber(3.0, -9.0);
         complexNumber2 = new ComplexNumber(-3.0, 9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 0.0));
 
         complexNumber1 = new ComplexNumber(3.0, -9.0);
         complexNumber2 = new ComplexNumber(-3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(0.8, 0.6));
 
         complexNumber1 = new ComplexNumber(3.0, -9.0);
         complexNumber2 = new ComplexNumber(3.0, -9.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("/");
+        operationInvoker.executeOperation("/");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, 0.0));
 
 
@@ -188,28 +188,28 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(-42.0, -40));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0, 58.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(42.0, 40.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, -58.0));
 
 
@@ -217,21 +217,21 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, -58.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(-42.0, 40.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, 58.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
@@ -239,7 +239,7 @@ public class TestOperations {
 
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(42.0, -40.0));
 
 
@@ -247,28 +247,28 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, 58.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(42.0, -40.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, -58.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(-42.0, 40.0));
 
 
@@ -276,28 +276,28 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(42.0, 40.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, -58.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(-42.0, -40.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("*");
+        operationInvoker.executeOperation("*");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, 58.0));
 
     }
@@ -314,28 +314,28 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 10.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, 10.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, 4.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 4.0));
 
 
@@ -343,21 +343,21 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, 10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, 10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, 4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
@@ -365,7 +365,7 @@ public class TestOperations {
 
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, 4.0));
 
 
@@ -373,28 +373,28 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, -4.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, -4.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, -10.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, -10.0));
 
 
@@ -402,28 +402,28 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, -4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, -4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, -10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+");
+        operationInvoker.executeOperation("+");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, -10.0));
 
     }
@@ -443,28 +443,28 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, -4.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, -4.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, -10.0));
 
         complexNumber1 = new ComplexNumber(3.0, 7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, -10.0));
 
 
@@ -472,21 +472,21 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, -4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, -4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, -10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, 7.0);
@@ -494,35 +494,35 @@ public class TestOperations {
 
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, -10.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, 10.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, 10.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, 4.0));
 
         complexNumber1 = new ComplexNumber(3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-10.0, 4.0));
 
 
@@ -530,28 +530,28 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, 3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, 10.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(10.0, 4.0));
 
         complexNumber1 = new ComplexNumber(-3.0, -7.0);
         complexNumber2 = new ComplexNumber(-7.0, -3.0);
         numberStack.push(complexNumber2);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("-");
+        operationInvoker.executeOperation("-");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 4.0));
 
     }
@@ -567,49 +567,49 @@ public class TestOperations {
         numberStack.clear();
         ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2.0, 0.0));
 
 
         complexNumber1 = new ComplexNumber(0.0, 8.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2, 2));
 
         complexNumber1 = new ComplexNumber(0.0, -8.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2, -2));
 
 
         complexNumber1 = new ComplexNumber(-4.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, 2.0));
 
         complexNumber1 = new ComplexNumber(0.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(0, 0));
 
         complexNumber1 = new ComplexNumber(1.0, 13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2.649377739244189, 2.453406286207535));
 
         complexNumber1 = new ComplexNumber(1.0, -13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2.649377739244189, -2.453406286207535));
 
         complexNumber1 = new ComplexNumber(-1.0, -13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2.453406286207535, -2.649377739244189));
 
         complexNumber1 = new ComplexNumber(-1.0, 13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("sqrt");
+        operationInvoker.executeOperation("sqrt");
         assertEquals(numberStack.pop(), new ComplexNumber(2.453406286207535, 2.649377739244189));
 
 
@@ -625,49 +625,49 @@ public class TestOperations {
         numberStack.clear();
         ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(-4.0, 0.0));
 
 
         complexNumber1 = new ComplexNumber(0.0, 8.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, -8.0));
 
         complexNumber1 = new ComplexNumber(0.0, -8.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(0.0, 8.0));
 
 
         complexNumber1 = new ComplexNumber(-4.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(4.0, 0.0));
 
         complexNumber1 = new ComplexNumber(0.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(0, 0));
 
         complexNumber1 = new ComplexNumber(1.0, 13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, -13.0));
 
         complexNumber1 = new ComplexNumber(1.0, -13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(-1.0, 13.0));
 
         complexNumber1 = new ComplexNumber(-1.0, -13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, 13.0));
 
         complexNumber1 = new ComplexNumber(-1.0, 13.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("+-");
+        operationInvoker.executeOperation("+-");
         assertEquals(numberStack.pop(), new ComplexNumber(1.0, -13.0));
 
     }
@@ -685,7 +685,7 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber1);
         numberStack.push(complexNumber2);
-        operationInvoker.execute("swap");
+        operationInvoker.executeOperation("swap");
         assertEquals(numberStack.pop(), complexNumber1);
         assertEquals(numberStack.pop(), complexNumber2);
 
@@ -695,7 +695,7 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(-7.0, 0.0);
         numberStack.push(complexNumber1);
         numberStack.push(complexNumber2);
-        operationInvoker.execute("swap");
+        operationInvoker.executeOperation("swap");
         assertEquals(numberStack.pop(), complexNumber1);
         assertEquals(numberStack.pop(), complexNumber2);
 
@@ -704,7 +704,7 @@ public class TestOperations {
         complexNumber2 = new ComplexNumber(0, 0);
         numberStack.push(complexNumber1);
         numberStack.push(complexNumber2);
-        operationInvoker.execute("swap");
+        operationInvoker.executeOperation("swap");
         assertEquals(numberStack.pop(), complexNumber1);
         assertEquals(numberStack.pop(), complexNumber2);
 
@@ -718,7 +718,7 @@ public class TestOperations {
         numberStack.clear();
         ComplexNumber complexNumber1 = new ComplexNumber(4.0, 0.0);
         numberStack.push(complexNumber1);
-        operationInvoker.execute("dup");
+        operationInvoker.executeOperation("dup");
         assertEquals(numberStack.elementAt(numberStack.size() - 2), numberStack.elementAt(numberStack.size()-1));
 
     }
@@ -737,7 +737,7 @@ public class TestOperations {
         ComplexNumber complexNumber2 = new ComplexNumber(7.0, -3.0);
         numberStack.push(complexNumber1);
         numberStack.push(complexNumber2);
-        operationInvoker.execute("drop");
+        operationInvoker.executeOperation("drop");
         assertEquals(numberStack.pop(), complexNumber1);
 
     }
@@ -758,7 +758,7 @@ public class TestOperations {
             numberStack.push(new ComplexNumber(i,-i));
         for(int i=0; i<5;i++)
             numberStack.push(new ComplexNumber(-i,-i));
-        operationInvoker.execute("clear");
+        operationInvoker.executeOperation("clear");
         assertTrue(numberStack.isEmpty());
 
     }
@@ -774,37 +774,37 @@ public class TestOperations {
         numberStack.clear();
         numberStack.push(new ComplexNumber(10,20));
         numberStack.push(new ComplexNumber(11,21));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(10,20));
 
         numberStack.push(new ComplexNumber(-10,20));
         numberStack.push(new ComplexNumber(-11,21));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(-10,20));
 
         numberStack.push(new ComplexNumber(10,-20));
         numberStack.push(new ComplexNumber(11,-21));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(10,-20));
 
         numberStack.push(new ComplexNumber(-10,-20));
         numberStack.push(new ComplexNumber(-11,-21));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(-10,-20));
 
         numberStack.push(new ComplexNumber(5,0));
         numberStack.push(new ComplexNumber(6,0));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(5,0));
 
         numberStack.push(new ComplexNumber(0,5));
         numberStack.push(new ComplexNumber(0,6));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(0,5));
 
         numberStack.push(new ComplexNumber(0,0));
         numberStack.push(new ComplexNumber(1,2));
-        operationInvoker.execute("over");
+        operationInvoker.executeOperation("over");
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
