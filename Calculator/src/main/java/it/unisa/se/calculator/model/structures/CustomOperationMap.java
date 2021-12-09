@@ -68,7 +68,7 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
                 writer.write(entry.getKey() + "\t" + entry.getValue() + "\n");
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            throw new RuntimeException("There was an error while saving the formulas");
         }
     }
 
@@ -86,7 +86,7 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
                 put(fields[0], fields[1]);
             }
         } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException("There was an error while loading the formulas");
         }
     }
 }

@@ -68,18 +68,6 @@ public class ComplexNumber {
         return Math.abs(that.getReal()-getReal())<epsilon && Math.abs(that.getImaginary()-getImaginary())<epsilon;
     }
 
-    /**
-     * Auxiliary method that adds a control on 0 values for imaginary part on both numbers.
-     *
-     * @param imaginary1 Double representing imaginary part of the first number.
-     * @param imaginary2 Double representing imaginary part of the second number.
-     * @return 0 if both parameters are 0, otherwise the value of the compare of both numbers.
-     */
-    private int compareNumbers(double imaginary1, double imaginary2) {
-        if (Math.abs(imaginary1) == 0.0 && Math.abs(imaginary2) == 0.0)
-            return 0;
-        return Double.compare(imaginary1, imaginary2);
-    }
 
     /**
      * @return a string representing the number.
@@ -95,10 +83,6 @@ public class ComplexNumber {
         if (Math.abs(real) == 0)
             return decimalFormat.format(imaginary) + "j";
         return decimalFormat.format(real) + imaginarySign + decimalFormat.format(imaginary) + "j";
-    }
-
-    public String getComplexNumberString() {
-        return toString();
     }
 
     @Override

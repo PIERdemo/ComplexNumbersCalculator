@@ -31,17 +31,16 @@ public class OperationMap extends HashMap<String, Operation> {
         put("/", new DivideOperation());
         put("+-", new SignInversionOperation());
         put("sqrt", new SquareRootOperation());
-        //advanced operations
+        //positional operations
         put("clear", new ClearOperation());
         put("over", new OverOperation());
         put("drop", new DropOperation());
         put("dup", new DupOperation());
         put("swap", new SwapOperation());
+        //advanced operations
         put("mod", new ModOperation());
         put("arg", new ArgOperation());
         put("exp", new ExpOperation());
-
-
         //variables operations
         for (char ch = 'a'; ch <= 'z'; ch++) {
             put("<" + ch, new LoadVariableOperation(ch, this.variablesMap));
@@ -57,9 +56,6 @@ public class OperationMap extends HashMap<String, Operation> {
         return variablesMap;
     }
 
-    public void setVariablesMap(VariablesMap variablesMap) {
-        this.variablesMap = variablesMap;
-    }
 
     /**
      * This method provide an instance of a OperationMap.
