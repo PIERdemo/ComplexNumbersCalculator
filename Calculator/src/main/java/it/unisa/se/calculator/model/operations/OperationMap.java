@@ -48,7 +48,6 @@ public class OperationMap extends HashMap<String, Operation> {
     public static OperationMap getInstance(VariablesMap variablesMap) {
         if (instance == null)
             instance = new OperationMap(variablesMap);
-        instance.setVariablesMap(variablesMap);
         return instance;
     }
 
