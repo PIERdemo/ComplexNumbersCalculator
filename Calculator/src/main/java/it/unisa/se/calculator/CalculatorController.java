@@ -221,19 +221,8 @@ public class CalculatorController implements Initializable {
         fc.setTitle("Open file");
         File file = fc.showOpenDialog(rootpane.getScene().getWindow());
         if(file!=null) {
-            try {
-                customOperationMap.clear();
-                Scanner scanner = new Scanner(file);
-                while(scanner.hasNextLine()){
-                    String line = scanner.nextLine();
-                    String[] fields = line.split(":");
-                    customOperationMap.put(fields[0], fields[1]);
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-            }
+            customOperationMap.loadFromFile(file);
         }
-        System.out.println(customOperationMap);
     }
 
     @FXML
@@ -242,13 +231,7 @@ public class CalculatorController implements Initializable {
         fc.setTitle("Save as...");
         File file = fc.showSaveDialog(rootpane.getScene().getWindow());
         if(file!=null){
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
-                for (Map.Entry<String, String> entry:customOperationMap.entrySet()) {
-                    writer.write( entry.getKey() + ": " + entry.getValue() + "\n");
-                }
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+            customOperationMap.saveInFile(file);
         }
     }
     @FXML

@@ -3,9 +3,8 @@ package it.unisa.se.calculator.model;
 import it.unisa.se.calculator.model.observers.Observable;
 import it.unisa.se.calculator.model.observers.Observer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class CustomOperationMap extends HashMap<String, String> implements Observable {
     private List<Observer> observerList;
@@ -44,6 +43,30 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
         List<Entry<String, String>> entryList = this.entrySet().stream().sorted(Entry.comparingByKey()).toList();
         for (Observer observer : observerList) {
             observer.update(entryList);
+        }
+    }
+
+    public void saveInFile(File file){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
+            for (Map.Entry<String, String> entry:super.entrySet()) {
+                writer.write(entry.getKey() + ":" + entry.getValue() + "\n");
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void loadFromFile(File file){
+        try {
+            clear();
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] fields = line.split(":");
+                put(fields[0], fields[1]);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
