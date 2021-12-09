@@ -797,5 +797,102 @@ public class TestOperations {
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
+    @Test
+    public void testModOperation(){
+        numberStack.clear();
+
+        numberStack.push(new ComplexNumber(10,0));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(10,0));
+
+        numberStack.push(new ComplexNumber(0,20));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(20,0));
+
+        numberStack.push(new ComplexNumber(3,4));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(5,0));
+
+        numberStack.push(new ComplexNumber(0,0));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+
+        numberStack.push(new ComplexNumber(-3,0));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(3,0));
+
+        numberStack.push(new ComplexNumber(0,-3));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(3,0));
+
+        numberStack.push(new ComplexNumber(-3,-4));
+        operationInvoker.executeOperation("mod");
+        assertEquals(numberStack.peek(),new ComplexNumber(5,0));
+    }
+
+    @Test
+    public void testArgOperation(){
+        numberStack.clear();
+
+        numberStack.push(new ComplexNumber(1,1));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(Math.PI/4,0));
+
+        numberStack.push(new ComplexNumber(0,1));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(Math.PI/2,0));
+
+        numberStack.push(new ComplexNumber(1,0));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+
+        numberStack.push(new ComplexNumber(2750,0));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+
+        numberStack.push(new ComplexNumber(-1,0));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(Math.PI,0));
+
+        numberStack.push(new ComplexNumber(-1,-1));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(Math.PI/4*(-3),0));
+
+        numberStack.push(new ComplexNumber(0,-1));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(-Math.PI/2,0));
+
+        numberStack.push(new ComplexNumber(0,0));
+        operationInvoker.executeOperation("arg");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,0));
+    }
+
+    @Test
+    public void testExpOperation(){
+
+        numberStack.push(new ComplexNumber(0,0));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(1,0));
+
+        numberStack.push(new ComplexNumber(1,0));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(Math.E,0));
+
+        numberStack.push(new ComplexNumber(0,Math.PI/2));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,1));
+
+        numberStack.push(new ComplexNumber(0,-Math.PI/2));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,-1));
+
+        numberStack.push(new ComplexNumber(-1,0));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(1/Math.E,0));
+
+        numberStack.push(new ComplexNumber(-1,-Math.PI/2));
+        operationInvoker.executeOperation("exp");
+        assertEquals(numberStack.peek(),new ComplexNumber(0,-1/Math.E));
+    }
 
 }

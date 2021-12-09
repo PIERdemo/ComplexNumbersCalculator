@@ -64,7 +64,8 @@ public class ComplexNumber {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ComplexNumber that)) return false;
-        return compareNumbers(that.getReal(), getReal()) == 0 && compareNumbers(that.getImaginary(), getImaginary()) == 0;
+        double epsilon = 0.00000001;
+        return Math.abs(that.getReal()-getReal())<epsilon && Math.abs(that.getImaginary()-getImaginary())<epsilon;
     }
 
     /**

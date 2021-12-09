@@ -3,6 +3,9 @@ package it.unisa.se.calculator.model.operations;
 import it.unisa.se.calculator.model.structures.VariablesMap;
 import it.unisa.se.calculator.model.operations.arithmetic.*;
 import it.unisa.se.calculator.model.operations.positional.*;
+import it.unisa.se.calculator.model.operations.trigonometric.ArgOperation;
+import it.unisa.se.calculator.model.operations.trigonometric.ExpOperation;
+import it.unisa.se.calculator.model.operations.trigonometric.ModOperation;
 import it.unisa.se.calculator.model.operations.variable.*;
 
 import java.util.HashMap;
@@ -26,6 +29,11 @@ public class OperationMap extends HashMap<String, Operation> {
         put("drop", new DropOperation());
         put("dup", new DupOperation());
         put("swap", new SwapOperation());
+        put("mod", new ModOperation());
+        put("arg", new ArgOperation());
+        put("exp", new ExpOperation());
+
+
         //variables operations
         for (char ch = 'a'; ch <= 'z'; ch++) {
             put("<" + ch, new LoadVariableOperation(ch, this.variablesMap));
