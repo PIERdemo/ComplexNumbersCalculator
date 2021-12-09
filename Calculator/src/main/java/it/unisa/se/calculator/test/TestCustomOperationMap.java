@@ -1,5 +1,6 @@
 package it.unisa.se.calculator.test;
 
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import it.unisa.se.calculator.model.structures.CustomOperationMap;
 import org.junit.Test;
 
@@ -7,10 +8,22 @@ import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test
+ * Defines tests to verify the correct functioning of the methods of the CustomOperationMap class
+ * {@link CustomOperationMap}
+ */
 public class TestCustomOperationMap {
     private CustomOperationMap customOperationMap = new CustomOperationMap();
 
 
+    /**
+     * Test
+     * Defines tests to verify the correct functioning of LoadFromFile method.
+     * AssertEquals is performed between a value saved in a file and the same
+     * value assigned to a string.
+     * {@link it.unisa.se.calculator.model.structures.CustomOperationMap}
+     */
     @Test
     public void testLoadFromFile(){
         String op1 = "op1";
@@ -28,6 +41,13 @@ public class TestCustomOperationMap {
 
     }
 
+    /**
+     * Test
+     * Defines tests to verify the correct functioning of SaveFromFile method.
+     * AssertEquals is performed between a value, that is saved in a file and then loaded from it,
+     * and the same value assigned to a string.
+     * {@link it.unisa.se.calculator.model.structures.CustomOperationMap}
+     */
     @Test
     public void testSaveInFile(){
         String op1 = "op1";

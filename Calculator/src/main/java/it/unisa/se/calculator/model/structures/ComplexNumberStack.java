@@ -11,7 +11,7 @@ import java.util.*;
 
 /**
  * The class extends the {@link java.util.Stack} class .
- * Provides an implementation of a ComplexNumbers stack.
+ * Provides an implementation of a {@link ComplexNumber} stack.
  */
 public class ComplexNumberStack extends Stack<ComplexNumber> implements Observable {
 

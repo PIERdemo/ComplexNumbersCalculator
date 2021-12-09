@@ -24,6 +24,10 @@ public class OperationInvoker {
         this.customOperationMap = customOperationMap;
     }
 
+    /**
+     * This method checks if operationString is representing a ComplexNumber.
+     * @param operationString the string representing the operation inserted and that has to be executed.
+     */
     public void resolve(String operationString){
         ComplexNumber complexNumber = ComplexNumber.getComplexNumberFromString(operationString);
         if (complexNumber != null)
@@ -36,7 +40,7 @@ public class OperationInvoker {
 
     /**
      * The method checks at first if there exists an operation with the specified name.
-     * If it exists then it is executed, on the contrary it is thrown a Runtime Exception.
+     * If it exists then executeCustomOperation is called, on the contrary execute function is called.
      *
      * @param operationString the string representing the operation inserted and that has to be executed.
      */
@@ -49,6 +53,12 @@ public class OperationInvoker {
 
     }
 
+    /**
+     * The method checks at first if there exists a custom operation with the specified name.
+     * If it exists then it is executed, on the contrary it is thrown an Exception.
+     *
+     * @param operationName the string representing the operation inserted and that has to be executed.
+     */
     public void executeCustomOperation(String operationName){
         String operations = customOperationMap.get(operationName);
         if(operations == null)

@@ -6,8 +6,13 @@ import it.unisa.se.calculator.model.observers.Observer;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The class extends the {@link java.util.HashMap} class, with key and value type string.
+ * It implements {@link Observable} interface.
+ */
 public class CustomOperationMap extends HashMap<String, String> implements Observable {
     private List<Observer> observerList;
+
 
     public CustomOperationMap() {
         super();
@@ -53,6 +58,10 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
         }
     }
 
+    /**
+     * This method allows the values in the Map to be saved in a file.
+     * @param file it indicates the file on which the map will be saved.
+     */
     public void saveInFile(File file){
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
             for (Map.Entry<String, String> entry:super.entrySet()) {
@@ -63,6 +72,10 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
         }
     }
 
+    /**
+     * This method allows you to insert values into a Map from a file.
+     * @param file it indicates the file from which the values will be loaded.
+     */
     public void loadFromFile(File file){
         try {
             clear();
