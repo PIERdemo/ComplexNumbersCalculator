@@ -797,6 +797,12 @@ public class TestOperations {
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the ModOperation class works correctly.
+     * In particular, this method after one insert into the stack and the execution of the operation,
+     * tests if the last element of the stack is equals to the module of the inserted number.
+     * {@link it.unisa.se.calculator.model.operations.trigonometric.ModOperation}.
+     */
     @Test
     public void testModOperation(){
         numberStack.clear();
@@ -830,6 +836,13 @@ public class TestOperations {
         assertEquals(numberStack.peek(),new ComplexNumber(5,0));
     }
 
+
+    /**
+     * Provides a test capable of checking that execute method of the ArgOperation class works correctly.
+     * In particular, this method after one insert into the stack and the execution of the operation,
+     * tests if the last element of the stack is equals to the argument/phase of the inserted number.
+     * {@link it.unisa.se.calculator.model.operations.trigonometric.ArgOperation}.
+     */
     @Test
     public void testArgOperation(){
         numberStack.clear();
@@ -867,6 +880,12 @@ public class TestOperations {
         assertEquals(numberStack.peek(),new ComplexNumber(0,0));
     }
 
+    /**
+     * Provides a test capable of checking that execute method of the ExpOperation class works correctly.
+     * In particular, this method after one insert into the stack and the execution of the operation,
+     * tests if the last element of the stack is equals to the exponential of the inserted number.
+     * {@link it.unisa.se.calculator.model.operations.trigonometric.ExpOperation}.
+     */
     @Test
     public void testExpOperation(){
 

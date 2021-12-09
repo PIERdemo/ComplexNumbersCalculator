@@ -7,7 +7,18 @@ import it.unisa.se.calculator.model.operations.Operation;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+/**
+ * The class extends the class Operation.
+ * It provides a method to calculate the exponential.
+ */
 public class ExpOperation implements Operation {
+
+    /**
+     * The function execute is used to calculate the exponential of the first operand taken from the stack.
+     * Then it pushes the result into the stack.
+     */
     @Override
     public void execute() {
         ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
