@@ -14,12 +14,12 @@ public class ExpOperation implements Operation {
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(1).forEachRemaining(operands::add);
 
-        Double real = operands.get(0).getReal();
-        Double imaginary = operands.get(0).getImaginary();
+        double real = operands.get(0).getReal();
+        double imaginary = operands.get(0).getImaginary();
 
 
-        Double resultReal = Math.exp(real)*Math.cos(imaginary);
-        Double resultImaginary = Math.exp(real)*Math.sin(imaginary);
+        double resultReal = Math.exp(real)*Math.cos(imaginary);
+        double resultImaginary = Math.exp(real)*Math.sin(imaginary);
 
         complexNumberStack.push(new ComplexNumber (resultReal,resultImaginary));
     }

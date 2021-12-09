@@ -15,9 +15,9 @@ public class ModOperation implements Operation {
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(1).forEachRemaining(operands::add);
 
-        Double real = operands.get(0).getReal();
-        Double imaginary = operands.get(0).getImaginary();
-        Double result = Math.sqrt((real*real)+(imaginary*imaginary));
+        double real = operands.get(0).getReal();
+        double imaginary = operands.get(0).getImaginary();
+        double result = Math.sqrt((real*real)+(imaginary*imaginary));
         complexNumberStack.push(new ComplexNumber (result,0));
 
     }

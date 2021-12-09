@@ -14,9 +14,9 @@ public class ArgOperation implements Operation {
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(1).forEachRemaining(operands::add);
 
-        Double real = operands.get(0).getReal();
-        Double imaginary = operands.get(0).getImaginary();
-        Double result = Math.atan2(imaginary, real);
+        double real = operands.get(0).getReal();
+        double imaginary = operands.get(0).getImaginary();
+        double result = Math.atan2(imaginary, real);
         complexNumberStack.push(new ComplexNumber (result,0));
 
     }

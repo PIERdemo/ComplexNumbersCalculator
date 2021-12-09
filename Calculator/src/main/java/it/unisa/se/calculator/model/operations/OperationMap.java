@@ -59,6 +59,4 @@ public class OperationMap extends HashMap<String, Operation> {
         return instance;
     }
 
-
-
 }
