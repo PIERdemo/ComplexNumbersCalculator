@@ -1,4 +1,4 @@
-package it.unisa.se.calculator.model;
+package it.unisa.se.calculator.model.structures;
 
 import it.unisa.se.calculator.model.observers.Observable;
 import it.unisa.se.calculator.model.observers.Observer;
@@ -56,7 +56,7 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
     public void saveInFile(File file){
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
             for (Map.Entry<String, String> entry:super.entrySet()) {
-                writer.write(entry.getKey() + ":" + entry.getValue() + "\n");
+                writer.write(entry.getKey() + "\t" + entry.getValue() + "\n");
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -69,7 +69,7 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
-                String[] fields = line.split(":");
+                String[] fields = line.split("\t");
                 put(fields[0], fields[1]);
             }
         } catch (FileNotFoundException e) {

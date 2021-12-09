@@ -1,7 +1,7 @@
 package it.unisa.se.calculator.model.operations.arithmetic;
 
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
 import java.security.InvalidParameterException;

@@ -1,7 +1,7 @@
 package it.unisa.se.calculator.model.operations.positional;
 
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class SwapOperation implements Operation {
      * Then it pushes the result into the stack.
      */
     public void execute() {
-        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         List<ComplexNumber> operands = new ArrayList<>();
         complexNumberStack.getOperand(2).forEachRemaining(operands::add);
 

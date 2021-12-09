@@ -1,7 +1,8 @@
-package it.unisa.se.calculator.model;
+package it.unisa.se.calculator.model.structures;
 
 import it.unisa.se.calculator.exception.InvaidVariableNameException;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
+import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.observers.Observable;
 import it.unisa.se.calculator.model.observers.Observer;
 
@@ -17,7 +18,7 @@ import java.util.Map;
  * a list of Observers to notify of any changes within the VariablesMap.
  * The class extend {@link HashMap} class and implements {@link Observable} class.
  */
-public class VariablesMap extends HashMap<String,ComplexNumber> implements Observable{
+public class VariablesMap extends HashMap<String, ComplexNumber> implements Observable{
     private List<Observer> observerList;
 
     public VariablesMap() {

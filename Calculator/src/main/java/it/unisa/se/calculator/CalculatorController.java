@@ -4,6 +4,9 @@ import it.unisa.se.calculator.exception.InvalidCustomOperationException;
 import it.unisa.se.calculator.model.*;
 import it.unisa.se.calculator.model.observers.StackObserver;
 import it.unisa.se.calculator.model.observers.StringTMapObserver;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.CustomOperationMap;
+import it.unisa.se.calculator.model.structures.VariablesMap;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -280,6 +283,7 @@ public class CalculatorController implements Initializable {
     public void loadCustomOperations(ActionEvent actionEvent) {
 
         FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", ".txt"));
         fc.setTitle("Open file");
         File file = fc.showOpenDialog(rootpane.getScene().getWindow());
         if(file!=null) {
@@ -290,6 +294,7 @@ public class CalculatorController implements Initializable {
     @FXML
     public void saveCustomOperation(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", ".txt"));
         fc.setTitle("Save as...");
         File file = fc.showSaveDialog(rootpane.getScene().getWindow());
         if(file!=null){

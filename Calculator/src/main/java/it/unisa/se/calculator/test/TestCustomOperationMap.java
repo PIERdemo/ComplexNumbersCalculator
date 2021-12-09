@@ -1,6 +1,6 @@
 package it.unisa.se.calculator.test;
 
-import it.unisa.se.calculator.model.CustomOperationMap;
+import it.unisa.se.calculator.model.structures.CustomOperationMap;
 import org.junit.Test;
 
 import java.io.File;

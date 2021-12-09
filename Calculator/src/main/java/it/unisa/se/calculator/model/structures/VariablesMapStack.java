@@ -1,4 +1,4 @@
-package it.unisa.se.calculator.model;
+package it.unisa.se.calculator.model.structures;
 
 import java.util.Stack;
 

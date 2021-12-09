@@ -1,7 +1,7 @@
 package it.unisa.se.calculator.model.operations.variable;
 
-import it.unisa.se.calculator.model.VariablesMap;
-import it.unisa.se.calculator.model.VariablesMapStack;
+import it.unisa.se.calculator.model.structures.VariablesMap;
+import it.unisa.se.calculator.model.structures.VariablesMapStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
 public class SaveVariablesOperation implements Operation {

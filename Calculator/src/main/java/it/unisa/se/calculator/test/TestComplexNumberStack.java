@@ -2,7 +2,7 @@ package it.unisa.se.calculator.test;
 
 
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class TestComplexNumberStack {
      */
     @Before
     public void setUp() {
-        numberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
+        numberStack = ComplexNumberStack.getInstance();
     }
 
     /**
@@ -37,7 +37,7 @@ public class TestComplexNumberStack {
      */
     @Test
     public void testGetOperand() {
-        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         complexNumberStack.clear();
         for (int i = 0; i < 10; i++) {
             complexNumberStack.push(new ComplexNumber(i + 1, i + 2));
@@ -58,7 +58,7 @@ public class TestComplexNumberStack {
      */
     @Test(expected = InvalidParameterException.class)
     public void testGetOperandWithException() {
-        ComplexNumberStack complexNumberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
+        ComplexNumberStack complexNumberStack = ComplexNumberStack.getInstance();
         complexNumberStack.clear();
         Iterator<ComplexNumber> operands2 = complexNumberStack.getOperand(1);
 

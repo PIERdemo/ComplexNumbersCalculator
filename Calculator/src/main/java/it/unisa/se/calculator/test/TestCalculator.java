@@ -2,7 +2,7 @@ package it.unisa.se.calculator.test;
 
 import it.unisa.se.calculator.model.Calculator;
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -2,10 +2,9 @@ package it.unisa.se.calculator.model.operations;
 
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.CustomOperationMap;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.CustomOperationMap;
 
-import java.util.Map;
 /**
  * The class has a map that stores as in a dictionary references to objects implementing Operation interface.
  * The class allows the invocation of a particular operation onto the stack data structure .

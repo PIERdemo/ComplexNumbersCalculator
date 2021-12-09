@@ -1,11 +1,11 @@
 package it.unisa.se.calculator.model;
 
 import it.unisa.se.calculator.exception.InvalidCustomOperationException;
-import it.unisa.se.calculator.model.operations.Operation;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.OperationMap;
-
-import java.util.Map;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.CustomOperationMap;
+import it.unisa.se.calculator.model.structures.VariablesMap;
 
 /**
  * The class calculator provides an implementation of calculator's logic.

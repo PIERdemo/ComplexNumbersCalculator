@@ -1,7 +1,8 @@
-package it.unisa.se.calculator.model;
+package it.unisa.se.calculator.model.structures;
 
 
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
+import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.observers.Observable;
 import it.unisa.se.calculator.model.observers.Observer;
 

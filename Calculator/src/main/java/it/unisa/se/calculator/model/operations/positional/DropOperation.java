@@ -1,6 +1,6 @@
 package it.unisa.se.calculator.model.operations.positional;
 
-import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
 import it.unisa.se.calculator.model.operations.Operation;
 
 /**

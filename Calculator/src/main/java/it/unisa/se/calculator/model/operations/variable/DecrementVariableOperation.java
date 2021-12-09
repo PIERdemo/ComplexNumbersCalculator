@@ -1,8 +1,8 @@
 package it.unisa.se.calculator.model.operations.variable;
 
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.VariablesMap;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.VariablesMap;
 import it.unisa.se.calculator.model.operations.Operation;
 import static it.unisa.se.calculator.model.ComplexNumber.*;
 

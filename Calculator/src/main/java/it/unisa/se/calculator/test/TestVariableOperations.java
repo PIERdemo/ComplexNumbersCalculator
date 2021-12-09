@@ -1,8 +1,8 @@
 package it.unisa.se.calculator.test;
 
 import it.unisa.se.calculator.model.ComplexNumber;
-import it.unisa.se.calculator.model.ComplexNumberStack;
-import it.unisa.se.calculator.model.VariablesMap;
+import it.unisa.se.calculator.model.structures.ComplexNumberStack;
+import it.unisa.se.calculator.model.structures.VariablesMap;
 import it.unisa.se.calculator.model.operations.OperationInvoker;
 import it.unisa.se.calculator.model.operations.OperationMap;
 import it.unisa.se.calculator.model.operations.variable.DecrementVariableOperation;
