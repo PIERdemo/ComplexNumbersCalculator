@@ -33,7 +33,6 @@ public class CalculatorApplication extends Application {
             alert.setHeaderText("Error Occurred during the execution");
 
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
-            System.out.println(e.getCause().getCause().getMessage());
             alert.setContentText(e.getCause().getCause().getMessage());
             alert.showAndWait();
         });
