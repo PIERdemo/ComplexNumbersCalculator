@@ -3,6 +3,7 @@ package it.unisa.se.calculator;
 import it.unisa.se.calculator.model.*;
 import it.unisa.se.calculator.model.observers.StackObserver;
 import it.unisa.se.calculator.model.observers.VariablesMapObserver;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,13 +12,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 
+import java.io.*;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class CalculatorController implements Initializable {
 
@@ -41,8 +46,31 @@ public class CalculatorController implements Initializable {
     private Button submitButton;
 
     private Calculator calculator = new Calculator();
-
-
+    private CustomOperationMap customOperationMap ;
+    @FXML
+    private Button overButton;
+    @FXML
+    private Button divideButton;
+    @FXML
+    private Button swapButton;
+    @FXML
+    private Button sumButton;
+    @FXML
+    private Button dropButton;
+    @FXML
+    private Button squareButton;
+    @FXML
+    private AnchorPane rootpane;
+    @FXML
+    private Button subtractButton;
+    @FXML
+    private Button clearButton;
+    @FXML
+    private Button dupButton;
+    @FXML
+    private Button inversionSignButton;
+    @FXML
+    private Button multiplyButton;
 
 
     @Override
@@ -50,6 +78,10 @@ public class CalculatorController implements Initializable {
 
         ComplexNumberStack numberStack = calculator.getComplexNumberStack();
         VariablesMap variablesMap = calculator.getVariablesMap();
+        customOperationMap = new CustomOperationMap();
+        customOperationMap.put("op1", ">a + 2");
+        customOperationMap.put("op2", ">b *");
+
 
         StackObserver stackObserver = new StackObserver();
         numberStack.addListener(stackObserver);
@@ -150,14 +182,12 @@ public class CalculatorController implements Initializable {
     @FXML
     public void onMultiplyButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("*");
-
     }
 
 
     @FXML
     public void onDupButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("dup");
-
     }
 
     @FXML
@@ -184,6 +214,46 @@ public class CalculatorController implements Initializable {
 
     }
 
+    @FXML
+    public void loadCustomOperations(ActionEvent actionEvent) {
 
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Open file");
+        File file = fc.showOpenDialog(rootpane.getScene().getWindow());
+        if(file!=null) {
+            try {
+                customOperationMap.clear();
+                Scanner scanner = new Scanner(file);
+                while(scanner.hasNextLine()){
+                    String line = scanner.nextLine();
+                    String[] fields = line.split(":");
+                    customOperationMap.put(fields[0], fields[1]);
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        System.out.println(customOperationMap);
+    }
+
+    @FXML
+    public void saveCustomOperation(ActionEvent actionEvent) {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save as...");
+        File file = fc.showSaveDialog(rootpane.getScene().getWindow());
+        if(file!=null){
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
+                for (Map.Entry<String, String> entry:customOperationMap.entrySet()) {
+                    writer.write( entry.getKey() + ": " + entry.getValue() + "\n");
+                }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    @FXML
+    public void close(ActionEvent actionEvent) {
+        Platform.exit();
+    }
 }
 
