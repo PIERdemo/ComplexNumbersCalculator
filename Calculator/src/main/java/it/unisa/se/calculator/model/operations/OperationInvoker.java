@@ -3,6 +3,7 @@ package it.unisa.se.calculator.model.operations;
 import it.unisa.se.calculator.exception.NotSupportedOperationException;
 import it.unisa.se.calculator.model.ComplexNumber;
 import it.unisa.se.calculator.model.ComplexNumberStack;
+import it.unisa.se.calculator.model.CustomOperationMap;
 
 import java.util.Map;
 /**
@@ -12,14 +13,16 @@ import java.util.Map;
  * */
 
 public class OperationInvoker {
-    private Map<String,Operation> operationMap;
+    private OperationMap operationMap;
+    private CustomOperationMap customOperationMap;
 
     /**
      * The constructor of the class initialises the data structure with all the operations implemented
      * in the calculator.
      */
-    public OperationInvoker(Map<String, Operation> operationMap) {
+    public OperationInvoker(OperationMap operationMap,CustomOperationMap customOperationMap) {
         this.operationMap = operationMap;
+        this.customOperationMap = customOperationMap;
     }
 
     public void resolve(String operationString){
@@ -42,13 +45,19 @@ public class OperationInvoker {
         Operation operation= operationMap.get(operationString);
         if(operation == null)
            executeCustomOperation(operationString);
-        operation.execute();
+        else
+            operation.execute();
 
     }
 
     public void executeCustomOperation(String operationName){
-        throw new NotSupportedOperationException("Operation "+operationName+" not found");
-
+        String operations = customOperationMap.get(operationName);
+        if(operations == null)
+            throw new NotSupportedOperationException("Operation "+operationName+" not found");
+        String[] split = operations.split("\\s+");
+        for (String operation :split ) {
+            resolve(operation);
+        }
     }
 
 

@@ -29,6 +29,13 @@ public class CustomOperationMap extends HashMap<String, String> implements Obser
     }
 
     @Override
+    public String remove(Object key) {
+        String returnString = super.remove(key);
+        notifyObservers();
+        return returnString;
+    }
+
+    @Override
     public void addListener(Observer observer) {
         observerList.add(observer);
     }

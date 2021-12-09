@@ -1,5 +1,6 @@
 package it.unisa.se.calculator;
 
+import it.unisa.se.calculator.exception.InvalidCustomOperationException;
 import it.unisa.se.calculator.model.*;
 import it.unisa.se.calculator.model.observers.StackObserver;
 import it.unisa.se.calculator.model.observers.VariablesMapObserver;
@@ -18,11 +19,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
-import java.io.*;
+import java.io.File;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class CalculatorController implements Initializable {
 
@@ -44,27 +44,43 @@ public class CalculatorController implements Initializable {
     private TableColumn<Map.Entry<String, ComplexNumber>, String> columnNameVariables;
     @FXML
     private Button submitButton;
+    @FXML
+    private AnchorPane rootpane;
+    @FXML
+    private TextField contentFormula;
+
+    @FXML
+    private TextField nameFormula;
+
+    @FXML
+    private VBox formulaContentBox;
 
     private Calculator calculator = new Calculator();
-    private CustomOperationMap customOperationMap ;
-    @FXML
-    private Button overButton;
-    @FXML
-    private Button divideButton;
+    private CustomOperationMap customOperationMap;
     @FXML
     private Button swapButton;
     @FXML
-    private Button sumButton;
+    private Button addFormulaButton;
     @FXML
     private Button dropButton;
     @FXML
     private Button squareButton;
     @FXML
-    private AnchorPane rootpane;
+    private Button saveForumulaButton;
     @FXML
     private Button subtractButton;
     @FXML
     private Button clearButton;
+    @FXML
+    private Button overButton;
+    @FXML
+    private Button modifyFormulaButton;
+    @FXML
+    private Button divideButton;
+    @FXML
+    private Button sumButton;
+    @FXML
+    private Button deleteFormulaButton;
     @FXML
     private Button dupButton;
     @FXML
@@ -72,16 +88,11 @@ public class CalculatorController implements Initializable {
     @FXML
     private Button multiplyButton;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        customOperationMap = calculator.getCustomOperationMap();
         ComplexNumberStack numberStack = calculator.getComplexNumberStack();
         VariablesMap variablesMap = calculator.getVariablesMap();
-        customOperationMap = new CustomOperationMap();
-        customOperationMap.put("op1", ">a + 2");
-        customOperationMap.put("op2", ">b *");
-
 
         StackObserver stackObserver = new StackObserver();
         numberStack.addListener(stackObserver);
@@ -182,12 +193,14 @@ public class CalculatorController implements Initializable {
     @FXML
     public void onMultiplyButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("*");
+
     }
 
 
     @FXML
     public void onDupButtonClick(ActionEvent actionEvent) {
         calculator.inputDispatcher("dup");
+
     }
 
     @FXML
@@ -214,6 +227,42 @@ public class CalculatorController implements Initializable {
 
     }
 
+
+
+    @FXML
+    public void onAddFormulaButtonClick(ActionEvent actionEvent) {
+        calculator.customOperationInsertNameValidator(nameFormula.getText());
+        formulaContentBox.setVisible(true);
+    }
+
+    @FXML
+    public void onModifyFormulaButtonClick(ActionEvent actionEvent) {
+        String nameFormulaText = nameFormula.getText();
+        String formula = customOperationMap.get(nameFormulaText);
+        if(formula == null)
+            throw new InvalidCustomOperationException("Operation "+nameFormulaText+" does not exist ");
+        contentFormula.setText(formula);
+        formulaContentBox.setVisible(true);
+
+    }
+
+    @FXML
+    public void onSaveFormulaButtonClick(ActionEvent actionEvent) {
+        calculator.saveCustomOperation(nameFormula.getText(),contentFormula.getText());
+        formulaContentBox.setVisible(false);
+        nameFormula.setText("");
+        contentFormula.setText("");
+    }
+
+    @FXML
+    public void onDeleteFormulaButtonClick(ActionEvent actionEvent) {
+        String nameFormulaText = nameFormula.getText();
+        String formula = calculator.removeCustomOperation(nameFormulaText);
+        if(formula == null)
+            throw new InvalidCustomOperationException("Operation "+nameFormulaText+" does not exist ");
+        nameFormula.setText("");
+    }
+
     @FXML
     public void loadCustomOperations(ActionEvent actionEvent) {
 
@@ -234,6 +283,7 @@ public class CalculatorController implements Initializable {
             customOperationMap.saveInFile(file);
         }
     }
+
     @FXML
     public void close(ActionEvent actionEvent) {
         Platform.exit();

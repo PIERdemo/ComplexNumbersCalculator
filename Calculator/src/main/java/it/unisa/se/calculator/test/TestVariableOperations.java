@@ -32,7 +32,7 @@ public class TestVariableOperations {
         complexNumberStack = ComplexNumberStack.getInstance();
         OperationMap operationMap = OperationMap.getInstance(new VariablesMap());
         variablesMap = operationMap.getVariablesMap();
-        operationInvoker = new OperationInvoker(operationMap);
+        operationInvoker = new OperationInvoker(operationMap,null);
 
     }
 

@@ -35,7 +35,7 @@ public class TestOperations {
     @Before
     public void setUp() {
         variablesMap =  new VariablesMap();
-        operationInvoker = new OperationInvoker(OperationMap.getInstance(variablesMap));
+        operationInvoker = new OperationInvoker(OperationMap.getInstance(variablesMap),null);
         numberStack = it.unisa.se.calculator.model.ComplexNumberStack.getInstance();
     }
 

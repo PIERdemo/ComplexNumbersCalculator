@@ -16,10 +16,10 @@ import java.util.Objects;
 public class CalculatorApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
 
         FXMLLoader fxmlLoader = new FXMLLoader(CalculatorApplication.class.getResource("calculator-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
 
         scene.getStylesheets().add(Objects.requireNonNull(CalculatorApplication.class.getResource("calculator.css")).toExternalForm());
         stage.setTitle("Calculator");
