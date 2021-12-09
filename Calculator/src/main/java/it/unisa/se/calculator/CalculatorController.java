@@ -3,9 +3,10 @@ package it.unisa.se.calculator;
 import it.unisa.se.calculator.exception.InvalidCustomOperationException;
 import it.unisa.se.calculator.model.*;
 import it.unisa.se.calculator.model.observers.StackObserver;
-import it.unisa.se.calculator.model.observers.VariablesMapObserver;
+import it.unisa.se.calculator.model.observers.StringTMapObserver;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.util.Callback;
 
 import java.io.File;
 import java.net.URL;
@@ -87,6 +89,12 @@ public class CalculatorController implements Initializable {
     private Button inversionSignButton;
     @FXML
     private Button multiplyButton;
+    @FXML
+    private TableColumn formulaColumnName;
+    @FXML
+    private TableColumn formulaColumnContent;
+    @FXML
+    private TableView formulaTableView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,12 +108,17 @@ public class CalculatorController implements Initializable {
         tableElements.setItems(stackObserver);
 
 
-        VariablesMapObserver variablesMapObserver = new VariablesMapObserver();
-        variablesMap.addListener(variablesMapObserver);
+        StringTMapObserver<ComplexNumber> stringTMapObserver = new StringTMapObserver<>();
+        variablesMap.addListener(stringTMapObserver);
         columnNameVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getKey()));
         columnValueVariables.setCellValueFactory(entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getValue().getComplexNumberString()));
-        tableVariables.setItems(variablesMapObserver);
+        tableVariables.setItems(stringTMapObserver);
 
+        StringTMapObserver<String> formulaMapObserver = new StringTMapObserver<>();
+        customOperationMap.addListener(formulaMapObserver);
+        formulaColumnName.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Map.Entry<String, String>, String>, ObservableValue<String>>) entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getKey()));
+        formulaColumnContent.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Map.Entry<String, String>, String>, ObservableValue<String>>) entryStringCellDataFeatures -> new SimpleStringProperty(entryStringCellDataFeatures.getValue().getValue()));
+        formulaTableView.setItems(formulaMapObserver);
 
         errorLabel.setVisible(false);
         tableVariables.setColumnResizePolicy(resizeFeatures -> false);

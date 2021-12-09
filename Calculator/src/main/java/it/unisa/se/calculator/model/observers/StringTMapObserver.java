@@ -12,11 +12,11 @@ import java.util.Map;
  *  the following class is implemented.
  *  It implements {@link Observer} and extends {@link SimpleListProperty}.
  */
-public class VariablesMapObserver extends SimpleListProperty<Map.Entry<String, ComplexNumber>> implements Observer {
+public class StringTMapObserver<T> extends SimpleListProperty<Map.Entry<String, T>> implements Observer {
     /**
      * Inizialize the observer with an observableArrayList {{@link FXCollections}}.
      */
-    public VariablesMapObserver() {
+    public StringTMapObserver() {
         super(FXCollections.observableArrayList());
     }
     /**
@@ -25,7 +25,7 @@ public class VariablesMapObserver extends SimpleListProperty<Map.Entry<String, C
      */
     @Override
     public void update(Object o) {
-        List<Map.Entry<String,ComplexNumber>> list = (List<Map.Entry<String, ComplexNumber>>) o;
+        List<Map.Entry<String,T>> list = (List<Map.Entry<String, T>>) o;
         this.setAll(list);
     }
 }

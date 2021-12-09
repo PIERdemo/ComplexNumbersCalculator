@@ -41,16 +41,6 @@ public class TestOperations {
 
 
     /**
-     * This method starts before @Test methods.
-     * Obtains instance of OperationInvoker and ComplexNumberStack
-     */
-    @Test(expected = NotSupportedOperationException.class)
-    public void testOperationNotFound() {
-        operationInvoker.executeOperation("^");
-    }
-
-
-    /**
      * Provides a test capable of checking that execute method of the DivideOperation class works correctly.
      * In particular, this method test all the possible sign occurrences of complex numbers used in divide operation.
      * {@link DivideOperation}.
