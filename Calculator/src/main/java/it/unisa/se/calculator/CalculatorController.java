@@ -100,7 +100,6 @@ public class CalculatorController implements Initializable {
 
 
         tableVariables.setColumnResizePolicy(resizeFeatures -> false);
-        formulaTableView.setColumnResizePolicy(resizeFeatures -> false);
         Platform.runLater(() -> operationField.requestFocus());
         initializeButtonsEvents();
         initializeEnterPressedOnTextField();
@@ -283,7 +282,6 @@ public class CalculatorController implements Initializable {
     public void loadCustomOperations() {
 
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", ".txt"));
         fc.setTitle("Open file");
         File file = fc.showOpenDialog(anchorPane.getScene().getWindow());
         if(file!=null) {
